@@ -1,6 +1,7 @@
 package TierraMedia;
 
 public class Usuario {
+	protected String nombre;
 	protected int presupuesto;
 	protected int tiempoDisponible;
 	protected TiposAtracciones preferencia;
