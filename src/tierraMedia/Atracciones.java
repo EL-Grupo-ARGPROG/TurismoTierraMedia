@@ -1,20 +1,30 @@
 package tierraMedia;
 
 public class Atracciones implements Vendible {
+	protected String nombre;
 	protected int costo;
 	protected double tiempoNecesario;
 	protected int cupo;
 	protected TiposAtracciones tipo;
 
-	public Atracciones(int costo, int tiempoNecesario, int cupo, TiposAtracciones tipo) {
+	public Atracciones(String nombre, int costo, double tiempoNecesario, int cupo, TiposAtracciones tipo) {
 		this.costo = costo;
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupo = cupo;
 		this.tipo = tipo;
+		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		return "Atracciones [nombre=" + nombre + "]";
 	}
 
 	public int getCosto() {
 		return costo;
+	}
+	public TiposAtracciones getTipo() {
+		return tipo;
 	}
 
 	public double getTiempoNecesario() {

@@ -12,6 +12,10 @@ public abstract class Promociones implements Vendible {
 		this.nombre = nombre;
 		this.tipo = tipo;
 	}
+	
+	public TiposAtracciones getTipo() {
+		return tipo;
+	}
 
 	public abstract int getCosto();
 
@@ -37,6 +41,11 @@ public abstract class Promociones implements Vendible {
 			cupoMenor = Math.min(cupoMenor, atraccion.getCupo());
 		}
 		return cupoMenor;
+	}
+
+	@Override
+	public String toString() {
+		return "Promociones [nombre=" + nombre + "]";
 	}
 
 	public boolean esPromocion() {

@@ -6,6 +6,8 @@ public interface Vendible {
 	
 	public double getTiempoNecesario();
 	
+	public TiposAtracciones getTipo();
+	
 	public int getCupo();
 	
 	public boolean hayCupo();
