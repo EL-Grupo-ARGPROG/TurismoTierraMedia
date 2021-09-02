@@ -24,7 +24,7 @@ public abstract class Promociones implements Vendible {
 		boolean r = true;
 		for (Atracciones atraccion : this.pack)
 			if (atraccion.getCupo() <= 0) {
-					r = false;			
+				r = false;
 			}
 		return r;
 	}
@@ -35,6 +35,10 @@ public abstract class Promociones implements Vendible {
 			cupoMenor = Math.min(cupoMenor, atraccion.getCupo());
 		}
 		return cupoMenor;
+	}
+	
+	public boolean esPromocion() {
+		return true;
 	}
 
 }

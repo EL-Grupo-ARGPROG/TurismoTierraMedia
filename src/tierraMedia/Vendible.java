@@ -1,4 +1,4 @@
-package TierraMedia;
+package tierraMedia;
 
 public interface Vendible {
 	
@@ -7,4 +7,8 @@ public interface Vendible {
 	public int getTiempoNecesario();
 	
 	public int getCupo();
+	
+	public boolean hayCupo();
+	
+	public boolean esPromocion();
 }

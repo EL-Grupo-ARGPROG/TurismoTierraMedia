@@ -1,4 +1,4 @@
-package TierraMedia;
+package tierraMedia;
 
 public class Usuario {
 	protected String nombre;
