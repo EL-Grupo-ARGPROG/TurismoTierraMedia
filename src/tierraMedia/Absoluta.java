@@ -8,6 +8,7 @@ public class Absoluta extends Promociones {
 		super(pack, nombre,tipo);
 		this.PRECIO_FINAL = precioFinal;
 	}
+	
     @Override
 	public int getCosto() {
 		return this.costoPromocion = PRECIO_FINAL;

@@ -35,6 +35,11 @@ public class Atracciones implements Vendible {
 			return false;
 		else return true;
 	}
+
+	@Override
+	public TiposAtracciones getAtraccion() {
+		return this.tipo;
+	}
 	
 
 }

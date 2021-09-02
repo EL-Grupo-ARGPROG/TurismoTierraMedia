@@ -7,7 +7,8 @@ public class AxB extends Promociones {
 		super(pack, nombre, tipo);
 		this.atraccionGratis = atraccionGratis;
 	}
-
+	
+	@Override
 	public int getCosto() {
 		for (Atracciones atraccion : this.pack) {
 			this.costoPromocion += atraccion.getCosto();

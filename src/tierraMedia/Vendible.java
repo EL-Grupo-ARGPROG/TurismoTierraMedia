@@ -11,4 +11,6 @@ public interface Vendible {
 	public boolean hayCupo();
 	
 	public boolean esPromocion();
+	
+	public TiposAtracciones getAtraccion();
 }
