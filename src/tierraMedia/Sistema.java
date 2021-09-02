@@ -1,66 +1,66 @@
-//Para cada usuario, el sistema:
-//Sugerirï¿½ una atracciï¿½n que coincida con sus preferencias, costos y tiempos.
-
-//Deberï¿½ priorizarse la oferta de promociones, las atracciones mï¿½s caras y que requieran mayor tiempo, en ese orden.
-
-//No deberï¿½ ofertarse una atracciï¿½n o promociï¿½n que no pueda costearse o para la cual no tenga tiempo disponible.
-//Tampoco deberï¿½ ofertarse una atracciï¿½n que ya haya sido incluida en una promociï¿½n anteriormente comprada por el mismo usuario.
-//Una vez agotadas las ofertas que coincidan con sus intereses, se ofertarï¿½n aquellas que no coincidan, bajo el mismo criterio.
-//Si el usuario acepta, se guardarï¿½ dentro de su sugerencia.
-//Una atracciï¿½n o promociï¿½n aceptada no podrï¿½ cancelarse.
-//Se repetirï¿½ el proceso hasta que no quede tiempo disponible, monedas, o cupo para el itinerario, conforme las ofertas restantes.
-//Se mostrarï¿½ un resumen de todo su itinerario, contabilizando las horas necesarias para realizarlo y las monedas que deberï¿½ gastar.
-//Se repetirï¿½ para el siguiente usuario.
-//La interacciï¿½n se realizarï¿½ por medio de la lï¿½nea de comandos.
 
 package tierraMedia;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class Sistema {
-	private ArrayList<Vendible> vendibles;
+	private static ArrayList<Vendible> vendibles;
 	private Usuario[] visitantes;
 	// private Atracciones[] atracciones;
 
-	// private Vendible getPromocionMasCara() {
-	// int costoMayor = 0;
-	// Vendible promocionMasCara = null;
-	//
-	// for (Vendible vendible : this.vendibles) {
-	// costoMayor = Math.max(costoMayor, vendible.getCosto());
-	// }
-	// for(Vendible vendible : this.vendibles) {
-	// if(vendible.getCosto() == costoMayor) {
-	// promocionMasCara = vendible;
-	// }
-	// }
-	// return promocionMasCara;
-	// }
-	//
-	// private Vendible getPromoConMayorTiempoNecesario() {
-	// int mayorTiempoRequerido = 0;
-	// Vendible promocionMasTardosa = null;
-	//
-	// for (Vendible vendible : this.vendibles) {
-	// mayorTiempoRequerido = Math.max(mayorTiempoRequerido,
-	// vendible.getTiempoNecesario());
-	// }
-	// for(Vendible vendible : this.vendibles) {
-	// if(vendible.getCosto() == mayorTiempoRequerido) {
-	// promocionMasTardosa = vendible;
-	// }
-	// }
-	// return promocionMasTardosa;
-	// }
+	ArrayList<Vendible> aux = null;
+
+	public ArrayList<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
+		Collections.sort(vendibles, new ComparadorDeVendibles(tipo));
+		return vendibles;
+	}
+
+	public ArrayList<Vendible> filtrarOfertas(Usuario usuario) {
+		aux = ordenadorDeVendibles(usuario.getPreferencia());
+		for (Vendible oferta : aux) {
+			if (oferta.getCosto() > usuario.getPresupuesto()) {
+				aux.remove(oferta);
+			}
+			if (oferta.getTiempoNecesario() > usuario.getTiempoDisponible()) {
+				aux.remove(oferta);
+			}
+			if (usuario.getAtraccionesAceptadas().contains(oferta)) {
+				aux.remove(oferta);
+			}
+			if (!oferta.hayCupo()) {
+				aux.remove(oferta);
+			}
+		}
+		return aux;
+	}
 
 	public void sugerirPromocion() {
-		for (Usuario visitante : this.visitantes) {
+		for (Usuario usuario : visitantes) {
+			filtrarOfertas(usuario);
+			for (Vendible oferta : aux) {
+				System.out.println("¿Desea aceptar la oferta siguiente?" + oferta);
 
+				// Aca va el scanner para leer las desiciones del usuario (Si Acepta o no acepta
+				// la oferta);
+				// if(el usuario responde que acepta)
+				// {usuario.setOfertasAceptadas(oferta)
+				// usuario.setItinerario(oferta)
+				// usuario.restarTiempoDisponible(oferta.getTiempoNecesario())
+				// usuario.restarPresupuesto(oferta.getCosto())
+				// oferta.restarCupo()
+				// filtrarOfertas();
+				// } else {(si el usuario no acepta)
+				// continue;
+			}
+			// mostrar Itinerario por consola (con finally)
 		}
+
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Hola Mundo");
 	}
 
 }

@@ -16,6 +16,12 @@ public abstract class Promociones implements Vendible {
 	public TiposAtracciones getTipo() {
 		return tipo;
 	}
+	
+	public void restarCupo() {
+		for(Vendible atraccion : pack) {
+			atraccion.restarCupo();
+		}
+	}
 
 	public abstract int getCosto();
 
@@ -45,11 +51,14 @@ public abstract class Promociones implements Vendible {
 
 	@Override
 	public String toString() {
-		return "Promociones [nombre=" + nombre + "]";
+		return "Nombre: " + nombre + " Atracciones Incluidas: " + this.getPack();
 	}
 
 	public boolean esPromocion() {
 		return true;
 	}
-
+	
+	public Atracciones[] getPack() {
+		return pack;
+	}
 }

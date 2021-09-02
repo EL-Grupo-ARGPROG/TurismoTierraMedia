@@ -7,7 +7,8 @@ public class Usuario {
 	protected int presupuesto;
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
-	protected ArrayList<Vendible> ofertasAceptadas;
+	protected ArrayList<Vendible> atraccionesAceptadas;
+	protected ArrayList<Vendible> itinerario;
 
 	public Usuario(String nombre, int presupuesto, int tiempoDisponible, TiposAtracciones preferencia) {
 		this.nombre = nombre;
@@ -25,7 +26,7 @@ public class Usuario {
 	}
 
 	public void guardaSugerencia(Vendible oferta) {
-		this.ofertasAceptadas.add(oferta);
+		this.atraccionesAceptadas.add(oferta);
 	}
 
 	public String getNombre() {
@@ -44,8 +45,34 @@ public class Usuario {
 		return preferencia;
 	}
 
-	public ArrayList<Vendible> getOfertasAceptadas() {
-		return ofertasAceptadas;
+	public ArrayList<Vendible> getAtraccionesAceptadas() {
+		return atraccionesAceptadas;
+	}
+
+	public ArrayList<Vendible> setOfertasAceptadas(Vendible oferta) {
+		if (oferta.esPromocion()) {
+			for (Vendible atraccion : ((Promociones) oferta).getPack())
+				atraccionesAceptadas.add(atraccion);
+		} else {
+			atraccionesAceptadas.add(oferta);
+		}
+		return atraccionesAceptadas;
+	}
+
+	public void setItinerario(Vendible oferta) {
+		itinerario.add(oferta);
+	}
+	
+	public String mostrarItinerario() {
+		double tiempo = 0;
+		int costo = 0;
+		
+		for(Vendible unidad : itinerario) {
+			tiempo += unidad.getTiempoNecesario();
+			costo += unidad.getCosto();
+		}
+		
+		return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
 	}
 
 }
