@@ -16,5 +16,10 @@ public class AxB extends Promociones {
 		}
 		return this.costoPromocion - atraccionGratis.costo;
 	}
+	
+	@Override
+	public int getCosto() {
+		return costoPromocion;
+	}
 
 }

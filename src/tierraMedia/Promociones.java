@@ -5,7 +5,7 @@ public abstract class Promociones implements Vendible {
 	protected String nombre;
 	protected TiposAtracciones tipo;
 	protected int costoPromocion;
-	protected int tiempoNecesario;
+	protected double tiempoNecesario;
 
 	public abstract int calcularCosto();
 
@@ -13,7 +13,7 @@ public abstract class Promociones implements Vendible {
 		return this.costoPromocion;
 	}
 
-	public int getTiempoNecesario() {
+	public double getTiempoNecesario() {
 		for (Atracciones atraccion : this.pack) {
 			this.tiempoNecesario += atraccion.getTiempoNecesario();
 		}
@@ -36,5 +36,4 @@ public abstract class Promociones implements Vendible {
 		}
 		return cupoMenor;
 	}
-
 }

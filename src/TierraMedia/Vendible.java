@@ -1,10 +1,10 @@
-package TierraMedia;
+package tierraMedia;
 
 public interface Vendible {
 	
 	public int getCosto();
 	
-	public int getTiempoNecesario();
+	public double getTiempoNecesario();
 	
 	public int getCupo();
 }
