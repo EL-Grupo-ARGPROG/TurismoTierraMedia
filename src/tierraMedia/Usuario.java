@@ -27,8 +27,6 @@ public class Usuario {
 	public void guardaSugerencia(Vendible oferta) {
 		this.ofertasAceptadas.add(oferta);
 	}
-	
-	
 
 	public String getNombre() {
 		return nombre;

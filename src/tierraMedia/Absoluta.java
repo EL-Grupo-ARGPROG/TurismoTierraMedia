@@ -2,20 +2,15 @@ package tierraMedia;
 
 public class Absoluta extends Promociones {
 
-	private final int DESCUENTO;
+	private final int PRECIO_FINAL;
 
-	public Absoluta(Atracciones[] pack, String nombre, int descuento, TiposAtracciones tipo) {
-		this.pack = pack;
-		this.nombre = nombre;
-		this.DESCUENTO = descuento;
-		this.tipo = tipo;
+	public Absoluta(Atracciones[] pack, String nombre, int precioFinal, TiposAtracciones tipo) {
+		super(pack, nombre,tipo);
+		this.PRECIO_FINAL = precioFinal;
 	}
-
-	public int calcularCosto() {
-		for (Atracciones atraccion : this.pack) {
-			this.costoPromocion += atraccion.getCosto();
-		}
-		return this.costoPromocion - DESCUENTO;
+    @Override
+	public int getCosto() {
+		return this.costoPromocion = PRECIO_FINAL;
 	}
 
 }

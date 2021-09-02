@@ -5,13 +5,15 @@ public abstract class Promociones implements Vendible {
 	protected String nombre;
 	protected TiposAtracciones tipo;
 	protected int costoPromocion;
-	protected double tiempoNecesario;
+	protected int tiempoNecesario;
 
-	public abstract int calcularCosto();
-
-	public int getCosto() {
-		return this.costoPromocion;
+	public Promociones(Atracciones[] pack, String nombre, TiposAtracciones tipo) {
+		this.pack = pack;
+		this.nombre = nombre;
+		this.tipo = tipo;
 	}
+
+	public abstract int getCosto();
 
 	public double getTiempoNecesario() {
 		for (Atracciones atraccion : this.pack) {
@@ -24,7 +26,7 @@ public abstract class Promociones implements Vendible {
 		boolean r = true;
 		for (Atracciones atraccion : this.pack)
 			if (atraccion.getCupo() <= 0) {
-					r = false;			
+				r = false;
 			}
 		return r;
 	}
@@ -35,5 +37,9 @@ public abstract class Promociones implements Vendible {
 			cupoMenor = Math.min(cupoMenor, atraccion.getCupo());
 		}
 		return cupoMenor;
+	}
+
+	public boolean esPromocion() {
+		return true;
 	}
 }

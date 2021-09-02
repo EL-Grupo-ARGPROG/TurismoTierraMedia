@@ -7,4 +7,8 @@ public interface Vendible {
 	public double getTiempoNecesario();
 	
 	public int getCupo();
+	
+	public boolean hayCupo();
+	
+	public boolean esPromocion();
 }
