@@ -4,7 +4,7 @@ public interface Vendible {
 	
 	public int getCosto();
 	
-	public int getTiempoNecesario();
+	public double getTiempoNecesario();
 	
 	public int getCupo();
 	
@@ -12,5 +12,5 @@ public interface Vendible {
 	
 	public boolean esPromocion();
 	
-	public TiposAtracciones getAtraccion();
+	public TiposAtracciones getTipo();
 }

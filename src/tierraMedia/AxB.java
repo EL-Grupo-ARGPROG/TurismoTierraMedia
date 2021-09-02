@@ -15,5 +15,5 @@ public class AxB extends Promociones {
 		}
 		return this.costoPromocion - atraccionGratis.costo;
 	}
-
+	
 }
