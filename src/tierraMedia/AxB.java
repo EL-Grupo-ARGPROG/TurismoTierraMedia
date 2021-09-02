@@ -4,13 +4,11 @@ public class AxB extends Promociones {
 	private Atracciones atraccionGratis;
 
 	public AxB(Atracciones[] pack, String nombre, Atracciones atraccionGratis, TiposAtracciones tipo) {
-		this.pack = pack;
-		this.nombre = nombre;
-		this.tipo = tipo;
+		super(pack, nombre, tipo);
 		this.atraccionGratis = atraccionGratis;
 	}
 
-	public int calcularCosto() {
+	public int getCosto() {
 		for (Atracciones atraccion : this.pack) {
 			this.costoPromocion += atraccion.getCosto();
 		}

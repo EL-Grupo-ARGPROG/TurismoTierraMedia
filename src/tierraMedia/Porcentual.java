@@ -5,10 +5,8 @@ public class Porcentual extends Promociones {
 
 	public Porcentual(Atracciones[] pack, String nombre, int porcentaje,
 			          TiposAtracciones tipo) {
-		this.pack = pack;
-		this.nombre = nombre;
+		super()
 		this.PORCENTAJE = porcentaje;
-		this.tipo = tipo;
 	}
 
 	public int calcularCosto() {

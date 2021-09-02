@@ -6,12 +6,15 @@ public abstract class Promociones implements Vendible {
 	protected TiposAtracciones tipo;
 	protected int costoPromocion;
 	protected int tiempoNecesario;
-
-	public abstract int calcularCosto();
-
-	public int getCosto() {
-		return this.costoPromocion;
+	
+	public Promociones(Atracciones[] pack, String nombre, TiposAtracciones tipo) {
+		this.pack = pack;
+		this.nombre = nombre;
+		this.tipo = tipo;
 	}
+
+
+	public abstract int getCosto();
 
 	public int getTiempoNecesario() {
 		for (Atracciones atraccion : this.pack) {
