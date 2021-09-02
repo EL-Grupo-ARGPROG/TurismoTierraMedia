@@ -23,9 +23,6 @@ public class Atracciones implements Vendible {
 	public int getCosto() {
 		return costo;
 	}
-	public TiposAtracciones getTipo() {
-		return tipo;
-	}
 
 	public double getTiempoNecesario() {
 		return tiempoNecesario;
@@ -51,6 +48,11 @@ public class Atracciones implements Vendible {
 			return false;
 		else
 			return true;
+	}
+
+	@Override
+	public TiposAtracciones getTipo() {
+		return this.tipo;
 	}
 
 }

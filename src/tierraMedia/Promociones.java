@@ -51,4 +51,5 @@ public abstract class Promociones implements Vendible {
 	public boolean esPromocion() {
 		return true;
 	}
+
 }
