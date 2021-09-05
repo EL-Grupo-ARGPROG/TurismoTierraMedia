@@ -1,11 +1,11 @@
 package tierraMedia;
 
 public abstract class Promociones implements Vendible {
-	protected Atracciones[] pack;
 	protected String nombre;
-	protected TiposAtracciones tipo;
 	protected int costoPromocion;
-	protected int tiempoNecesario;
+	protected double tiempoNecesario;
+	protected TiposAtracciones tipo;
+	protected Atracciones[] pack;
 
 	public Promociones(Atracciones[] pack, String nombre, TiposAtracciones tipo) {
 		this.pack = pack;
@@ -23,7 +23,7 @@ public abstract class Promociones implements Vendible {
 		}
 	}
 
-	public abstract int getCosto();
+	public abstract double getCosto();
 
 	public double getTiempoNecesario() {
 		for (Atracciones atraccion : this.pack) {

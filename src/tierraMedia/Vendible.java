@@ -2,7 +2,7 @@ package tierraMedia;
 
 public interface Vendible {
 	
-	public int getCosto();
+	public double getCosto();
 	
 	public double getTiempoNecesario();
 	
