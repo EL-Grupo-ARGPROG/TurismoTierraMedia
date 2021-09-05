@@ -104,7 +104,7 @@ public class LeerArchivos {
 	
 	public static void leerArchivoPromociones(String nombreArchivo) {
 		File f = new File("data/atraccionesIN.txt");
-		Scanner sc;
+		Scanner sc = null;
 		String[] line;
 		
 		try {
@@ -117,47 +117,76 @@ public class LeerArchivos {
 				
 				switch(line[0]) {
 				case "Absoluta":
-					Atracciones[] pack = new Atracciones[Integer.parseInt(line[3])];
+					Atracciones[] packAbsoluta = new Atracciones[Integer.parseInt(line[3])];
 					
 					for(int i = 4; i < 4 + (Integer.parseInt(line[3])); i++) {
 						for(Atracciones atraccion : atracciones) {
 							if(atraccion.getName() == line[i]) {
-								pack[i - 4] = atraccion;
+								packAbsoluta[i - 4] = atraccion;
 							}
 						}
 					}
 					vendibles.add(
 							new Absoluta(
-									pack,
+									packAbsoluta,
 									line[1],
 									Integer.parseInt(line[3]),
 									TiposAtracciones.valueOf(line[4])
 									)
 							);
 					break;
-//				case "AxB":
-//					Atracciones[] pack = new Atracciones[Integer.parseInt(line[3])];
-//					
-//					
-//					
-//					for(int i = 4; i < 4 + (Integer.parseInt(line[3])); i++) {
-//						for(Atracciones atraccion : atracciones) {
-//							if(atraccion.getName() == line[i]) {
-//								pack[i - 4] = atraccion;
-//							}
-//						}
-//					}
-//					vendibles.add(
-//							new AxB(
-//									pack,
-//									line[1],
-//									
-//									TiposAtracciones.valueOf(line[4])
-//									)
-//							);
-//					break;
+			case "AxB":
+				Atracciones[] packAxB = new Atracciones[Integer.parseInt(line[3])];
 					
-					// Atracciones[] pack, String nombre, int precioFinal, TiposAtracciones tipo
+					for(int i = 4; i < 4 + (Integer.parseInt(line[3])); i++) {
+						for(Atracciones atraccion : atracciones) {
+							if(atraccion.getName() == line[i]) {
+								packAxB[i - 4] = atraccion;
+							}
+						}
+					}
+					
+				Atracciones atraccionGratis = null;
+				for(Atracciones atraccion : atracciones) {
+					if(atraccion.getName() == line[1]) {
+						atraccionGratis = atraccion;
+						}
+				}
+				
+				
+				
+				
+				vendibles.add(
+							new AxB(
+									packAxB,
+									line[1],
+									atraccionGratis,
+									TiposAtracciones.valueOf(line[4])
+									)
+							);
+					break;
+					
+			case "Porcentual":
+				Atracciones[] packPorcentual = new Atracciones[Integer.parseInt(line[3])];
+					
+					for(int i = 4; i < 4 + (Integer.parseInt(line[3])); i++) {
+						for(Atracciones atraccion : atracciones) {
+							if(atraccion.getName() == line[i]) {
+								packPorcentual[i - 4] = atraccion;
+							}
+						}
+					}
+				vendibles.add(
+							new Porcentual(
+									packPorcentual,
+									line[1],
+									Integer.parseInt(line[3]),
+									TiposAtracciones.valueOf(line[4])
+									)
+							);
+					break;
+					
+					
 				}
 				
 			}
