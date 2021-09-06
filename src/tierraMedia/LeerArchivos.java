@@ -116,6 +116,9 @@ public class LeerArchivos {
 											//guarda el contenido en el array
 				
 				switch(line[0]) {
+				//Archivo Promociones: Tipo de promocion, nombre, cantidadAtracciones,
+				//la particularidad de cada una (valor, porcentaje o atraccion gratis)
+				// tipo y nombres de lasatracciones.
 				case "Absoluta":
 					Atracciones[] packAbsoluta = new Atracciones[Integer.parseInt(line[3])];
 					
@@ -148,7 +151,7 @@ public class LeerArchivos {
 					
 				Atracciones atraccionGratis = null;
 				for(Atracciones atraccion : atracciones) {
-					if(atraccion.getName() == line[1]) {
+					if(atraccion.getName() == line[3]) {
 						atraccionGratis = atraccion;
 						}
 				}
