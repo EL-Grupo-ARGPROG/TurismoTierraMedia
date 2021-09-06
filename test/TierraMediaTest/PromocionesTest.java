@@ -24,7 +24,7 @@ public class PromocionesTest {
 
 	@Test
 	public void test() {
-		Atracciones mordor = new Atracciones(0, 0, 0, null);
+		Atracciones mordor = new Atracciones("Pepu",0, 0, 0, null);
 		Promociones promo = new Absoluta(new Atracciones[] {mordor}, "Promo", 10, TiposAtracciones.AVENTURA  );
 		
 		assertEquals(0, promo.getCupo());
@@ -40,7 +40,7 @@ public class PromocionesTest {
 		vendibles [3] = promo2;
 		vendibles [4] = jose;
 		
-		ComparadorDeVendibles c1 = new ComparadorDeVendibles();
+		ComparadorDeVendibles c1 = new ComparadorDeVendibles(TiposAtracciones.PAISAJE);
 		Arrays.sort(vendibles, c1);
 		
 			System.out.println(vendibles[0]);
