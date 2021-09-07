@@ -19,12 +19,12 @@ public class PromocionesTest {
 	
 	Atracciones mordor = new Atracciones("mordor", 150, 2.5, 5, null);
 	Atracciones pepe = new Atracciones("pepe", 120, 2.3, 7, null);
-	Atracciones jose = new Atracciones("jose", 150, 2.6, 8, null);
+	Atracciones jose = new Atracciones("jose", 150, 2.6, 0, null);
 	Promociones promo2 = new Absoluta(new Atracciones[] {pepe, jose, mordor}, "promo2", 220, TiposAtracciones.PAISAJE);
 
 	@Test
 	public void test() {
-		Atracciones mordor = new Atracciones(0, 0, 0, null);
+		Atracciones mordor = new Atracciones(null, 0, 0, 0, null);
 		Promociones promo = new Absoluta(new Atracciones[] {mordor}, "Promo", 10, TiposAtracciones.AVENTURA  );
 		
 		assertEquals(0, promo.getCupo());
@@ -40,7 +40,7 @@ public class PromocionesTest {
 		vendibles [3] = promo2;
 		vendibles [4] = jose;
 		
-		ComparadorDeVendibles c1 = new ComparadorDeVendibles();
+		ComparadorDeVendibles c1 = new ComparadorDeVendibles(TiposAtracciones.PAISAJE);
 		Arrays.sort(vendibles, c1);
 		
 			System.out.println(vendibles[0]);
@@ -52,10 +52,4 @@ public class PromocionesTest {
 		
 		
 	}
-
-	private Object c1() {
-		// TODO Apéndice de método generado automáticamente
-		return null;
-	}
-
 }
