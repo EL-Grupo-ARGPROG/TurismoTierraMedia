@@ -1,5 +1,7 @@
 package tierraMedia;
 
+import java.util.Arrays;
+
 public abstract class Promociones implements Vendible {
 	protected String nombre;
 	protected int costoPromocion;
@@ -51,7 +53,7 @@ public abstract class Promociones implements Vendible {
 
 	@Override
 	public String toString() {
-		return "Promo: " + nombre + " Atracciones Incluidas: " + this.getPack().toString();
+		return "Promo: " + nombre + " Atracciones Incluidas: " + Arrays.toString(this.getPack());
 	}
 
 	public boolean esPromocion() {

@@ -74,5 +74,9 @@ public class Usuario {
 		
 		return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
 	}
+	@Override
+	public String toString() {
+		return this.getNombre(); 
+	}
 
 }

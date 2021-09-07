@@ -56,8 +56,11 @@ public class PromocionesTest {
 	
 	@Test
 	public void LecturaPromocionesTest(){
+		LeerArchivos.leerArchivoAtracciones();
 		LeerArchivos.leerArchivoPromociones();
 		System.out.println(LeerArchivos.getVendibles());
+		LeerArchivos.leerArchivoUsuario();
+		System.out.println(LeerArchivos.getUsuarios());
 
 		
 
