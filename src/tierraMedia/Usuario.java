@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Usuario {
 	protected String nombre;
-	protected int presupuesto;
+	protected double presupuesto;
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
 	protected ArrayList<Vendible> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
-	public Usuario(String nombre, int presupuesto, int tiempoDisponible, TiposAtracciones preferencia) {
+	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
@@ -33,7 +33,7 @@ public class Usuario {
 		return nombre;
 	}
 
-	public int getPresupuesto() {
+	public double getPresupuesto() {
 		return presupuesto;
 	}
 

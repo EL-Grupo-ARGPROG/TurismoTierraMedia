@@ -7,18 +7,18 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class Sistema {
-	private static ArrayList<Vendible> vendibles;
+	private static LinkedList<Vendible> vendibles;
 	private Usuario[] visitantes;
 	// private Atracciones[] atracciones;
 
-	ArrayList<Vendible> aux = null;
+	LinkedList<Vendible> aux = null;
 
-	public ArrayList<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
+	public LinkedList<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
 		Collections.sort(vendibles, new ComparadorDeVendibles(tipo));
 		return vendibles;
 	}
 
-	public ArrayList<Vendible> filtrarOfertas(Usuario usuario) {
+	public LinkedList<Vendible> filtrarOfertas(Usuario usuario) {
 		aux = ordenadorDeVendibles(usuario.getPreferencia());
 		for (Vendible oferta : aux) {
 			if (oferta.getCosto() > usuario.getPresupuesto()) {
@@ -39,6 +39,7 @@ public class Sistema {
 
 	public void sugerirPromocion() {
 		for (Usuario usuario : visitantes) {
+			
 			filtrarOfertas(usuario);
 			for (Vendible oferta : aux) {
 				System.out.println("¿Desea aceptar la oferta siguiente?" + oferta);

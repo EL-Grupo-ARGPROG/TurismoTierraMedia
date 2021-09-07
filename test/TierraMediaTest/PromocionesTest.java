@@ -24,7 +24,7 @@ public class PromocionesTest {
 
 	@Test
 	public void test() {
-		Atracciones mordor = new Atracciones(null, 0, 0, 0, null);
+		Atracciones mordor = new Atracciones("Pepu",0, 0, 0, null);
 		Promociones promo = new Absoluta(new Atracciones[] {mordor}, "Promo", 10, TiposAtracciones.AVENTURA  );
 		
 		assertEquals(0, promo.getCupo());

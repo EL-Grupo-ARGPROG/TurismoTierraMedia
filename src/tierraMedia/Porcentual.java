@@ -10,7 +10,7 @@ public class Porcentual extends Promociones {
 	}
 	
 	@Override
-	public int getCosto() {
+	public double getCosto() {
 		for (Atracciones atraccion : this.pack) {
 			this.costoPromocion += atraccion.getCosto();
 		}
