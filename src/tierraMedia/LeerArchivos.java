@@ -13,6 +13,14 @@ public class LeerArchivos {
 	static List<Usuario> usuarios = new ArrayList<Usuario>();
 	static List<Vendible> vendibles = new ArrayList<Vendible>();
 	static List<Atracciones> atracciones = new ArrayList<Atracciones>();
+	
+	public static List<Vendible> getVendibles(){
+		return vendibles;
+	}
+	
+	public static List<Usuario> getUsuarios(){
+		return usuarios;
+	}
 
 	public static void leerArchivoUsuario() {
 		File f = new File("data/usuarioIN.txt");

@@ -17,7 +17,7 @@ public class Atracciones implements Vendible {
 
 	@Override
 	public String toString() {
-		return "Atracciones [nombre=" + nombre + "]";
+		return  nombre;
 	}
 	
 	public String getName() {
