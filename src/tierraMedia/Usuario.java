@@ -17,7 +17,7 @@ public class Usuario {
 		this.preferencia = preferencia;
 	}
 
-	public void restarPresupuesto(int costo) {
+	public void restarPresupuesto(double costo) {
 		this.presupuesto -= costo;
 	}
 
