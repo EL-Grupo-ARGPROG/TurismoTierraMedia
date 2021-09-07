@@ -11,6 +11,7 @@ import org.junit.Test;
 import tierraMedia.Absoluta;
 import tierraMedia.Atracciones;
 import tierraMedia.ComparadorDeVendibles;
+import tierraMedia.LeerArchivos;
 import tierraMedia.Promociones;
 import tierraMedia.TiposAtracciones;
 import tierraMedia.Vendible;
@@ -52,4 +53,19 @@ public class PromocionesTest {
 		
 		
 	}
+	
+	@Test
+	public void LecturaPromocionesTest(){
+		LeerArchivos.leerArchivoPromociones();
+		System.out.println(LeerArchivos.getVendibles());
+
+		
+
+	}
+
+	private Object c1() {
+		// TODO Apéndice de método generado automáticamente
+		return null;
+	}
+
 }

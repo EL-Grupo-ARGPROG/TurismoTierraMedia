@@ -51,7 +51,7 @@ public abstract class Promociones implements Vendible {
 
 	@Override
 	public String toString() {
-		return "Nombre: " + nombre + " Atracciones Incluidas: " + this.getPack();
+		return "Promo: " + nombre + " Atracciones Incluidas: " + this.getPack().toString();
 	}
 
 	public boolean esPromocion() {
