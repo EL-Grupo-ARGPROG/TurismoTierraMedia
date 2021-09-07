@@ -85,7 +85,7 @@ public class LeerArchivos {
 	}
 
 	public static void leerArchivoPromociones() {
-		File f = new File("data/atraccionesIN.txt");
+		File f = new File("data/promocionesIN.txt");
 		Scanner sc = null;
 		String[] line;
 
@@ -104,7 +104,7 @@ public class LeerArchivos {
 
 					for (int i = 5; i < 5 + (Integer.parseInt(line[4])); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName() == line[i]) {
+							if (atraccion.getName().equals(line[i])) {
 								packAbsoluta[i - 5] = atraccion;
 							}
 						}
@@ -116,12 +116,12 @@ public class LeerArchivos {
 					break;
 
 				case "AxB":
-					Atracciones[] packAxB = new Atracciones[Integer.parseInt(line[3])];
+					Atracciones[] packAxB = new Atracciones[Integer.parseInt(line[4])];
 					
 
 					for (int i = 5; i < 5 + (Integer.parseInt(line[4])); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName() == line[i]) {
+							if (atraccion.getName().equals(line[i])) {
 								packAxB[i - 5] = atraccion;
 							}
 						}
@@ -129,7 +129,7 @@ public class LeerArchivos {
 
 					Atracciones atraccionGratis = null;
 					for (Atracciones atraccion : atracciones) {
-						if (atraccion.getName() == line[3]) {
+						if (atraccion.getName().equals(line[2])) {
 							atraccionGratis = atraccion;
 						}
 					}
@@ -139,12 +139,12 @@ public class LeerArchivos {
 					break;
 
 				case "Porcentual":
-					Atracciones[] packPorcentual = new Atracciones[Integer.parseInt(line[3])];
+					Atracciones[] packPorcentual = new Atracciones[Integer.parseInt(line[4])];
 					int porcentaje = Integer.parseInt(line[2]);
 					
 					for (int i = 5; i < 5 + (Integer.parseInt(line[4])); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName() == line[i]) {
+							if (atraccion.getName().equals(line[i])) {
 								packPorcentual[i - 5] = atraccion;
 							}
 						}
