@@ -3,17 +3,20 @@ package TierraMediaTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
 import tierraMedia.Absoluta;
 import tierraMedia.Atracciones;
 import tierraMedia.ComparadorDeVendibles;
-import tierraMedia.LeerArchivos;
+import tierraMedia.AdministradorDeArchivos;
 import tierraMedia.Promociones;
 import tierraMedia.TiposAtracciones;
+import tierraMedia.Usuario;
 import tierraMedia.Vendible;
 
 public class PromocionesTest {
@@ -55,15 +58,14 @@ public class PromocionesTest {
 	}
 	
 	@Test
-	public void LecturaPromocionesTest(){
-		LeerArchivos.leerArchivoAtracciones();
-		LeerArchivos.leerArchivoPromociones();
-		System.out.println(LeerArchivos.getVendibles());
-		LeerArchivos.leerArchivoUsuario();
-		System.out.println(LeerArchivos.getUsuarios());
-
-		
-
+	public void LecturaPromocionesTest() throws IOException{
+		AdministradorDeArchivos.leerArchivoAtracciones();
+		AdministradorDeArchivos.leerArchivoPromociones();
+		System.out.println(AdministradorDeArchivos.getVendibles());
+		AdministradorDeArchivos.leerArchivoUsuario();
+		System.out.println(AdministradorDeArchivos.getUsuarios());
+		List<Usuario> aux = AdministradorDeArchivos.getUsuarios();
+        AdministradorDeArchivos.EscribirItinerario(aux.get(0));
 	}
 
 	private Object c1() {

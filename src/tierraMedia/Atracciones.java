@@ -20,7 +20,8 @@ public class Atracciones implements Vendible {
 		return  nombre;
 	}
 	
-	public String getName() {
+	@Override
+	public String getNombre() {
 		return nombre;
 	}
 
@@ -58,5 +59,6 @@ public class Atracciones implements Vendible {
 	public TiposAtracciones getTipo() {
 		return this.tipo;
 	}
+
 
 }

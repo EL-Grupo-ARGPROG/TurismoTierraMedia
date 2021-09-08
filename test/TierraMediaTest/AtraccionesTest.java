@@ -11,8 +11,8 @@ public class AtraccionesTest {
 	@Test
 	public void LecturaAtraccionesTest() {
 		
-		LeerArchivos.leerArchivoAtracciones();
-		System.out.println(LeerArchivos.getVendibles());
+		AdministradorDeArchivos.leerArchivoAtracciones();
+		System.out.println(AdministradorDeArchivos.getVendibles());
 
 	}
 

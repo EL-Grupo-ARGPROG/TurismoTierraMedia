@@ -1,0 +1,55 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Eowyn
+Preferencias: AVENTURA
+
+ITINERARIO:
+
+Atraccion: Moria
+Costo: 10.0$
+Tiempo de excursion 2.0H
+
+Atraccion: Minas Tirith
+Costo: 5.0$
+Tiempo de excursion 2.5H
+
+Atraccion: La Comarca
+Costo: 3.0$
+Tiempo de excursion 6.5H
+
+Atraccion: Mordor
+Costo: 25.0$
+Tiempo de excursion 3.0H
+
+Atraccion: Abismo de Helm
+Costo: 5.0$
+Tiempo de excursion 2.0H
+
+Atraccion: Lothlorein
+Costo: 35.0$
+Tiempo de excursion 1.0H
+
+Atraccion: Erebor
+Costo: 12.0$
+Tiempo de excursion 3.0H
+
+Atraccion: Bosque Negro
+Costo: 3.0$
+Tiempo de excursion 4.0H
+
+Promocion: Pack Aventura
+Atracciones incluidas: Bosque Negro, Mordor
+Costo: 56.0$
+Tiempo de excursion: 14.0
+
+Promocion: Pack Degustacion
+Atracciones incluidas: Lothlorein, La Comarca
+Costo: 3.0$
+Tiempo de excursion: 15.0
+
+Promocion: Pack Paisajes
+Atracciones incluidas: Minas Tirith, Abismo de Helm, Erebor
+Costo: 32.0$
+Tiempo de excursion: 15.0
+
+TOTAL: 46.0H    139.0$

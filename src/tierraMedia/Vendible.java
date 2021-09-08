@@ -15,4 +15,6 @@ public interface Vendible {
 	public TiposAtracciones getTipo();
 	
 	public void restarCupo();
+	
+	public String getNombre();
 }

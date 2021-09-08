@@ -13,8 +13,8 @@ public class Sistema {
 	static List<Vendible> aux = null;
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
-		Collections.sort(LeerArchivos.getVendibles(), new ComparadorDeVendibles(tipo));
-		return LeerArchivos.getVendibles();
+		Collections.sort(AdministradorDeArchivos.getVendibles(), new ComparadorDeVendibles(tipo));
+		return AdministradorDeArchivos.getVendibles();
 	}
 
 	public static List<Vendible> filtrarOfertas(Usuario usuario) {
@@ -42,7 +42,7 @@ public class Sistema {
 	}
 
 	public static void sugerirPromocion() {
-		for (Usuario usuario : LeerArchivos.getUsuarios()) {
+		for (Usuario usuario : AdministradorDeArchivos.getUsuarios()) {
 
 			filtrarOfertas(usuario);
 			for (Vendible oferta : aux) {
@@ -73,9 +73,9 @@ public class Sistema {
 	}
 
 	public static void main(String[] args) {
-		LeerArchivos.leerArchivoUsuario();
-		LeerArchivos.leerArchivoAtracciones();
-		LeerArchivos.leerArchivoPromociones();
+		AdministradorDeArchivos.leerArchivoUsuario();
+		AdministradorDeArchivos.leerArchivoAtracciones();
+		AdministradorDeArchivos.leerArchivoPromociones();
 
 		sugerirPromocion();
 

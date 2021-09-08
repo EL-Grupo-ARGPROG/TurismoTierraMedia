@@ -3,16 +3,13 @@ package tierraMedia;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
 
-public class LeerArchivos {
-	static List<Usuario> usuarios = new ArrayList<Usuario>();
-	static List<Vendible> vendibles = new ArrayList<Vendible>();
-	static List<Atracciones> atracciones = new ArrayList<Atracciones>();
+public class AdministradorDeArchivos {
+	static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	static ArrayList<Vendible> vendibles = new ArrayList<Vendible>();
+	static ArrayList<Atracciones> atracciones = new ArrayList<Atracciones>();
 
 	public static List<Vendible> getVendibles() {
 		return vendibles;
@@ -104,7 +101,7 @@ public class LeerArchivos {
 
 					for (int i = 5; i < 5 + (packAbsoluta.length); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName().equals(line[i])) {
+							if (atraccion.getNombre().equals(line[i])) {
 								packAbsoluta[i - 5] = atraccion;
 							}
 						}
@@ -120,7 +117,7 @@ public class LeerArchivos {
 
 					for (int i = 5; i < 5 + (packAxB.length); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName().equals(line[i])) {
+							if (atraccion.getNombre().equals(line[i])) {
 								packAxB[i - 5] = atraccion;
 							}
 						}
@@ -128,7 +125,7 @@ public class LeerArchivos {
 
 					Atracciones atraccionGratis = null;
 					for (Atracciones atraccion : atracciones) {
-						if (atraccion.getName().equals(line[2])) {
+						if (atraccion.getNombre().equals(line[2])) {
 							atraccionGratis = atraccion;
 						}
 					}
@@ -143,7 +140,7 @@ public class LeerArchivos {
 
 					for (int i = 5; i < 5 + (packPorcentual.length); i++) {
 						for (Atracciones atraccion : atracciones) {
-							if (atraccion.getName().equals(line[i])) {
+							if (atraccion.getNombre().equals(line[i])) {
 								packPorcentual[i - 5] = atraccion;
 							}
 						}
@@ -167,6 +164,19 @@ public class LeerArchivos {
 			sc.close();
 			// Se cierra el archivo más allá de que haya ocurrido o no un error
 		}
+	}
+
+	public static void EscribirItinerario(Usuario usuario) throws IOException {
+		PrintWriter salida = new PrintWriter(
+				new FileWriter("data/ItinerarioDeUsuarios/" + usuario.getNombre() + ".txt"));
+
+		salida.println("GAMGEE TOURISM AGENCY\n");
+		salida.println("Cliente: " + usuario.getNombre());
+		salida.println("Preferencias: " + usuario.getPreferencia() + "\n");
+		salida.println("ITINERARIO:");
+		salida.println(usuario.mostrarItinerario());
+
+		salida.close();
 	}
 
 }

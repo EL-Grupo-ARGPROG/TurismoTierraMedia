@@ -15,6 +15,10 @@ public abstract class Promociones implements Vendible {
 		this.tipo = tipo;
 	}
 	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
 	public TiposAtracciones getTipo() {
 		return tipo;
 	}
@@ -53,7 +57,10 @@ public abstract class Promociones implements Vendible {
 
 	@Override
 	public String toString() {
-		return "Promo: " + nombre + " Atracciones Incluidas: " + Arrays.toString(this.getPack());
+		String s = Arrays.toString(this.getPack());
+		s = s.replace("[", "" );
+		s= s.replace("]", "");
+		return s ;
 	}
 
 	public boolean esPromocion() {
