@@ -1,21 +1,23 @@
 package tierraMedia;
 
 public class Porcentual extends Promociones {
-	private final int PORCENTAJE;
+	private final double PORCENTAJE;
 
 
-	public Porcentual(Atracciones[] pack, String nombre, int porcentaje, TiposAtracciones tipo) {
+	public Porcentual(Atracciones[] pack, String nombre, double porcentaje, TiposAtracciones tipo) {
 		super(pack, nombre, tipo);
 		this.PORCENTAJE = porcentaje;
 	}
 	
 	@Override
 	public double getCosto() {
+		double costoSinPromo = 0;
 		for (Atracciones atraccion : this.pack) {
-			this.costoPromocion += atraccion.getCosto();
+			costoSinPromo += atraccion.getCosto();
 		}
-		int descuento = (this.PORCENTAJE / 100) * this.costoPromocion;
-		return this.costoPromocion - descuento;
+		double descuento = (this.PORCENTAJE / 100) * costoSinPromo;
+		costoPromocion =  costoSinPromo - descuento;
+		return costoPromocion;
 	}
 
 }

@@ -17,7 +17,9 @@ public class Atracciones implements Vendible {
 
 	@Override
 	public String toString() {
-		return  nombre;
+		return  "\nAtraccion: " + this.getNombre() + "\n" + 
+	            "Costo: " + this.getCosto() + "$" + "\n"+ 
+				"Tiempo de excursion " + this.getTiempoNecesario() + "H"+"\n";
 	}
 	
 	@Override

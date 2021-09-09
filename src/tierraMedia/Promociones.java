@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public abstract class Promociones implements Vendible {
 	protected String nombre;
-	protected int costoPromocion;
+	protected double costoPromocion;
 	protected double tiempoNecesario;
 	protected TiposAtracciones tipo;
 	protected Atracciones[] pack;
@@ -60,7 +60,12 @@ public abstract class Promociones implements Vendible {
 		String s = Arrays.toString(this.getPack());
 		s = s.replace("[", "" );
 		s= s.replace("]", "");
-		return s ;
+		s= s.replace(",", "");
+
+		return "\nPromocion: " + this.getNombre() + "\n" + 
+	            "Atracciones incluidas: " + s+ "\n" +
+				"Costo: " + this.getCosto() + "$" + "\n" +
+	            "Tiempo de excursion: "+ this.getTiempoNecesario();
 	}
 
 	public boolean esPromocion() {

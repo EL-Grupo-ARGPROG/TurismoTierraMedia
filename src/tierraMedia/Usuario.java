@@ -8,7 +8,7 @@ public class Usuario {
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
 	protected ArrayList<Vendible> atraccionesAceptadas;
-	protected ArrayList<Vendible> itinerario = AdministradorDeArchivos.vendibles;
+	protected ArrayList<Vendible> itinerario;
 
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
 		this.nombre = nombre;
@@ -62,39 +62,28 @@ public class Usuario {
 	public void setItinerario(Vendible oferta) {
 		itinerario.add(oferta);
 	}
-	
+
 	public String mostrarItinerario() {
 		double tiempo = 0;
 		double costo = 0;
 		String aux = "";
-		for(Vendible vendible: this.itinerario) {
+		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
-		if (vendible.esPromocion()) {
-			aux +=("\nPromocion: " + vendible.getNombre() + "\n" + "Atracciones incluidas: "
-					+ vendible.toString() + "\n" + "Costo: " + vendible.getCosto() + "$" + "\n"
-					+ "Tiempo de excursion: " + vendible.getTiempoNecesario() + "\n");
-		} else {
-			aux += ("\nAtraccion: " + vendible.getNombre() + "\n" + "Costo: " + vendible.getCosto() + "$"
-					+ "\n" + "Tiempo de excursion " + vendible.getTiempoNecesario() + "H" + "\n");
+			if (vendible.esPromocion()) {
+				aux += (vendible);
+			} else {
+				aux += (vendible);
+			}
 		}
-		}
-		
-		return aux +"\nTOTAL: " + String.valueOf(tiempo)+"H"+"    "+ String.valueOf(costo) + "$";
-		//*double tiempo = 0;
-		//int costo = 0;
-		
-		//for(Vendible unidad : itinerario) {
-			//tiempo += unidad.getTiempoNecesario();
-			//costo += unidad.getCosto();
-		//}
-		
-		//return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
+
+		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
+
 	}
-	
+
 	@Override
 	public String toString() {
-		return this.getNombre(); 
+		return this.getNombre();
 	}
 
 }
