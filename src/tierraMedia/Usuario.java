@@ -62,39 +62,66 @@ public class Usuario {
 	public void setItinerario(Vendible oferta) {
 		itinerario.add(oferta);
 	}
-	
+
 	public String mostrarItinerario() {
 		double tiempo = 0;
 		double costo = 0;
 		String aux = "";
-		for(Vendible vendible: this.itinerario) {
+		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
-		if (vendible.esPromocion()) {
-			aux +=("\nPromocion: " + vendible.getNombre() + "\n" + "Atracciones incluidas: "
-					+ vendible.toString() + "\n" + "Costo: " + vendible.getCosto() + "$" + "\n"
-					+ "Tiempo de excursion: " + vendible.getTiempoNecesario() + "\n");
-		} else {
-			aux += ("\nAtraccion: " + vendible.getNombre() + "\n" + "Costo: " + vendible.getCosto() + "$"
-					+ "\n" + "Tiempo de excursion " + vendible.getTiempoNecesario() + "H" + "\n");
+			if (vendible.esPromocion()) {
+				aux += ("\nPromocion: " + vendible.getNombre() + "\n" + "Atracciones incluidas: " + vendible.toString()
+						+ "\n" + "Costo: " + vendible.getCosto() + "$" + "\n" + "Tiempo de excursion: "
+						+ vendible.getTiempoNecesario() + "\n");
+			} else {
+				aux += ("\nAtraccion: " + vendible.getNombre() + "\n" + "Costo: " + vendible.getCosto() + "$" + "\n"
+						+ "Tiempo de excursion " + vendible.getTiempoNecesario() + "H" + "\n");
+			}
 		}
-		}
-		
-		return aux +"\nTOTAL: " + String.valueOf(tiempo)+"H"+"    "+ String.valueOf(costo) + "$";
-		//*double tiempo = 0;
-		//int costo = 0;
-		
-		//for(Vendible unidad : itinerario) {
-			//tiempo += unidad.getTiempoNecesario();
-			//costo += unidad.getCosto();
-		//}
-		
-		//return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
+
+		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
+		// *double tiempo = 0;
+		// int costo = 0;
+
+		// for(Vendible unidad : itinerario) {
+		// tiempo += unidad.getTiempoNecesario();
+		// costo += unidad.getCosto();
+		// }
+
+		// return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
 	}
-	
+
 	@Override
 	public String toString() {
-		return this.getNombre(); 
+		return this.getNombre();
+	}
+
+	public boolean puedeComprarPromocion(Promociones oferta) {
+		if (this.getAtraccionesAceptadas() != null) {
+			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
+				for (Atracciones unidad : oferta.getPack())
+					if (atraccion.equals(unidad)) {
+						return false;
+					}
+			}
+
+		}
+		return true;
+	}
+
+	public boolean puedeComprar(Vendible oferta) {
+		if (oferta.getCosto() > this.getPresupuesto()) {
+			return false;
+		} else if (oferta.getTiempoNecesario() > this.getTiempoDisponible()) {
+			return false;
+		} else if (!oferta.hayCupo()) {
+			return false;
+		} else if (oferta.esPromocion()) {
+			this.puedeComprarPromocion((Promociones) oferta);
+		}
+		return true;
+
 	}
 
 }

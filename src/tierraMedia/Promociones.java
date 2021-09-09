@@ -71,7 +71,7 @@ public abstract class Promociones implements Vendible {
 		return pack;
 	}
 	
-	public boolean contieneAtraccion (Atracciones atraccionOfrecida) {
+	public boolean contieneAtraccion (Vendible atraccionOfrecida) {
 		for (Atracciones atraccion : this.pack) {
 			if (atraccion.equals(atraccionOfrecida)) {
 				return true;

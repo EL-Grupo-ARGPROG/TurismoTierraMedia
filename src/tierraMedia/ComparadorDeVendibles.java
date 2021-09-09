@@ -11,17 +11,17 @@ public class ComparadorDeVendibles implements Comparator<Vendible> {
 
 	@Override
 	public int compare(Vendible o1, Vendible o2) {
-		if (o1.getTipo() == preferencia && o2.getTipo() != preferencia) {
+		if (o1.esPromocion() && !o2.esPromocion())
 			return -1;
-		} else if (o1.getTipo() != preferencia && o2.getTipo() == preferencia) {
+		else if (!o1.esPromocion() && o2.esPromocion())
 			return 1;
-		} else if ((o1.getTipo() == preferencia && o2.getTipo() == preferencia)
-				|| (o1.getTipo() != preferencia && o2.getTipo() != preferencia)) {
-			if (o1.esPromocion() && !o2.esPromocion())
+		else if ((o1.esPromocion() && o2.esPromocion()) || (!o1.esPromocion() && !o2.esPromocion())) {
+			if (o1.getTipo() == preferencia && o2.getTipo() != preferencia) {
 				return -1;
-			else if (!o1.esPromocion() && o2.esPromocion())
+			} else if (o1.getTipo() != preferencia && o2.getTipo() == preferencia) {
 				return 1;
-			else if ((o1.esPromocion() && o2.esPromocion()) || (!o1.esPromocion() && !o2.esPromocion())) {
+			} else if ((o1.getTipo() == preferencia && o2.getTipo() == preferencia)
+					|| (o1.getTipo() != preferencia && o2.getTipo() != preferencia)) {
 				if (o1.getCosto() > o2.getCosto()) {
 					return -1;
 				} else if (o1.getCosto() < o2.getCosto()) {
