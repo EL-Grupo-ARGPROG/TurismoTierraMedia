@@ -8,7 +8,7 @@ public class Usuario {
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
 	protected ArrayList<Vendible> atraccionesAceptadas;
-	protected ArrayList<Vendible> itinerario = AdministradorDeArchivos.vendibles;
+	protected ArrayList<Vendible> itinerario;
 
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
 		this.nombre = nombre;
@@ -16,6 +16,7 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Vendible>();
+		this.itinerario = new ArrayList<Vendible>();
 	}
 
 	public void restarPresupuesto(double costo) {
@@ -71,7 +72,7 @@ public class Usuario {
 		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
-				aux += vendible.resumirItinerario();
+				aux += this.getNombre() + " aqui esta tu itinerario: \n" + vendible.mostrarOfertaDescriptiva();
 		}
 		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
 	}

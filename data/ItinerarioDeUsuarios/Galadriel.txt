@@ -1,0 +1,18 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Galadriel
+Preferencias: AVENTURA
+
+ITINERARIO:
+Galadriel aqui esta tu itinerario: 
+
+Atraccion: Bosque Negro
+Costo: 95.0$
+Tiempo de excursion 4.0H
+Galadriel aqui esta tu itinerario: 
+
+Atraccion: Lothlorein
+Costo: 135.0$
+Tiempo de excursion 1.0H
+
+TOTAL: 5.0H    230.0$

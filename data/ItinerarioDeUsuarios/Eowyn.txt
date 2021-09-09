@@ -1,0 +1,14 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Eowyn
+Preferencias: AVENTURA
+
+ITINERARIO:
+Eowyn aqui esta tu itinerario: 
+
+Promocion: Pack Aventura
+Atracciones incluidas: Bosque Negro, Mordor
+Costo: 270.0$
+Tiempo de excursion: 49.0
+
+TOTAL: 42.0H    270.0$

@@ -10,12 +10,14 @@ public class Porcentual extends Promociones {
 	}
 	
 	@Override
-	public double getCosto() {
-		for (Atracciones atraccion : this.pack) {
-			this.costoPromocion += atraccion.getCosto();
-		}
-		int descuento = (this.PORCENTAJE / 100) * this.costoPromocion;
-		return this.costoPromocion - descuento;
-	}
+    public double getCosto() {
+        double costoSinPromo = 0;
+        for (Atracciones atraccion : this.pack) {
+            costoSinPromo += atraccion.getCosto();
+        }
+        double descuento = (this.PORCENTAJE / 100) * costoSinPromo;
+        costoPromocion =  costoSinPromo - descuento;
+        return costoPromocion;
+    }
 
 }

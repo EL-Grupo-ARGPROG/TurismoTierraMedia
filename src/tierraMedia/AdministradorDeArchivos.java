@@ -166,17 +166,23 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void EscribirItinerario(Usuario usuario) throws IOException {
-		PrintWriter salida = new PrintWriter(
-				new FileWriter("data/ItinerarioDeUsuarios/" + usuario.getNombre() + ".txt"));
+	public static void escribirItinerario(Usuario usuario) throws IOException {
+		PrintWriter salida = null;
+		try {
+			salida = new PrintWriter(
+					new FileWriter("data/ItinerarioDeUsuarios/" + usuario.getNombre() + ".txt"));
 
-		salida.println("GAMGEE TOURISM AGENCY\n");
-		salida.println("Cliente: " + usuario.getNombre());
-		salida.println("Preferencias: " + usuario.getPreferencia() + "\n");
-		salida.println("ITINERARIO:");
-		salida.println(usuario.mostrarItinerario());
-
-		salida.close();
+			salida.println("GAMGEE TOURISM AGENCY\n");
+			salida.println("Cliente: " + usuario.getNombre());
+			salida.println("Preferencias: " + usuario.getPreferencia() + "\n");
+			salida.println("ITINERARIO:");
+			salida.println(usuario.mostrarItinerario());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			salida.close();
+		}
+		
 	}
 
 }

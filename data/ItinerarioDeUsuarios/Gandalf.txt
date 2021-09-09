@@ -1,0 +1,23 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Gandalf
+Preferencias: PAISAJE
+
+ITINERARIO:
+Gandalf aqui esta tu itinerario: 
+
+Atraccion: Erebor
+Costo: 160.0$
+Tiempo de excursion 3.0H
+Gandalf aqui esta tu itinerario: 
+
+Atraccion: Abismo de Helm
+Costo: 105.0$
+Tiempo de excursion 2.0H
+Gandalf aqui esta tu itinerario: 
+
+Atraccion: Lothlorein
+Costo: 135.0$
+Tiempo de excursion 1.0H
+
+TOTAL: 6.0H    400.0$
