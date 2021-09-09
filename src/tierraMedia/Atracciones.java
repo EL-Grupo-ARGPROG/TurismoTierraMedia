@@ -1,6 +1,9 @@
 package tierraMedia;
 
+import java.util.Objects;
+
 public class Atracciones implements Vendible {
+	
 	protected String nombre;
 	protected double costo;
 	protected double tiempoNecesario;
@@ -58,6 +61,26 @@ public class Atracciones implements Vendible {
 	@Override
 	public TiposAtracciones getTipo() {
 		return this.tipo;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(costo, cupo, nombre, tiempoNecesario, tipo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Atracciones other = (Atracciones) obj;
+		return Double.doubleToLongBits(costo) == Double.doubleToLongBits(other.costo) && cupo == other.cupo
+				&& Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(tiempoNecesario) == Double.doubleToLongBits(other.tiempoNecesario)
+				&& tipo == other.tipo;
 	}
 
 
