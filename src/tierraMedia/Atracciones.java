@@ -3,7 +3,7 @@ package tierraMedia;
 import java.util.Objects;
 
 public class Atracciones implements Vendible {
-	
+
 	protected String nombre;
 	protected double costo;
 	protected double tiempoNecesario;
@@ -20,9 +20,9 @@ public class Atracciones implements Vendible {
 
 	@Override
 	public String toString() {
-		return  nombre;
+		return nombre;
 	}
-	
+
 	@Override
 	public String getNombre() {
 		return nombre;
@@ -58,11 +58,16 @@ public class Atracciones implements Vendible {
 			return true;
 	}
 
+	public String resumirItinerario() {
+		return ("\nAtraccion: " + this.getNombre() + "\n" + "Costo: " + this.getCosto() + "$" + "\n"
+				+ "Tiempo de excursion " + this.getTiempoNecesario() + "H" + "\n");
+	}
+
 	@Override
 	public TiposAtracciones getTipo() {
 		return this.tipo;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(costo, cupo, nombre, tiempoNecesario, tipo);
@@ -83,5 +88,7 @@ public class Atracciones implements Vendible {
 				&& tipo == other.tipo;
 	}
 
+	// es(vendible)
+	// le llega un vendible y se fija si equals
 
 }

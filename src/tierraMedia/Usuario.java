@@ -15,6 +15,7 @@ public class Usuario {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
+		this.atraccionesAceptadas = new ArrayList<Vendible>();
 	}
 
 	public void restarPresupuesto(double costo) {
@@ -70,44 +71,14 @@ public class Usuario {
 		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
-			if (vendible.esPromocion()) {
-				aux += ("\nPromocion: " + vendible.getNombre() + "\n" + "Atracciones incluidas: " + vendible.toString()
-						+ "\n" + "Costo: " + vendible.getCosto() + "$" + "\n" + "Tiempo de excursion: "
-						+ vendible.getTiempoNecesario() + "\n");
-			} else {
-				aux += ("\nAtraccion: " + vendible.getNombre() + "\n" + "Costo: " + vendible.getCosto() + "$" + "\n"
-						+ "Tiempo de excursion " + vendible.getTiempoNecesario() + "H" + "\n");
-			}
+				aux += vendible.resumirItinerario();
 		}
-
 		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
-		// *double tiempo = 0;
-		// int costo = 0;
-
-		// for(Vendible unidad : itinerario) {
-		// tiempo += unidad.getTiempoNecesario();
-		// costo += unidad.getCosto();
-		// }
-
-		// return "Tu itinerario es: " + this.itinerario + " " + costo + " " + tiempo;
 	}
 
 	@Override
 	public String toString() {
 		return this.getNombre();
-	}
-
-	public boolean puedeComprarPromocion(Promociones oferta) {
-		if (this.getAtraccionesAceptadas() != null) {
-			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
-				for (Atracciones unidad : oferta.getPack())
-					if (atraccion.equals(unidad)) {
-						return false;
-					}
-			}
-
-		}
-		return true;
 	}
 
 	public boolean puedeComprar(Vendible oferta) {
@@ -117,11 +88,38 @@ public class Usuario {
 			return false;
 		} else if (!oferta.hayCupo()) {
 			return false;
-		} else if (oferta.esPromocion()) {
-			this.puedeComprarPromocion((Promociones) oferta);
+		} else if (!oferta.esPromocion()) {
+			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
+				if(oferta.equals(atraccion)) {
+					return false;
+				}
+			}
 		}
 		return true;
+	}
+	
+	public void comprar(Vendible oferta) {
+		this.setOfertasAceptadas(oferta);
+		this.setItinerario(oferta);
+		this.restarTiempoDisponible(oferta.getTiempoNecesario());
+		this.restarPresupuesto(oferta.getCosto());
+	}
 
+	public boolean tieneDinero() {
+		if(this.getPresupuesto() == 0) {
+			return false;
+		} else { 
+			return true;
+		}
+		
+	}
+
+	public boolean tieneTiempo() {
+		if(this.getTiempoDisponible() == 0) {
+			return false;
+		} else { 
+			return true;
+		}
 	}
 
 }
