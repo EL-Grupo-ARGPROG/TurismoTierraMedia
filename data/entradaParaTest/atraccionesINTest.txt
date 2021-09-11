@@ -1,0 +1,3 @@
+;;;;
+
+Minas Tirith;setenta y cinco;2.5;25;PAISAJE

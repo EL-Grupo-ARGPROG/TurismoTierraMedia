@@ -19,8 +19,8 @@ public class AdministradorDeArchivos {
 		return usuarios;
 	}
 
-	public static void leerArchivoUsuario() {
-		File f = new File("data/usuarioIN.txt");
+	public static void leerArchivoUsuario(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 
@@ -47,8 +47,8 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void leerArchivoAtracciones() {
-		File f = new File("data/atraccionesIN.txt");
+	public static void leerArchivoAtracciones(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 
@@ -81,8 +81,8 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void leerArchivoPromociones() {
-		File f = new File("data/promocionesIN.txt");
+	public static void leerArchivoPromociones(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 

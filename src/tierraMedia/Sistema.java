@@ -57,9 +57,9 @@ public class Sistema {
 	}
 
 	public static void main(String[] args) throws IOException {
-		AdministradorDeArchivos.leerArchivoUsuario();
-		AdministradorDeArchivos.leerArchivoAtracciones();
-		AdministradorDeArchivos.leerArchivoPromociones();
+		AdministradorDeArchivos.leerArchivoUsuario("data/usuarioIN.txt");
+		AdministradorDeArchivos.leerArchivoAtracciones("data/atraccionesIN.txt");
+		AdministradorDeArchivos.leerArchivoPromociones("data/promocionesIN.txt");
 
 		sugerirVisitasYEscribirItinerario();
 

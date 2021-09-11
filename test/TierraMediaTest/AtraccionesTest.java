@@ -11,7 +11,7 @@ public class AtraccionesTest {
 	@Test
 	public void LecturaAtraccionesTest() {
 		
-		AdministradorDeArchivos.leerArchivoAtracciones();
+		AdministradorDeArchivos.leerArchivoAtracciones("data/atraccionesIN.txt");
 		System.out.println(AdministradorDeArchivos.getVendibles());
 
 	}
