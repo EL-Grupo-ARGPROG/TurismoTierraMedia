@@ -31,7 +31,12 @@ public class Sistema {
 				}
 				if (usuario.puedeComprar(oferta)) {
 					while (invalidResponse) {
-						System.out.println("\n\n" + usuario.getNombre() + " ¿Deseas aceptar la siguiente oferta?\n"
+						//le muestro al usuario sus recursos restantes.
+						System.out.println("\n"+usuario.getNombre() + 
+								", tus recursos restantes: $" + usuario.getPresupuesto() 
+								+ ", " + usuario.getTiempoDisponible() + "H.");
+						//le muestro al usuario la oferta
+						System.out.println("\n" + usuario.getNombre() + " ¿Deseas aceptar la siguiente oferta?\n"
 								+ oferta.mostrarOfertaDescriptiva() + "\n1-Si\n2-No");
 						String response = sc.nextLine().toLowerCase();
 						// if(el usuario responde que acepta)

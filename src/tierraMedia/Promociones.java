@@ -32,7 +32,7 @@ public abstract class Promociones implements Vendible {
 	}
 	
 	public void restarCupo() {
-		for(Vendible atraccion : pack) {
+		for(Vendible atraccion : this.pack) {
 			atraccion.restarCupo();
 		}
 	}

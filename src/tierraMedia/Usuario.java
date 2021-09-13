@@ -66,6 +66,7 @@ public class Usuario {
 	}
 
 	public String mostrarItinerario() {
+		//muestra el itinerario de atracciones y el total de recursos gastados.
 		double tiempo = 0;
 		double costo = 0;
 		String aux = "";
@@ -74,7 +75,8 @@ public class Usuario {
 			costo += vendible.getCosto();
 				aux += this.getNombre() + " aqui esta tu itinerario: \n" + vendible.mostrarOfertaDescriptiva();
 		}
-		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
+		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$\n"
+				+"\n---------------------------------------------------------------------------------\n";
 	}
 
 	@Override
