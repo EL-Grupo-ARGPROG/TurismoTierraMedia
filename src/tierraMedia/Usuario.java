@@ -73,11 +73,9 @@ public class Usuario {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
 		    aux += (vendible);
-			
 		}
-
-		return this.getNombre() +", este es tu itinerario:\n" + aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
-
+		return this.getNombre() +", este es tu itinerario:\n" + aux + "\nTOTAL: " +
+		String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
 }
 
 
