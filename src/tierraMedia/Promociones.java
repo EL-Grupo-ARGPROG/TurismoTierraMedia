@@ -5,7 +5,7 @@ import java.util.Arrays;
 public abstract class Promociones implements Vendible {
 	protected String nombre;
 	protected double costoPromocion;
-	protected double tiempoNecesario;
+	protected double tiempoNecesario = 0;
 	protected TiposAtracciones tipo;
 	protected Atracciones[] pack;
 
@@ -18,9 +18,9 @@ public abstract class Promociones implements Vendible {
 	
 	@Override
 	public String mostrarOfertaDescriptiva() {
-		return ("\nPromocion: " + this.getNombre() + "\n" + "Atracciones incluidas: " + this.toString()
-        + "\n" + "Costo: " + this.getCosto() + "$" + "\n" + "Tiempo de excursion: "
-        + this.getTiempoNecesario() + "\n");
+		return ("\nPromocion: " + this.getNombre() + "\n" + "Atracciones incluidas:\n" + this.toString()
+        + "\nCosto: " + this.getCosto() + "$" + "\nTiempo de excursion: "
+        + this.getTiempoNecesario() +"H\n");
 	}
 	
 	public String getNombre() {
@@ -40,10 +40,11 @@ public abstract class Promociones implements Vendible {
 	public abstract double getCosto();
 
 	public double getTiempoNecesario() {
+		double tiempo = 0;
 		for (Atracciones atraccion : this.pack) {
-			this.tiempoNecesario += atraccion.getTiempoNecesario();
+			tiempo = (tiempo + atraccion.getTiempoNecesario());
 		}
-		return this.tiempoNecesario;
+		return this.tiempoNecesario = tiempo;
 	}
 
 	public boolean hayCupo() {
@@ -70,10 +71,7 @@ public abstract class Promociones implements Vendible {
 		s= s.replace("]", "");
 		s= s.replace(",", "");
 
-		return "\nPromocion: " + this.getNombre() + "\n" + 
-	            "Atracciones incluidas: " + s+ "\n" +
-				"Costo: " + this.getCosto() + "$" + "\n" +
-	            "Tiempo de excursion: "+ this.getTiempoNecesario();
+		return s;
 	}
 
 	public boolean esPromocion() {
