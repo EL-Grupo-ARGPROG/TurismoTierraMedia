@@ -16,6 +16,7 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Vendible>();
+		this.itinerario = new ArrayList<Vendible>();
 	}
 
 	public void restarPresupuesto(double costo) {
@@ -65,12 +66,14 @@ public class Usuario {
 	}
 
 	public String mostrarItinerario() {
+		//muestra el itinerario de atracciones y el total de recursos gastados.
 		double tiempo = 0;
 		double costo = 0;
 		String aux = "";
 		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
+
 
 			if (vendible.esPromocion()) {
 				aux += (vendible);
@@ -82,6 +85,7 @@ public class Usuario {
 		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
 
 }
+
 
 	@Override
 	public String toString() {

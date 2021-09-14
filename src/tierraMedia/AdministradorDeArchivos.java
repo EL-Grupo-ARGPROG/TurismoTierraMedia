@@ -19,8 +19,8 @@ public class AdministradorDeArchivos {
 		return usuarios;
 	}
 
-	public static void leerArchivoUsuario() {
-		File f = new File("data/usuarioIN.txt");
+	public static void leerArchivoUsuario(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 
@@ -47,8 +47,8 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void leerArchivoAtracciones() {
-		File f = new File("data/atraccionesIN.txt");
+	public static void leerArchivoAtracciones(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 
@@ -81,8 +81,8 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void leerArchivoPromociones() {
-		File f = new File("data/promocionesIN.txt");
+	public static void leerArchivoPromociones(String nombreArchivo) {
+		File f = new File(nombreArchivo);
 		Scanner sc = null;
 		String[] line;
 
@@ -166,17 +166,23 @@ public class AdministradorDeArchivos {
 		}
 	}
 
-	public static void EscribirItinerario(Usuario usuario) throws IOException {
-		PrintWriter salida = new PrintWriter(
-				new FileWriter("data/ItinerarioDeUsuarios/" + usuario.getNombre() + ".txt"));
+	public static void escribirItinerario(Usuario usuario) throws IOException {
+		PrintWriter salida = null;
+		try {
+			salida = new PrintWriter(
+					new FileWriter("data/ItinerarioDeUsuarios/" + usuario.getNombre() + ".txt"));
 
-		salida.println("GAMGEE TOURISM AGENCY\n");
-		salida.println("Cliente: " + usuario.getNombre());
-		salida.println("Preferencias: " + usuario.getPreferencia() + "\n");
-		salida.println("ITINERARIO:");
-		salida.println(usuario.mostrarItinerario());
-
-		salida.close();
+			salida.println("GAMGEE TOURISM AGENCY\n");
+			salida.println("Cliente: " + usuario.getNombre());
+			salida.println("Preferencias: " + usuario.getPreferencia() + "\n");
+			salida.println("ITINERARIO:");
+			salida.println(usuario.mostrarItinerario());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			salida.close();
+		}
+		
 	}
 
 }

@@ -61,9 +61,10 @@ public class Atracciones implements Vendible {
 			return true;
 	}
 
-	public String resumirItinerario() {
-		return ("\nAtraccion: " + this.getNombre() + "\n" + "Costo: " + this.getCosto() + "$" + "\n"
-				+ "Tiempo de excursion " + this.getTiempoNecesario() + "H" + "\n");
+	public String mostrarOfertaDescriptiva() {
+		return  "\nAtraccion: " + this.getNombre() + "\n" + 
+                "Costo: " + this.getCosto() + "$" + "\n"+ 
+                "Tiempo de excursion " + this.getTiempoNecesario() + "H"+"\n";
 	}
 
 	@Override

@@ -10,6 +10,7 @@ public class Porcentual extends Promociones {
 	}
 	
 	@Override
+
 	public double getCosto() {
 		double costoSinPromo = 0;
 		for (Atracciones atraccion : this.pack) {
@@ -19,5 +20,6 @@ public class Porcentual extends Promociones {
 		costoPromocion =  costoSinPromo - descuento;
 		return costoPromocion;
 	}
+
 
 }

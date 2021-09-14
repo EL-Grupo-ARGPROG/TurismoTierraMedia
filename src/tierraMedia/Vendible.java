@@ -18,5 +18,5 @@ public interface Vendible {
 	
 	public String getNombre();
 	
-	public String resumirItinerario();
+	public String mostrarOfertaDescriptiva();
 }

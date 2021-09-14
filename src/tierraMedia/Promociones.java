@@ -15,11 +15,12 @@ public abstract class Promociones implements Vendible {
 		this.tipo = tipo;
 	}
 	
+	
 	@Override
-	public String resumirItinerario() {
+	public String mostrarOfertaDescriptiva() {
 		return ("\nPromocion: " + this.getNombre() + "\n" + "Atracciones incluidas: " + this.toString()
-		+ "\n" + "Costo: " + this.getCosto() + "$" + "\n" + "Tiempo de excursion: "
-		+ this.getTiempoNecesario() + "\n");
+        + "\n" + "Costo: " + this.getCosto() + "$" + "\n" + "Tiempo de excursion: "
+        + this.getTiempoNecesario() + "\n");
 	}
 	
 	public String getNombre() {
@@ -31,7 +32,7 @@ public abstract class Promociones implements Vendible {
 	}
 	
 	public void restarCupo() {
-		for(Vendible atraccion : pack) {
+		for(Vendible atraccion : this.pack) {
 			atraccion.restarCupo();
 		}
 	}

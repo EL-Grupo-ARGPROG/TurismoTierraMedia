@@ -1,3 +1,6 @@
 Porcentual;Pack Aventura;20;AVENTURA;2;Bosque Negro;Mordor
-Absoluta;Pack Degustacion;30;DEGUSTACION;2;Lothlorein;La Comarca
+Absoluta;Pack Degustacion;200;DEGUSTACION;2;Lothlorein;La Comarca
 AxB;Pack Paisajes;Erebor;PAISAJE;3;Minas Tirith;Abismo de Helm;Erebor
+Porcentual;Pack Paisaje 2;15;PAISAJE;2;Erebor;Minas Tirith
+Absoluta;Pack Aventura 2;300;AVENTURA;3;Moria;Mordor;Bosque Negro
+AxB;Pack Degustacion 2;La Comarca;DEGUSTACION;3;Lothlorein;La Comarca;Los Arboles Del Infinito
