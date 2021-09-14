@@ -15,6 +15,7 @@ public class Usuario {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
+		this.atraccionesAceptadas = new ArrayList<Vendible>();
 	}
 
 	public void restarPresupuesto(double costo) {
@@ -70,6 +71,7 @@ public class Usuario {
 		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
+
 			if (vendible.esPromocion()) {
 				aux += (vendible);
 			} else {
@@ -79,11 +81,54 @@ public class Usuario {
 
 		return aux + "\nTOTAL: " + String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
 
-	}
+}
 
 	@Override
 	public String toString() {
 		return this.getNombre();
+
+	}
+
+	public boolean puedeComprar(Vendible oferta) {
+		if (oferta.getCosto() > this.getPresupuesto()) {
+			return false;
+		} else if (oferta.getTiempoNecesario() > this.getTiempoDisponible()) {
+			return false;
+		} else if (!oferta.hayCupo()) {
+			return false;
+		} else if (!oferta.esPromocion()) {
+			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
+				if(oferta.equals(atraccion)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public void comprar(Vendible oferta) {
+		this.setOfertasAceptadas(oferta);
+		this.setItinerario(oferta);
+		this.restarTiempoDisponible(oferta.getTiempoNecesario());
+		this.restarPresupuesto(oferta.getCosto());
+	}
+
+	public boolean tieneDinero() {
+		if(this.getPresupuesto() == 0) {
+			return false;
+		} else { 
+			return true;
+		}
+		
+	}
+
+	public boolean tieneTiempo() {
+		if(this.getTiempoDisponible() == 0) {
+			return false;
+		} else { 
+			return true;
+		}
+
 	}
 
 }

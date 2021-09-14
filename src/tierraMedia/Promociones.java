@@ -15,6 +15,13 @@ public abstract class Promociones implements Vendible {
 		this.tipo = tipo;
 	}
 	
+	@Override
+	public String resumirItinerario() {
+		return ("\nPromocion: " + this.getNombre() + "\n" + "Atracciones incluidas: " + this.toString()
+		+ "\n" + "Costo: " + this.getCosto() + "$" + "\n" + "Tiempo de excursion: "
+		+ this.getTiempoNecesario() + "\n");
+	}
+	
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -75,4 +82,15 @@ public abstract class Promociones implements Vendible {
 	public Atracciones[] getPack() {
 		return pack;
 	}
+	
+	public boolean esOContieneAtraccion (Vendible atraccionOfrecida) {
+		for (Atracciones atraccion : this.pack) {
+			if (atraccion.equals(atraccionOfrecida)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
+
+
