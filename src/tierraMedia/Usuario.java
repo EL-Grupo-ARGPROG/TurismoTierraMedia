@@ -100,6 +100,27 @@ public class Usuario {
 					return false;
 				}
 			}
+		} if (oferta.esPromocion()) {
+			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
+				//Si la promo ya la compre o si la promo que quiero comprar contiene una atraccion que ya
+				//compre anteriormente, retorno false
+				if(oferta.equals(atraccion)) {//Sirve para el test 1
+					return false;
+				}
+				for (Atracciones i : ((Promociones)oferta).getPack()) {
+					if (i.equals(atraccion)) return false;
+				}
+				//Me fijo si el vendible adquirido es una promo, recorro el pack de la promo 
+				//a comprar y comparo el contenido de ambos packs, en caso de encontrar la misma atraccion
+				//en ambos, retorno false.
+				if (atraccion.esPromocion()) {//Sirve para test 3 y 4
+					for (Atracciones a : ((Promociones)oferta).getPack()) {
+						for (Atracciones j : ((Promociones)oferta).getPack()) {
+							if (j.equals(a)) return false;
+						}
+					}
+				}
+			}
 		}
 		return true;
 	}
