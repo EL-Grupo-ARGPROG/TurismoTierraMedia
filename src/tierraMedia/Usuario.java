@@ -72,12 +72,11 @@ public class Usuario {
 		for (Vendible vendible : this.itinerario) {
 			tiempo += vendible.getTiempoNecesario();
 			costo += vendible.getCosto();
-		    aux += (vendible);
+			aux += (vendible);
 		}
-		return this.getNombre() +", este es tu itinerario:\n" + aux + "\nTOTAL: " +
-		String.valueOf(tiempo) + "H" + "    " + String.valueOf(costo) + "$";
-}
-
+		return this.getNombre() + ", este es tu itinerario:\n" + aux + "\nTOTAL: " + String.valueOf(tiempo) + "H"
+				+ "    " + String.valueOf(costo) + "$";
+	}
 
 	@Override
 	public String toString() {
@@ -88,41 +87,27 @@ public class Usuario {
 	public boolean puedeComprar(Vendible oferta) {
 		if (oferta.getCosto() > this.getPresupuesto()) {
 			return false;
-		} else if (oferta.getTiempoNecesario() > this.getTiempoDisponible()) {
-			return false;
-		} else if (!oferta.hayCupo()) {
-			return false;
-		} else if (!oferta.esPromocion()) {
-			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
-				if(oferta.equals(atraccion)) {
-					return false;
-				}
-			}
-		} if (oferta.esPromocion()) {
-			for (Vendible atraccion : this.getAtraccionesAceptadas()) {
-				//Si la promo ya la compre o si la promo que quiero comprar contiene una atraccion que ya
-				//compre anteriormente, retorno false
-				if(oferta.equals(atraccion)) {//Sirve para el test 1
-					return false;
-				}
-				for (Atracciones i : ((Promociones)oferta).getPack()) {
-					if (i.equals(atraccion)) return false;
-				}
-				//Me fijo si el vendible adquirido es una promo, recorro el pack de la promo 
-				//a comprar y comparo el contenido de ambos packs, en caso de encontrar la misma atraccion
-				//en ambos, retorno false.
-				if (atraccion.esPromocion()) {//Sirve para test 3 y 4
-					for (Atracciones a : ((Promociones)oferta).getPack()) {
-						for (Atracciones j : ((Promociones)oferta).getPack()) {
-							if (j.equals(a)) return false;
-						}
-					}
-				}
-			}
 		}
+		if (oferta.getTiempoNecesario() > this.getTiempoDisponible()) {
+			return false;
+		}
+		if (!oferta.hayCupo()) {
+			return false;
+		}
+		for (Vendible atraccion : this.getAtraccionesAceptadas()) {
+			if (oferta.equals(atraccion)) {
+				return false;
+			}
+				if (oferta.esPromocion()) {
+					if (((Promociones) oferta).contieneAtraccion(atraccion))
+						;
+					return false;
+				}
+			}
+
 		return true;
 	}
-	
+
 	public void comprar(Vendible oferta) {
 		this.setOfertasAceptadas(oferta);
 		this.setItinerario(oferta);
@@ -131,18 +116,18 @@ public class Usuario {
 	}
 
 	public boolean tieneDinero() {
-		if(this.getPresupuesto() == 0) {
+		if (this.getPresupuesto() == 0) {
 			return false;
-		} else { 
+		} else {
 			return true;
 		}
-		
+
 	}
 
 	public boolean tieneTiempo() {
-		if(this.getTiempoDisponible() == 0) {
+		if (this.getTiempoDisponible() == 0) {
 			return false;
-		} else { 
+		} else {
 			return true;
 		}
 
