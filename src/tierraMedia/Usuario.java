@@ -98,12 +98,10 @@ public class Usuario {
 			if (oferta.equals(atraccion)) {
 				return false;
 			}
-				if (oferta.esPromocion()) {
-					if (((Promociones) oferta).contieneAtraccion(atraccion))
-						;
-					return false;
-				}
+			if (oferta.esPromocion()) {
+				return !((Promociones) oferta).contieneAtraccion(atraccion);
 			}
+		}
 
 		return true;
 	}
