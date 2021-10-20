@@ -3,6 +3,7 @@ package tierraMedia;
 import java.util.ArrayList;
 
 public class Usuario {
+	protected int id;
 	protected String nombre;
 	protected double presupuesto;
 	protected double tiempoDisponible;
@@ -10,13 +11,18 @@ public class Usuario {
 	protected ArrayList<Vendible> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
-	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
+	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
+		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Vendible>();
 		this.itinerario = new ArrayList<Vendible>();
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 
 	public void restarPresupuesto(double costo) {
