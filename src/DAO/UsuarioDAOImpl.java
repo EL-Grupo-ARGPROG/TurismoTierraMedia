@@ -87,7 +87,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int delete(Usuario t) {
 		try {
-			String query = "DELETE FROM WHERE ID = ?";
+			String query = "DELETE FROM USUARIO WHERE ID = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(query);

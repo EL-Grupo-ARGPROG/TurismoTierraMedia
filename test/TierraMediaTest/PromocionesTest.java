@@ -62,7 +62,7 @@ public class PromocionesTest {
 	
 	@Test
 	public void puedeComprarTest() {
-		Usuario u1 = new Usuario("Tomas", 500, 20, TiposAtracciones.PAISAJE);
+		Usuario u1 = new Usuario(1, "Tomas", 500, 20, TiposAtracciones.PAISAJE);
 		Atracciones mordor = new Atracciones("mordor", 150, 2.5, 2, TiposAtracciones.PAISAJE);
 		Atracciones pepe = new Atracciones("pepe", 120, 2.3, 7, null);
 		Atracciones jose = new Atracciones("jose", 150, 2.6, 2, null);

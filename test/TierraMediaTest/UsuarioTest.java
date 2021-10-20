@@ -12,7 +12,7 @@ import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
 
 public class UsuarioTest {
-	Usuario u1 = new Usuario("pepito", 100, 100, TiposAtracciones.AVENTURA);
+	Usuario u1 = new Usuario(2, "pepito", 100, 100, TiposAtracciones.AVENTURA);
 
 	Atracciones a1 = new Atracciones("a1", 10, 3, 6, TiposAtracciones.AVENTURA);
 	Atracciones a2 = new Atracciones("a2", 4, 2.5, 20, TiposAtracciones.AVENTURA);
