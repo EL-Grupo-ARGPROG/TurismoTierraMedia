@@ -2,14 +2,14 @@ package DAO;
 
 public class DAOFactory {
 	
-	public static UsuarioDAO getBandaDAO() {
+	public static UsuarioDAO getUsuarioDAO() {
 		return new UsuarioDAOImpl();
 	}
 	
-//	public static AtraccionesDAO getGeneroDAO() {
-//		return new AtraccionesDAOImpl();
-//	}
-//	
+	public static AtraccionesDAO getAtraccionesDAO() {
+		return new AtraccionesDAOImpl();
+	}
+	
 //	public static PorcentualDAO getGeneroDAO() {
 //		return new PorcentualDAOImpl();
 //	}
