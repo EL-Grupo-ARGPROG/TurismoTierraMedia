@@ -25,6 +25,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 		}
 	}
 
+	@Override
 	public List<Atracciones> findAll() {
 		try {
 			String query = "SELECT * FROM ATRACCIONES";
@@ -43,6 +44,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 		}
 	}
 
+	@Override
 	public int insert(Atracciones t) {
 		try {
 			String query = "INSERT INTO ATRACCION(NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_TEMATICA)"

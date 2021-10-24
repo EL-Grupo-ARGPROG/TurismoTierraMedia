@@ -16,8 +16,17 @@ import tierraMedia.Porcentual;
 import tierraMedia.Promociones;
 import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
+import tierraMedia.Vendible;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
+	static List<Vendible> vendiblesList = setVendiblesList();
+	
+	private static List<Vendible> setVendiblesList() {
+		for(Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
+			vendiblesList.add(atraccion);
+		}
+		return vendiblesList;
+	}
 
 	private Absoluta toAbsoluta(ResultSet result) {
 		//(Atracciones[] pack, String nombre, int precioFinal, TiposAtracciones tipo)
@@ -28,7 +37,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	private AxB toAxB(ResultSet result) {
 		//(Atracciones[] pack, String nombre, Atracciones atraccionGratis, TiposAtracciones tipo)
 		try {
@@ -49,7 +58,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 		}
 	}
 	
-
+	@Override
 	public Atracciones[] armarPaquete(int id) {
 		try {
 			Connection conn = TierraMediaConnectionProvider.getConnection();
@@ -100,26 +109,36 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 //		}
 //	}
 
-//	@Override
-//	public List findAll() {
-//		try {
-//			String query = "SELECT * FROM PROMOCIONES"; // 1
-//			Connection conn = TierraMediaConnectionProvider.getConnection();
-//
-//			PreparedStatement statement = conn.prepareStatement(query);
-//			ResultSet results = statement.executeQuery();
-//
-//			List<Promociones> promociones = new LinkedList<Promociones>();
-//			while (results.next()) {
-//				switch()
-//				promociones.add(toPromociones(results));
-//			}
-//			return promociones;
-//
-//		} catch (SQLException e) {
-//			throw new MissingDataException(e);
-//		}
-//	}
+	@Override
+	public List findAll() {
+		try {
+			String query = "SELECT * FROM PROMOCIONES"; // 1
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			ResultSet results = statement.executeQuery();
+
+			while (results.next()) {
+				switch(results.getString(4)) {
+				case "ABSOLUTA":
+					vendiblesList.add(toAbsoluta(results));
+					break;
+					
+				case "PORCENTUAL":
+					vendiblesList.add(toPorcentual(results));
+					break;
+					
+				case "AxB":
+					vendiblesList.add(toAxB(results));
+					break;
+				}
+			}
+			return vendiblesList;
+
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 //	@Override
 //	public int insert(Promociones t) {
@@ -142,15 +161,18 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 //	}
 
 	@Override
-	public int update(Promociones t) {
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-	}
-
-	@Override
 	public int delete(Promociones t) {
-		// TODO Apéndice de método generado automáticamente
-		return 0;
+		try {
+			String query = "DELETE FROM PROMOCIONES WHERE NOMBRE = ?";
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, t.getNombre());
+
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 }

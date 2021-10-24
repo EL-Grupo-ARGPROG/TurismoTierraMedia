@@ -48,6 +48,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
+	@Override
 	public int insert(Usuario t) {
 		try {
 			String query = "INSERT INTO USUARIO(ID, NOMBRE, PRESUPUESTO, TIEMPO_DISPONIBLE, TIPO_PREFERENCIA)" + "VALUES(?, ?, ?, ?, ?)";

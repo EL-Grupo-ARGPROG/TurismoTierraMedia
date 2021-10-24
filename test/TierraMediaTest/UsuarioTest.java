@@ -47,5 +47,11 @@ public class UsuarioTest {
 		u1.comprar(p3);
 		assertFalse(u1.puedeComprar(p4));
 	}
+	
+	@Test
+	public void test5() {
+		System.out.println(p1.getClass().getSimpleName());
+	}
+	
 
 }
