@@ -8,6 +8,10 @@ public class AxB extends Promociones {
 		this.atraccionGratis = atraccionGratis;
 	}
 	
+	public Atracciones getAtraccionGratis() {
+		return this.atraccionGratis;
+	}
+	
 	@Override
 	public double getCosto() {
 		for (Atracciones atraccion : this.pack) {

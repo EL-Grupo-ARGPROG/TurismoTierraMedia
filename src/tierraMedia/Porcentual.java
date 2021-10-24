@@ -9,8 +9,11 @@ public class Porcentual extends Promociones {
 		this.PORCENTAJE = porcentaje;
 	}
 	
+	public double getPorcentaje() {
+		return this.PORCENTAJE;
+	}
+	
 	@Override
-
 	public double getCosto() {
 		double costoSinPromo = 0;
 		for (Atracciones atraccion : this.pack) {

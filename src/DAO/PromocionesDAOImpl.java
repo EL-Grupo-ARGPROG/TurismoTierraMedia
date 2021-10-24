@@ -140,25 +140,42 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 		}
 	}
 
-//	@Override
-//	public int insert(Promociones t) {
-//		try {
-//			String query = "INSERT INTO PROMOCIONES(NOMBRE, TIPO_TEMATICA, TIPO_PROMO, BENEFICIO_ABS, BENEFICIO_PORCEN, BENEFICIO_AxB)"
-//					+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
-//			Connection conn = TierraMediaConnectionProvider.getConnection();
-//
-//			PreparedStatement statement = conn.prepareStatement(query);
-//			statement.setString(1, t.getNombre());
-//			statement.setString(2, t.getTipo());
-//			statement.setString(3, t.getClass());
-//			statement.setDouble(4, t.getTiempoDisponible());
-//			statement.setString(5, String.valueOf(t.getPreferencia()));
-//
-//			return statement.executeUpdate();
-//		} catch (SQLException e) {
-//			throw new MissingDataException(e);
-//		}
-//	}
+	@Override
+	public int insert(Promociones t) {
+		try {
+			String query = "INSERT INTO PROMOCIONES(NOMBRE, TIPO_TEMATICA, TIPO_PROMO, BENEFICIO_ABS, BENEFICIO_PORCEN, BENEFICIO_AxB)"
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, t.getNombre());
+			statement.setString(2, String.valueOf(t.getTipo()));
+			statement.setString(3, t.getClass().getSimpleName());
+			
+			switch(t.getClass().getSimpleName()) {
+			case "ABSOLUTA":
+				statement.setDouble(4, t.getCosto());
+				statement.setString(5, null);
+				statement.setString(6, null);
+				break;
+				
+			case "PORCENTUAL":
+				statement.setString(4, null);
+				statement.setDouble(5, ((Porcentual) t).getPorcentaje());
+				statement.setString(6, null);
+				break;
+				
+			case "AxB":
+				statement.setString(4, null);
+				statement.setString(5, null);
+				statement.setString(6, ((AxB) t).getAtraccionGratis().getNombre());
+				break;
+			}
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 	@Override
 	public int delete(Promociones t) {
