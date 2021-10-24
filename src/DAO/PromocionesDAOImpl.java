@@ -19,13 +19,23 @@ import tierraMedia.Usuario;
 import tierraMedia.Vendible;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
-	static List<Vendible> vendiblesList = setVendiblesList();
+	public static List<Vendible> vendiblesList = setVendiblesList();
 	
 	private static List<Vendible> setVendiblesList() {
+		vendiblesList = new LinkedList<Vendible>();
 		for(Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
 			vendiblesList.add(atraccion);
 		}
 		return vendiblesList;
+	}
+	
+	private Atracciones atraccionFinder(String nombre) {
+		for(Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
+			if(atraccion.getNombre().equals(nombre)) {
+				return atraccion;
+			}
+		}
+		return null;
 	}
 
 	private Absoluta toAbsoluta(ResultSet result) {
@@ -41,7 +51,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	private AxB toAxB(ResultSet result) {
 		//(Atracciones[] pack, String nombre, Atracciones atraccionGratis, TiposAtracciones tipo)
 		try {
-			return new AxB(this.armarPaquete(result.getInt(2)), result.getString(1), (Atracciones)result.getObject(7),
+			return new AxB(this.armarPaquete(result.getInt(2)), result.getString(1), atraccionFinder(result.getString(7)),
 					TiposAtracciones.valueOf(result.getString(3)));
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
@@ -58,28 +68,57 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 		}
 	}
 	
-	@Override
+	public void instanciadorDePromociones() {
+		try {
+			String query = "SELECT * FROM PROMOCIONES"; // 1
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			ResultSet results = statement.executeQuery();
+
+			while (results.next()) {
+				switch(results.getString(4)) {
+				case "ABSOLUTA":
+					vendiblesList.add(toAbsoluta(results));
+					break;
+					
+				case "PORCENTUAL":
+					vendiblesList.add(toPorcentual(results));
+					break;
+					
+				case "AxB":
+					vendiblesList.add(toAxB(results));
+					break;
+				}
+			}
+
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
+	
 	public Atracciones[] armarPaquete(int id) {
 		try {
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
-			String queryCount = "SELECT count(id) FROM pack_atracciones WHERE ID = ?";
-			PreparedStatement statement = conn.prepareStatement(queryCount);
-			statement.setInt(1, id);
+			String queryCount = "SELECT count(id) AS TOTAL FROM pack_atracciones WHERE ID = ?";
+			PreparedStatement statementCount = conn.prepareStatement(queryCount);
+			statementCount.setInt(1, id);
 
-			ResultSet resultsCount = statement.executeQuery();
+			ResultSet resultsCount = statementCount.executeQuery();
+			
+			Atracciones[] atracciones = new Atracciones[resultsCount.getInt("TOTAL")];
 
 			String queryNames = "SELECT NOMBRE_ATRACCION FROM PACK_ATRACCIONES WHERE ID = ?";
-			PreparedStatement statement2 = conn.prepareStatement(queryNames);
-			statement2.setInt(1, id);
+			PreparedStatement statementNames = conn.prepareStatement(queryNames);
+			statementNames.setInt(1, id);
 
-			ResultSet resultsNames = statement.executeQuery();
-
-			Atracciones[] atracciones = new Atracciones[resultsCount.getInt(1)];
+			ResultSet resultsNames = statementNames.executeQuery();
 
 			for (int i = 0; i < atracciones.length; i++) {
 				for (Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
-					if (resultsNames.getString(i + 1).equals(atraccion.getNombre())) {
+					if (resultsNames.getString(i+1).equals(atraccion.getNombre())) {
 						atracciones[i] = atraccion;
 					}
 				}
@@ -109,35 +148,8 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 //		}
 //	}
 
-	@Override
 	public List findAll() {
-		try {
-			String query = "SELECT * FROM PROMOCIONES"; // 1
-			Connection conn = TierraMediaConnectionProvider.getConnection();
-
-			PreparedStatement statement = conn.prepareStatement(query);
-			ResultSet results = statement.executeQuery();
-
-			while (results.next()) {
-				switch(results.getString(4)) {
-				case "ABSOLUTA":
-					vendiblesList.add(toAbsoluta(results));
-					break;
-					
-				case "PORCENTUAL":
-					vendiblesList.add(toPorcentual(results));
-					break;
-					
-				case "AxB":
-					vendiblesList.add(toAxB(results));
-					break;
-				}
-			}
 			return vendiblesList;
-
-		} catch (SQLException e) {
-			throw new MissingDataException(e);
-		}
 	}
 
 	@Override

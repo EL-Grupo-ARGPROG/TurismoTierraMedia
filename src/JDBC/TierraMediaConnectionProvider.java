@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class TierraMediaConnectionProvider {
 
 	private static String url = "jdbc:sqlite:DB.db";
+//	private static String url = "jdbc:sqlite:C:\\Users\\PC\\eclipse-workspace\\TurismoTierraMedia\\DB.db";
 	private static Connection connection;
 
 	public static Connection getConnection() throws SQLException {

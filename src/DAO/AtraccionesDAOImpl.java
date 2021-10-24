@@ -12,7 +12,7 @@ import tierraMedia.Atracciones;
 import tierraMedia.TiposAtracciones;
 
 public class AtraccionesDAOImpl implements AtraccionesDAO {
-	static List<Atracciones> atraccionesList = new LinkedList<Atracciones>();
+	public static List<Atracciones> atraccionesList = new LinkedList<Atracciones>();
 
 	private Atracciones toAtraccion(ResultSet result) {
 		// (String nombre, double costo, double tiempoNecesario, int cupo,
@@ -24,9 +24,8 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
-	@Override
-	public List<Atracciones> findAll() {
+	
+	public void instanciadorDeAtracciones() {
 		try {
 			String query = "SELECT * FROM ATRACCIONES";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
@@ -37,11 +36,14 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			while (results.next()) {
 				atraccionesList.add(toAtraccion(results));
 			}
-			return atraccionesList;
-
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
+	}
+
+	@Override
+	public List<Atracciones> findAll() {
+			return atraccionesList;
 	}
 
 	@Override

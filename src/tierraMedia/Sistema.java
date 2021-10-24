@@ -9,11 +9,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+import DAO.AtraccionesDAOImpl;
+import DAO.PromocionesDAOImpl;
+import DAO.UsuarioDAOImpl;
+
 public class Sistema {
+	
+	public static void instanciaDeObjetos() {
+		UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+		AtraccionesDAOImpl atraccionDAO = new AtraccionesDAOImpl();
+		PromocionesDAOImpl promocionDAO = new PromocionesDAOImpl();
+		
+		usuarioDAO.instanciadorDeUsuarios();
+		atraccionDAO.instanciadorDeAtracciones();
+		promocionDAO.instanciadorDePromociones();
+	}
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
-		Collections.sort(AdministradorDeArchivos.getVendibles(), new ComparadorDeVendibles(tipo));
-		return AdministradorDeArchivos.getVendibles();
+		Collections.sort(PromocionesDAOImpl.vendiblesList, new ComparadorDeVendibles(tipo));
+		return PromocionesDAOImpl.vendiblesList;
 	}
 
 	// usuario.comprar()
@@ -21,10 +35,10 @@ public class Sistema {
 	public static void sugerirVisitasYEscribirItinerario() throws IOException {
 		Scanner sc = new Scanner(System.in);
 
-		for (Usuario usuario : AdministradorDeArchivos.getUsuarios()) {
+		for (Usuario usuario : UsuarioDAOImpl.usuarios) {
 			ordenadorDeVendibles(usuario.getPreferencia());
 
-			for (Vendible oferta : AdministradorDeArchivos.getVendibles()) {
+			for (Vendible oferta : PromocionesDAOImpl.vendiblesList) {
 				boolean invalidResponse = true;
 				if (!usuario.tieneDinero() || !usuario.tieneTiempo()) {
 					break;
@@ -56,16 +70,12 @@ public class Sistema {
 				}
 			}
 			System.out.println(usuario.mostrarItinerario());
-			AdministradorDeArchivos.escribirItinerario(usuario);
 		}
 
 	}
 
 	public static void main(String[] args) throws IOException {
-		AdministradorDeArchivos.leerArchivoUsuario("data/usuarioIN.txt");
-		AdministradorDeArchivos.leerArchivoAtracciones("data/atraccionesIN.txt");
-		AdministradorDeArchivos.leerArchivoPromociones("data/promocionesIN.txt");
-
+		instanciaDeObjetos();
 		sugerirVisitasYEscribirItinerario();
 
 	}

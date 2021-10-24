@@ -12,6 +12,7 @@ import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
+	public static List<Usuario> usuarios = new LinkedList<Usuario>();
 
 	private Usuario toUsuario(ResultSet result) {
 		// constructor: (String nombre, double presupuesto, double tiempoDisponible,
@@ -23,29 +24,27 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
-	@Override
-	public List<Usuario> findAll() {
+	
+	public void instanciadorDeUsuarios() {
 		try {
-			/*
-			 * 1- Crear Consulta 2- Obtener Conexxion 3- Preparar la Consulta 4- Ejecutar
-			 * Consulta 5- Leer Resultados
-			 */
-			String query = "SELECT * FROM USUARIOS"; // 1
-			Connection conn = TierraMediaConnectionProvider.getConnection(); // 2
+			String query = "SELECT * FROM USUARIOS";
+			Connection conn = TierraMediaConnectionProvider.getConnection();
 
-			PreparedStatement statement = conn.prepareStatement(query); // 3
-			ResultSet results = statement.executeQuery(); // 4
+			PreparedStatement statement = conn.prepareStatement(query);
+			ResultSet results = statement.executeQuery();
 
 			List<Usuario> usuarios = new LinkedList<Usuario>();
 			while (results.next()) {
 				usuarios.add(toUsuario(results));
 			}
-			return usuarios; // 5
-
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
+	}
+
+	@Override
+	public List<Usuario> findAll() {
+		return usuarios;
 	}
 
 	@Override
