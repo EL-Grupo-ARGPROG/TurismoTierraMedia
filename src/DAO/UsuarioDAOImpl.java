@@ -12,7 +12,7 @@ import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
-	public static List<Usuario> usuarios = new LinkedList<Usuario>();
+	public static List<Usuario> usuariosList = new LinkedList<Usuario>();
 
 	private Usuario toUsuario(ResultSet result) {
 		// constructor: (String nombre, double presupuesto, double tiempoDisponible,
@@ -33,9 +33,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			PreparedStatement statement = conn.prepareStatement(query);
 			ResultSet results = statement.executeQuery();
 
-			List<Usuario> usuarios = new LinkedList<Usuario>();
 			while (results.next()) {
-				usuarios.add(toUsuario(results));
+				usuariosList.add(toUsuario(results));
 			}
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
@@ -44,7 +43,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public List<Usuario> findAll() {
-		return usuarios;
+		return usuariosList;
 	}
 
 	@Override

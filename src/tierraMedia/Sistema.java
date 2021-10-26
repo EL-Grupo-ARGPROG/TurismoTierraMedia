@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import DAO.AtraccionesDAOImpl;
+import DAO.ItinerarioDAOImpl;
 import DAO.PromocionesDAOImpl;
 import DAO.UsuarioDAOImpl;
 
@@ -23,6 +24,10 @@ public class Sistema {
 		usuarioDAO.instanciadorDeUsuarios();
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();
+		
+//		System.out.println(PromocionesDAOImpl.vendiblesList);
+//		System.out.println(AtraccionesDAOImpl.atraccionesList);
+//		System.out.println(UsuarioDAOImpl.usuariosList);
 	}
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
@@ -35,7 +40,7 @@ public class Sistema {
 	public static void sugerirVisitasYEscribirItinerario() throws IOException {
 		Scanner sc = new Scanner(System.in);
 
-		for (Usuario usuario : UsuarioDAOImpl.usuarios) {
+		for (Usuario usuario : UsuarioDAOImpl.usuariosList) {
 			ordenadorDeVendibles(usuario.getPreferencia());
 
 			for (Vendible oferta : PromocionesDAOImpl.vendiblesList) {
@@ -71,7 +76,10 @@ public class Sistema {
 			}
 			System.out.println(usuario.mostrarItinerario());
 		}
-
+		ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
+		for(Itinerario itinerario : ItinerarioDAOImpl.itinerarioList) {
+			itinerarioDAO.insert(itinerario);
+		}
 	}
 
 	public static void main(String[] args) throws IOException {

@@ -2,6 +2,8 @@ package tierraMedia;
 
 import java.util.ArrayList;
 
+import DAO.ItinerarioDAOImpl;
+
 public class Usuario {
 	protected int id;
 	protected String nombre;
@@ -89,6 +91,18 @@ public class Usuario {
 		return this.getNombre();
 
 	}
+	
+	public void guardarItinerarioEnDAO(Vendible oferta) {
+		Itinerario itinerario;
+		//int id_usuario, Vendible atraccion, Vendible promocion
+		if(oferta.esPromocion()) {
+			itinerario = new Itinerario(this.getId(), null, oferta);
+		} else {
+			itinerario = new Itinerario(this.getId(), oferta, null);
+		}
+		
+		ItinerarioDAOImpl.itinerarioList.add(itinerario);
+	}
 
 	public boolean puedeComprar(Vendible oferta) {
 		if (oferta.getCosto() > this.getPresupuesto()) {
@@ -115,6 +129,7 @@ public class Usuario {
 	public void comprar(Vendible oferta) {
 		this.setOfertasAceptadas(oferta);
 		this.setItinerario(oferta);
+		this.guardarItinerarioEnDAO(oferta);
 		this.restarTiempoDisponible(oferta.getTiempoNecesario());
 		this.restarPresupuesto(oferta.getCosto());
 	}

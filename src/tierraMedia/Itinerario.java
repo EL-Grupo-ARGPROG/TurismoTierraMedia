@@ -6,6 +6,12 @@ public class Itinerario {
 	Vendible atraccion;
 	Vendible promocion;
 	
+	public Itinerario(int id_usuario, Vendible atraccion, Vendible promocion) {
+		this.id_usuario = id_usuario;
+		this.atraccion = atraccion;
+		this.promocion = promocion;
+	}
+	
 	public Itinerario(int id, int id_usuario, Vendible atraccion, Vendible promocion) {
 		this.id = id;
 		this.id_usuario = id_usuario;

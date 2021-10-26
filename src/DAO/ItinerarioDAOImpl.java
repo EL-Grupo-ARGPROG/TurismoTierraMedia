@@ -12,7 +12,7 @@ import tierraMedia.Itinerario;
 import tierraMedia.Vendible;
 
 public class ItinerarioDAOImpl implements GenericDAO<Itinerario> {
-	static List<Itinerario> itinerarioList = new LinkedList<Itinerario>();
+	public static List<Itinerario> itinerarioList = new LinkedList<Itinerario>();
 	
 	private Vendible objectFinder(String nombre) {
 		for(Vendible unidad : PromocionesDAOImpl.vendiblesList) {
@@ -25,7 +25,7 @@ public class ItinerarioDAOImpl implements GenericDAO<Itinerario> {
 	
 	private Itinerario toItinerario(ResultSet result) {
 		try {
-			return new Itinerario(result.getInt(1), result.getInt(2), this.objectFinder(result.getString(3)), this.objectFinder(result.getString(4)));
+			return new Itinerario( result.getInt(2), this.objectFinder(result.getString(3)), this.objectFinder(result.getString(4)));
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
@@ -58,8 +58,14 @@ public class ItinerarioDAOImpl implements GenericDAO<Itinerario> {
 
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setInt(1, t.getId_usuario());
-			statement.setString(2, t.getAtraccion().getNombre());
-			statement.setString(3, t.getPromocion().getNombre());
+			
+			if(t.getAtraccion() == null) {
+				statement.setString(2, null);
+				statement.setString(3, t.getPromocion().getNombre());
+			} else {
+				statement.setString(2, t.getAtraccion().getNombre());
+				statement.setString(3, null);
+			}
 
 			return statement.executeUpdate();
 		} catch (SQLException e) {

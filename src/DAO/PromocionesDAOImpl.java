@@ -116,9 +116,9 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 
 			ResultSet resultsNames = statementNames.executeQuery();
 
-			for (int i = 0; i < atracciones.length; i++) {
+			for (int i = 0; resultsNames.next(); i++) {
 				for (Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
-					if (resultsNames.getString(i+1).equals(atraccion.getNombre())) {
+					if (resultsNames.getString(1).equals(atraccion.getNombre())) {
 						atracciones[i] = atraccion;
 					}
 				}
