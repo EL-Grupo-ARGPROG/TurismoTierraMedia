@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import DAO.PromocionesDAOImpl;
 import tierraMedia.AdministradorDeArchivos;
 import tierraMedia.Atracciones;
 import tierraMedia.Sistema;
@@ -19,13 +20,11 @@ public class OrdenamientoPorPreferenciaTest {
 	
 	@Before
 	public void setUp() {
-		AdministradorDeArchivos.leerArchivoAtracciones("data/atraccionesIN.txt");
-		AdministradorDeArchivos.leerArchivoPromociones("data/promocionesIN.txt");
 		//Agregamos dos Atracciones mas con el mismo precio, pero distinto tiempo.
 		Atracciones mordor2 = new Atracciones("mordor2", 150, 2.5, 5, TiposAtracciones.AVENTURA);
 		Atracciones isla = new Atracciones("La isla misteriosa", 150, 2.6, 0, TiposAtracciones.AVENTURA);
-		AdministradorDeArchivos.getVendibles().add(isla);
-		AdministradorDeArchivos.getVendibles().add(mordor2);
+		PromocionesDAOImpl.vendiblesList.add(isla);
+		PromocionesDAOImpl.vendiblesList.add(mordor2);
 	}
 
 	@Test

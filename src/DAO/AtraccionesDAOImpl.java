@@ -10,6 +10,7 @@ import java.util.List;
 import JDBC.TierraMediaConnectionProvider;
 import tierraMedia.Atracciones;
 import tierraMedia.TiposAtracciones;
+import tierraMedia.Vendible;
 
 public class AtraccionesDAOImpl implements AtraccionesDAO {
 	public static List<Atracciones> atraccionesList = new LinkedList<Atracciones>();
@@ -67,14 +68,14 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	}
 
 	@Override
-	public int update(Atracciones t) {
+	public int update(Vendible atraccion) {
 		try {
-			String query = "UPDATE USUARIOS SET CUPO = ? WHERE NOMBRE = ?";
+			String query = "UPDATE ATRACCIONES SET CUPO = ? WHERE NOMBRE = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setDouble(1, t.getCupo());
-			statement.setString(2, t.getNombre());
+			statement.setDouble(1, atraccion.getCupo());
+			statement.setString(2, atraccion.getNombre());
 
 			return statement.executeUpdate();
 		} catch (SQLException e) {

@@ -70,6 +70,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		try {
 			String query = "UPDATE USUARIOS SET PRESUPUESTO = ?, TIEMPO_DISPONIBLE = ? WHERE ID = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
+			
+			conn.setAutoCommit(false);
 
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setDouble(1, t.getPresupuesto());

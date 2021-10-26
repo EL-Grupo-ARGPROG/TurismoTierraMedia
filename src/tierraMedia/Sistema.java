@@ -15,12 +15,12 @@ import DAO.PromocionesDAOImpl;
 import DAO.UsuarioDAOImpl;
 
 public class Sistema {
+	static UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+	static AtraccionesDAOImpl atraccionDAO = new AtraccionesDAOImpl();
+	static PromocionesDAOImpl promocionDAO = new PromocionesDAOImpl();
+	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 	
 	public static void instanciaDeObjetos() {
-		UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
-		AtraccionesDAOImpl atraccionDAO = new AtraccionesDAOImpl();
-		PromocionesDAOImpl promocionDAO = new PromocionesDAOImpl();
-		
 		usuarioDAO.instanciadorDeUsuarios();
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();
@@ -76,8 +76,11 @@ public class Sistema {
 			}
 			System.out.println(usuario.mostrarItinerario());
 			AdministradorDeArchivos.escribirRecibos(usuario);
+			usuarioDAO.update(usuario);
+			for(Vendible atraccion : usuario.atraccionesAceptadas) {
+				atraccionDAO.update(atraccion);
+			}
 		}
-		ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 		for(Itinerario itinerario : ItinerarioDAOImpl.itinerarioList) {
 			itinerarioDAO.insert(itinerario);
 		}
