@@ -75,6 +75,7 @@ public class Sistema {
 				}
 			}
 			System.out.println(usuario.mostrarItinerario());
+			AdministradorDeArchivos.escribirRecibos(usuario);
 		}
 		ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 		for(Itinerario itinerario : ItinerarioDAOImpl.itinerarioList) {

@@ -119,10 +119,10 @@ public class Usuario {
 				return false;
 			}
 			if (oferta.esPromocion()) {
-				return !((Promociones) oferta).contieneAtraccion(atraccion);
+				if(((Promociones) oferta).contieneAtraccion(atraccion))
+					return false;
 			}
 		}
-
 		return true;
 	}
 
