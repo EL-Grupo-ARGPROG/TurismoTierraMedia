@@ -10,7 +10,7 @@ public class Usuario {
 	protected double presupuesto;
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
-	protected ArrayList<Vendible> atraccionesAceptadas;
+	protected ArrayList<Atracciones> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
 	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
@@ -19,7 +19,7 @@ public class Usuario {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
-		this.atraccionesAceptadas = new ArrayList<Vendible>();
+		this.atraccionesAceptadas = new ArrayList<Atracciones>();
 		this.itinerario = new ArrayList<Vendible>();
 	}
 	
@@ -35,7 +35,7 @@ public class Usuario {
 		this.tiempoDisponible -= tiempo;
 	}
 
-	public void guardaSugerencia(Vendible oferta) {
+	public void guardaSugerencia(Atracciones oferta) {
 		this.atraccionesAceptadas.add(oferta);
 	}
 
@@ -55,16 +55,16 @@ public class Usuario {
 		return preferencia;
 	}
 
-	public ArrayList<Vendible> getAtraccionesAceptadas() {
+	public ArrayList<Atracciones> getAtraccionesAceptadas() {
 		return atraccionesAceptadas;
 	}
 
-	public ArrayList<Vendible> setOfertasAceptadas(Vendible oferta) {
+	public ArrayList<Atracciones> setOfertasAceptadas(Vendible oferta) {
 		if (oferta.esPromocion()) {
-			for (Vendible atraccion : ((Promociones) oferta).getPack())
+			for (Atracciones atraccion : ((Promociones) oferta).getPack())
 				atraccionesAceptadas.add(atraccion);
 		} else {
-			atraccionesAceptadas.add(oferta);
+			atraccionesAceptadas.add((Atracciones) oferta);
 		}
 		return atraccionesAceptadas;
 	}
