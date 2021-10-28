@@ -104,22 +104,6 @@ VALUES (1, "Eowyn",400,8,"AVENTURA"),
 (6, "Golum",100,3,"PAISAJE"),
 (7, "Aragog",1000,2.5,"AVENTURA");
 
-INSERT INTO "Pack_Atracciones"
-VALUES (1, "Bosque Negro"),
-(1, "Mordor"),
-(2, "Lothlorein"),
-(2, "La Comarca"),
-(3, "Minas Tirith"),
-(3, "Abismo de Helm"),
-(3, "Erebor"),
-(4, "Erebor"),
-(4, "Minas Tirith"),
-(5, "Moria"),
-(5, "Mordor"),
-(5, "Bosque Negro"),
-(6, "Lothlorein"),
-(6, "La Comarca"),
-(6, "Los Arboles Del Infinito");
 
 INSERT INTO "Tipos_Promos"
 VALUES ("PORCENTUAL"),
@@ -145,4 +129,23 @@ VALUES("ABSOLUTA","Pack Aventura 2",300, NULL, NULL,"AVENTURA",5);
 INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
                             "beneficio_AxB", "tipo_tematica", "id_pack")
 VALUES("AxB","Pack Degustacion 2",NULL, NULL, "La Comarca","DEGUSTACION",6);
+
+
+INSERT INTO "Pack_Atracciones"
+VALUES (1, "Bosque Negro"),
+(1, "Mordor"),
+(2, "Lothlorein"),
+(2, "La Comarca"),
+(3, "Minas Tirith"),
+(3, "Abismo de Helm"),
+(3, "Erebor"),
+(4, "Erebor"),
+(4, "Minas Tirith"),
+(5, "Moria"),
+(5, "Mordor"),
+(5, "Bosque Negro"),
+(6, "Lothlorein"),
+(6, "La Comarca"),
+(6, "Los Arboles Del Infinito");
+
 

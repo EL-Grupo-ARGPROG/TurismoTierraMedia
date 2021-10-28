@@ -22,9 +22,9 @@ public class OrdenamientoPorPreferenciaTest {
 	
 	@Before
 	public void setUp() {
-//		//Agregamos dos Atracciones mas con el mismo precio, pero distinto tiempo.
-//		Atracciones mordor2 = new Atracciones("mordor2", 150, 2.5, 5, TiposAtracciones.AVENTURA);
-//		Atracciones isla = new Atracciones("La isla misteriosa", 150, 2.6, 0, TiposAtracciones.AVENTURA);
+		//Agregamos dos Atracciones mas con el mismo precio, pero distinto tiempo.
+		Atracciones mordor2 = new Atracciones("mordor2", 150, 2.5, 5, TiposAtracciones.AVENTURA);
+		Atracciones isla = new Atracciones("La isla misteriosa", 150, 2.6, 0, TiposAtracciones.AVENTURA);
 		
 		UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
 		AtraccionesDAOImpl atraccionDAO = new AtraccionesDAOImpl();
@@ -34,13 +34,14 @@ public class OrdenamientoPorPreferenciaTest {
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();
 		
-//		PromocionesDAOImpl.vendiblesList.add(isla);
-//		PromocionesDAOImpl.vendiblesList.add(mordor2);
+		PromocionesDAOImpl.vendiblesList.add(isla);
+		PromocionesDAOImpl.vendiblesList.add(mordor2);
 	}
 
 	@Test
 	public void lasAtraccionesDePreferenciaSeMuestranPrimero() {
-		String[] algo = {"Pack Aventura 2", "Pack Aventura", "Mordor", "Moria", "Bosque Negro",
+		String[] algo = {"Pack Aventura 2", "Pack Aventura", "Mordor",
+				"La isla misteriosa", "mordor2", "Moria", "Bosque Negro",
 				"Pack Degustacion 2", "Pack Degustacion", "Pack Paisajes",
 				"Pack Paisaje 2", "Erebor", "Lothlorein", "La Comarca",
 				"Los Arboles Del Infinito", "Abismo de Helm", "Minas Tirith"};
