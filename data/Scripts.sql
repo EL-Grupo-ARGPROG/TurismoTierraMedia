@@ -1,8 +1,10 @@
+DROP TABLE IF EXISTS "Tipos_Tematicas"
 CREATE TABLE "Tipos_Tematicas" (
 	"Nombre"	TEXT NOT NULL,
 	PRIMARY KEY("Nombre")
 );
 
+DROP TABLE IF EXISTS "Atracciones"
 CREATE TABLE "Atracciones" (
 	"nombre"	TEXT NOT NULL,
 	"costo"	NUMERIC,
@@ -13,6 +15,7 @@ CREATE TABLE "Atracciones" (
 	PRIMARY KEY("nombre")
 );
 
+DROP TABLE IF EXISTS "Usuarios"
 CREATE TABLE "Usuarios" (
 	"id"	INTEGER NOT NULL,
 	"nombre"	TEXT,
@@ -23,6 +26,7 @@ CREATE TABLE "Usuarios" (
 	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre")
 );
 
+DROP TABLE IF EXISTS "Pack_Atracciones"
 CREATE TABLE "Pack_Atracciones" (
 	"id"	INTEGER NOT NULL,
 	"nombre_atraccion"	TEXT,
@@ -30,11 +34,13 @@ CREATE TABLE "Pack_Atracciones" (
 	FOREIGN KEY("nombre_atraccion") REFERENCES "Atracciones"("nombre")
 );
 
+DROP TABLE IF EXISTS "Tipos_Promos"
 CREATE TABLE "Tipos_Promos" (
 	"nombre"	TEXT NOT NULL,
 	PRIMARY KEY("nombre")
 );
 
+DROP TABLE IF EXISTS "Promociones"
 CREATE TABLE "Promociones" (
 	"nombre"	TEXT NOT NULL,
 	"id_pack"	INTEGER NOT NULL,
@@ -49,6 +55,7 @@ CREATE TABLE "Promociones" (
 	FOREIGN KEY("id_pack") REFERENCES "Pack_Atracciones"("id")
 );
 
+DROP TABLE IF EXISTS "Ventas"
 CREATE TABLE "Ventas" (
 	"id"	INTEGER,
 	"id_usuario"	INTEGER NOT NULL,
@@ -60,6 +67,7 @@ CREATE TABLE "Ventas" (
 	PRIMARY KEY("id")
 );
 
+DROP TABLE IF EXISTS "Itinerario"
 CREATE TABLE "Itinerario" (
 	"id"	INTEGER,
 	"id_usuario"	INTEGER NOT NULL,
@@ -118,12 +126,23 @@ VALUES ("PORCENTUAL"),
 ("ABSOLUTA"),
 ("AxB");
 
+
 INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
                             "beneficio_AxB", "tipo_tematica", "id_pack")
-VALUES ("PORCENTUAL","Pack Aventura",NULL,20, NULL,"AVENTURA",1),
-("ABSOLUTA","Pack Degustacion",200, NULL, NULL,"DEGUSTACION",2),
-("AxB","Pack Paisajes",NULL, NULL, "Erebor","PAISAJE",3),
-("PORCENTUAL","Pack Paisaje 2",NULL, 15,NULL,"PAISAJE",4),
-("ABSOLUTA","Pack Aventura 2",300, NULL, NULL,"AVENTURA",5),
-("AxB","Pack Degustacion 2",NULL, NULL, "La Comarca","DEGUSTACION",6);
+VALUES ("PORCENTUAL","Pack Aventura",NULL,20, NULL,"AVENTURA",1);
+INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
+                            "beneficio_AxB", "tipo_tematica", "id_pack")
+VALUES("ABSOLUTA","Pack Degustacion",200, NULL, NULL,"DEGUSTACION",2);
+INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
+                            "beneficio_AxB", "tipo_tematica", "id_pack")
+VALUES("AxB","Pack Paisajes",NULL, NULL, "Erebor","PAISAJE",3);
+INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
+                            "beneficio_AxB", "tipo_tematica", "id_pack")
+VALUES("PORCENTUAL","Pack Paisaje 2",NULL, 15,NULL,"PAISAJE",4);
+INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
+                            "beneficio_AxB", "tipo_tematica", "id_pack")
+VALUES("ABSOLUTA","Pack Aventura 2",300, NULL, NULL,"AVENTURA",5);
+INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
+                            "beneficio_AxB", "tipo_tematica", "id_pack")
+VALUES("AxB","Pack Degustacion 2",NULL, NULL, "La Comarca","DEGUSTACION",6);
 
