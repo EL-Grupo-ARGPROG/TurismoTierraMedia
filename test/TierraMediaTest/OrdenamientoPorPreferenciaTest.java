@@ -11,7 +11,6 @@ import org.junit.Test;
 import DAO.AtraccionesDAOImpl;
 import DAO.PromocionesDAOImpl;
 import DAO.UsuarioDAOImpl;
-import tierraMedia.AdministradorDeArchivos;
 import tierraMedia.Atracciones;
 import tierraMedia.Sistema;
 import tierraMedia.TiposAtracciones;
@@ -36,22 +35,16 @@ public class OrdenamientoPorPreferenciaTest {
 		
 		PromocionesDAOImpl.vendiblesList.add(isla);
 		PromocionesDAOImpl.vendiblesList.add(mordor2);
+		
 	}
 
 	@Test
 	public void lasAtraccionesDePreferenciaSeMuestranPrimero() {
-		String[] algo = {"Pack Aventura 2", "Pack Aventura", "Mordor",
-				"La isla misteriosa", "mordor2", "Moria", "Bosque Negro",
-				"Pack Degustacion 2", "Pack Degustacion", "Pack Paisajes",
-				"Pack Paisaje 2", "Erebor", "Lothlorein", "La Comarca",
-				"Los Arboles Del Infinito", "Abismo de Helm", "Minas Tirith"};
 		
-		List<Vendible> pepe = Sistema.ordenadorDeVendibles(TiposAtracciones.AVENTURA);
-		for(int i = 0; i < algo.length; i++) {
-			assertEquals(algo[i], pepe.get(i).getNombre());
+			
+			System.out.println(PromocionesDAOImpl.vendiblesList);
 			
 		}
-		System.out.println(pepe);
 //		//Promociones Aventura, primero la mas cara.
 //		assertEquals("Pack Aventura 2", pepe.get(0).getNombre());
 //		assertEquals("Pack Aventura", pepe.get(1).getNombre());
@@ -76,4 +69,3 @@ public class OrdenamientoPorPreferenciaTest {
 //		assertEquals("Minas Tirith", pepe.get(16).getNombre());
 	}
 
-}

@@ -1,0 +1,9 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Eowyn
+Preferencias: AVENTURA
+
+ITINERARIO:
+Eowyn, este es tu itinerario:
+
+TOTAL: 0.0H    0.0$

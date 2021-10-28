@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class AdministradorDeArchivos {
+public class EscritorDeRecibos {
 
 	public static void escribirRecibos(Usuario usuario) throws IOException {
 		PrintWriter salida = null;

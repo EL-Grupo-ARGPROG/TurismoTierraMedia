@@ -1,73 +1,4 @@
-DROP TABLE IF EXISTS "Tipos_Tematicas"
-CREATE TABLE "Tipos_Tematicas" (
-	"Nombre"	TEXT NOT NULL,
-	PRIMARY KEY("Nombre")
-);
-
-DROP TABLE IF EXISTS "Atracciones"
-CREATE TABLE "Atracciones" (
-	"nombre"	TEXT NOT NULL,
-	"costo"	NUMERIC,
-	"tiempo_necesario"	INTEGER,
-	"cupo"	INTEGER,
-	"tipo_tematica"	TEXT,
-	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
-	PRIMARY KEY("nombre")
-);
-
-DROP TABLE IF EXISTS "Usuarios"
-CREATE TABLE "Usuarios" (
-	"id"	INTEGER NOT NULL,
-	"nombre"	TEXT,
-	"presupuesto"	NUMERIC,
-	"tiempo_disponible"	NUMERIC,
-	"tipo_preferencia"	TEXT,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre")
-);
-
-DROP TABLE IF EXISTS "Pack_Atracciones"
-CREATE TABLE "Pack_Atracciones" (
-	"id"	INTEGER NOT NULL,
-	"nombre_atraccion"	TEXT,
-	PRIMARY KEY("id","nombre_atraccion"),
-	FOREIGN KEY("nombre_atraccion") REFERENCES "Atracciones"("nombre")
-);
-
-DROP TABLE IF EXISTS "Tipos_Promos"
-CREATE TABLE "Tipos_Promos" (
-	"nombre"	TEXT NOT NULL,
-	PRIMARY KEY("nombre")
-);
-
-DROP TABLE IF EXISTS "Promociones"
-CREATE TABLE "Promociones" (
-	"nombre"	TEXT NOT NULL,
-	"id_pack"	INTEGER NOT NULL,
-	"tipo_tematica"	TEXT,
-	"tipo_promo"	TEXT,
-	"beneficio_Abs"	NUMERIC,
-	"beneficio_Porcen"	NUMERIC,
-	"beneficio_AxB"	TEXT,
-	PRIMARY KEY("id_pack" AUTOINCREMENT),
-	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
-	FOREIGN KEY("tipo_promo") REFERENCES "Tipos_Promos"("nombre"),
-	FOREIGN KEY("id_pack") REFERENCES "Pack_Atracciones"("id")
-);
-
-DROP TABLE IF EXISTS "Ventas"
-CREATE TABLE "Ventas" (
-	"id"	INTEGER,
-	"id_usuario"	INTEGER NOT NULL,
-	"atraccion"	TEXT,
-	"promocion"	TEXT,
-	FOREIGN KEY("id_usuario") REFERENCES "Usuarios"("id"),
-	FOREIGN KEY("promocion") REFERENCES "Promociones"("nombre"),
-	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre"),
-	PRIMARY KEY("id")
-);
-
-DROP TABLE IF EXISTS "Itinerario"
+DROP TABLE IF EXISTS "Itinerario";
 CREATE TABLE "Itinerario" (
 	"id"	INTEGER,
 	"id_usuario"	INTEGER NOT NULL,
@@ -78,6 +9,68 @@ CREATE TABLE "Itinerario" (
 	FOREIGN KEY("id_usuario") REFERENCES "Usuarios"("id"),
 	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre")
 );
+
+DROP TABLE IF EXISTS "Pack_Atracciones";
+CREATE TABLE "Pack_Atracciones" (
+	"id"	INTEGER NOT NULL,
+	"nombre_atraccion"	TEXT,
+	FOREIGN KEY("nombre_atraccion") REFERENCES "Atracciones"("nombre"),
+	FOREIGN KEY ("id") REFERENCES "Promociones" ("id_pack")
+	PRIMARY KEY("id","nombre_atraccion")
+);
+
+DROP TABLE IF EXISTS "Promociones";
+CREATE TABLE "Promociones" (
+	"nombre"	TEXT NOT NULL,
+	"id_pack"	INTEGER NOT NULL,
+	"tipo_tematica"	TEXT,
+	"tipo_promo"	TEXT,
+	"beneficio_Abs"	NUMERIC,
+	"beneficio_Porcen"	NUMERIC,
+	"beneficio_AxB"	TEXT,
+	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
+	FOREIGN KEY("tipo_promo") REFERENCES "Tipos_Promos"("nombre"),
+	PRIMARY KEY("id_pack" AUTOINCREMENT)
+);
+
+DROP TABLE IF EXISTS "Tipos_Promos";
+CREATE TABLE "Tipos_Promos" (
+	"nombre"	TEXT NOT NULL,
+	PRIMARY KEY("nombre")
+);
+
+DROP TABLE IF EXISTS "Usuarios";
+CREATE TABLE "Usuarios" (
+	"id"	INTEGER NOT NULL,
+	"nombre"	TEXT,
+	"presupuesto"	NUMERIC,
+	"tiempo_disponible"	NUMERIC,
+	"tipo_preferencia"	TEXT,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre")
+);
+
+DROP TABLE IF EXISTS "Atracciones";
+CREATE TABLE "Atracciones" (
+	"nombre"	TEXT NOT NULL,
+	"costo"	NUMERIC,
+	"tiempo_necesario"	INTEGER,
+	"cupo"	INTEGER,
+	"tipo_tematica"	TEXT,
+	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
+	PRIMARY KEY("nombre")
+);
+
+
+DROP TABLE IF EXISTS "Tipos_Tematicas";
+CREATE TABLE "Tipos_Tematicas" (
+	"Nombre"	TEXT NOT NULL,
+	PRIMARY KEY("Nombre")
+);
+
+
+
+
 
 INSERT INTO "Tipos_Tematicas"
 VALUES ("AVENTURA"),
@@ -147,5 +140,4 @@ VALUES (1, "Bosque Negro"),
 (6, "Lothlorein"),
 (6, "La Comarca"),
 (6, "Los Arboles Del Infinito");
-
 

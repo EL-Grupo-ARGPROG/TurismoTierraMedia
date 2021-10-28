@@ -75,12 +75,13 @@ public class Sistema {
 				}
 			}
 			System.out.println(usuario.mostrarItinerario());
-			AdministradorDeArchivos.escribirRecibos(usuario);
+			EscritorDeRecibos.escribirRecibos(usuario);
 			usuarioDAO.update(usuario);
 			for(Vendible atraccion : usuario.atraccionesAceptadas) {
 				atraccionDAO.update(atraccion);
 			}
 		}
+		System.out.println("Gracias por usar los servicios de GAMGEE TOURISM AGENCY");
 		for(Itinerario itinerario : ItinerarioDAOImpl.itinerarioList) {
 			itinerarioDAO.insert(itinerario);
 		}
