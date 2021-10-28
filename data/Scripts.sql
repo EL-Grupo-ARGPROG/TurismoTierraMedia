@@ -19,15 +19,15 @@ CREATE TABLE "Usuarios" (
 	"presupuesto"	NUMERIC,
 	"tiempo_disponible"	NUMERIC,
 	"tipo_preferencia"	TEXT,
-	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre"),
-	PRIMARY KEY("id" AUTOINCREMENT)
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre")
 );
 
 CREATE TABLE "Pack_Atracciones" (
 	"id"	INTEGER NOT NULL,
 	"nombre_atraccion"	TEXT,
-	FOREIGN KEY("nombre_atraccion") REFERENCES "Atracciones"("nombre"),
-	PRIMARY KEY("id","nombre_atraccion")
+	PRIMARY KEY("id","nombre_atraccion"),
+	FOREIGN KEY("nombre_atraccion") REFERENCES "Atracciones"("nombre")
 );
 
 CREATE TABLE "Tipos_Promos" (
@@ -43,10 +43,10 @@ CREATE TABLE "Promociones" (
 	"beneficio_Abs"	NUMERIC,
 	"beneficio_Porcen"	NUMERIC,
 	"beneficio_AxB"	TEXT,
-	FOREIGN KEY("id_pack") REFERENCES "Pack_Atracciones"("id"),
+	PRIMARY KEY("id_pack" AUTOINCREMENT),
 	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
 	FOREIGN KEY("tipo_promo") REFERENCES "Tipos_Promos"("nombre"),
-	PRIMARY KEY("nombre")
+	FOREIGN KEY("id_pack") REFERENCES "Pack_Atracciones"("id")
 );
 
 CREATE TABLE "Ventas" (
@@ -58,6 +58,17 @@ CREATE TABLE "Ventas" (
 	FOREIGN KEY("promocion") REFERENCES "Promociones"("nombre"),
 	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre"),
 	PRIMARY KEY("id")
+);
+
+CREATE TABLE "Itinerario" (
+	"id"	INTEGER,
+	"id_usuario"	INTEGER NOT NULL,
+	"atraccion"	TEXT,
+	"promocion"	TEXT,
+	PRIMARY KEY("id"),
+	FOREIGN KEY("promocion") REFERENCES "Promociones"("nombre"),
+	FOREIGN KEY("id_usuario") REFERENCES "Usuarios"("id"),
+	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre")
 );
 
 INSERT INTO "Tipos_Tematicas"
