@@ -6,4 +6,8 @@ Preferencias: AVENTURA
 ITINERARIO:
 Aragog, este es tu itinerario:
 
-TOTAL: 0.0H    0.0$
+Atraccion: Moria
+Costo: 100.0$
+Tiempo de excursion 2.0H
+
+TOTAL: 2.0H    100.0$

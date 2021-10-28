@@ -6,4 +6,8 @@ Preferencias: PAISAJE
 ITINERARIO:
 Golum, este es tu itinerario:
 
-TOTAL: 0.0H    0.0$
+Atraccion: Minas Tirith
+Costo: 75.0$
+Tiempo de excursion 2.5H
+
+TOTAL: 2.5H    75.0$

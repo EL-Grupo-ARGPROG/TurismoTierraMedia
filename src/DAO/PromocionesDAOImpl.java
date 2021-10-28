@@ -19,10 +19,9 @@ import tierraMedia.Usuario;
 import tierraMedia.Vendible;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
-	public static List<Vendible> vendiblesList = setVendiblesList();
+	public static List<Vendible> vendiblesList = new LinkedList<Vendible>();
 	
 	private static List<Vendible> setVendiblesList() {
-		vendiblesList = new LinkedList<Vendible>();
 		for(Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
 			vendiblesList.add(atraccion);
 		}
@@ -69,6 +68,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	}
 	
 	public void instanciadorDePromociones() {
+		setVendiblesList();
 		try {
 			String query = "SELECT * FROM PROMOCIONES"; // 1
 			Connection conn = TierraMediaConnectionProvider.getConnection();

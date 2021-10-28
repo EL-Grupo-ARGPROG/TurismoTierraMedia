@@ -6,4 +6,8 @@ Preferencias: DEGUSTACION
 ITINERARIO:
 Sam, este es tu itinerario:
 
-TOTAL: 0.0H    0.0$
+Atraccion: Lothlorein
+Costo: 135.0$
+Tiempo de excursion 1.0H
+
+TOTAL: 1.0H    135.0$
