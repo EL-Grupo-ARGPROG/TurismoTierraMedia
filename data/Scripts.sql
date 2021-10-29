@@ -105,7 +105,7 @@ VALUES ("PORCENTUAL"),
 
 
 INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
-                            "beneficio_AxB", "tipo_tematica", "id_pack")
+                            "beneficio_AxB", "tipo_tematica","id_pack")
 VALUES ("PORCENTUAL","Pack Aventura",NULL,20, NULL,"AVENTURA",1);
 INSERT INTO "Promociones" ("tipo_promo", "nombre", "beneficio_Abs", "beneficio_porcen",
                             "beneficio_AxB", "tipo_tematica", "id_pack")
