@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +17,7 @@ import tierraMedia.Porcentual;
 import tierraMedia.Promociones;
 import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
+import tierraMedia.Vendible;
 
 public class PromocionesTest {
 	Atracciones isla;
@@ -22,9 +26,11 @@ public class PromocionesTest {
 	Promociones promoAbsoluta;
 	Promociones promoPorcentual;
 	Promociones promoAxB;
+	ArrayList<Vendible> itinerario;
 	
 	@Before
 	public void setUp() {
+		itinerario = new ArrayList<Vendible>();
 		isla = new Atracciones("La isla Misteriosa", 350, 2.3, 7, null);
 		mordor = new Atracciones("Mordor", 200 ,2, 2, null);
 		fantasma = new Atracciones("El fantasma", 450, 2.6, 0, null);
@@ -62,7 +68,7 @@ public class PromocionesTest {
 	
 	@Test
 	public void puedeComprarTest() {
-		Usuario u1 = new Usuario(1, "Tomas", 500, 20, TiposAtracciones.PAISAJE);
+		Usuario u1 = new Usuario(1, "Tomas", 500, 20, TiposAtracciones.PAISAJE, itinerario);
 		Atracciones mordor = new Atracciones("mordor", 150, 2.5, 2, TiposAtracciones.PAISAJE);
 		Atracciones pepe = new Atracciones("pepe", 120, 2.3, 7, null);
 		Atracciones jose = new Atracciones("jose", 150, 2.6, 2, null);

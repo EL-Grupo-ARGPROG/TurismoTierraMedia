@@ -15,21 +15,11 @@ import tierraMedia.Vendible;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 	public static List<Usuario> usuariosList = new LinkedList<Usuario>();
-	ArrayList<Vendible> itinerarioUsuario;
+	public static ArrayList<Vendible> itinerarioUsuario;
 
 	private Usuario toUsuario(ResultSet result) {
-		// constructor: (String nombre, double presupuesto, double tiempoDisponible,
-		// TiposAtracciones preferencia)
+
 		try {
-
-//			for(Vendible vendible : PromocionesDAOImpl.vendiblesList) {
-//				if(result.getString(8) == vendible.getNombre()) {
-//					itinerarioUsuario.add(vendible);
-//				} else if (result.getString(9) == vendible.getNombre()) {
-//					itinerarioUsuario.add(vendible);
-//				}
-//			}
-
 			return new Usuario(result.getInt(1), result.getString(2), result.getDouble(3), result.getDouble(4),
 					TiposAtracciones.valueOf(result.getString(5)), itinerarioUsuario);
 		} catch (SQLException e) {
@@ -37,7 +27,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 	
-	public ArrayList<Vendible> creadorDeArrayItinerario(ResultSet result) {
+	public static ArrayList<Vendible> creadorDeArrayItinerario(ResultSet result) {
 		try {
 			for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
 				if (result.getString(3) == vendible.getNombre()) {
@@ -69,7 +59,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				itinerarioUsuario = new ArrayList<Vendible>();
 				statement2.setInt(1, results1.getInt(1));
 				while (results2.next()) {
-					this.creadorDeArrayItinerario(results2);
+					creadorDeArrayItinerario(results2);
 				}
 				usuariosList.add(toUsuario(results1));
 			}

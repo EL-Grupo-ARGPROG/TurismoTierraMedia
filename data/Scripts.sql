@@ -86,7 +86,7 @@ VALUES ("Moria",100,2,6,"AVENTURA"),
 ("Lothlorein",135,1,30,"DEGUSTACION"),
 ("Erebor",160,3,32,"PAISAJE"),
 ("Bosque Negro",95,4,12,"AVENTURA"),
-("Los Arboles Del Infinito",115,2,5,"DEGUSTACION");
+("Los Arboles Del Infinito",115,1.5,5,"DEGUSTACION");
 
 INSERT INTO "Usuarios"
 VALUES (1, "Eowyn",400,8,"AVENTURA"),
