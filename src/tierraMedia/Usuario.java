@@ -13,14 +13,14 @@ public class Usuario {
 	protected ArrayList<Atracciones> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
-	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia) {
+	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario) {
 		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Atracciones>();
-		this.itinerario = new ArrayList<Vendible>();
+		this.itinerario = itinerario;
 	}
 	
 	public int getId() {

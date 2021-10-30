@@ -1,0 +1,17 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Sam
+Preferencias: DEGUSTACION
+
+ITINERARIO:
+Sam, este es tu itinerario:
+
+Atraccion: La Comarca
+Costo: 120.0$
+Tiempo de excursion 6.5H
+ 
+Atraccion: Lothlorein
+Costo: 135.0$
+Tiempo de excursion 1.0H
+
+TOTAL: 7.5H    200.0$

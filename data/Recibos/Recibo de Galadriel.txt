@@ -1,0 +1,17 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Galadriel
+Preferencias: AVENTURA
+
+ITINERARIO:
+Galadriel, este es tu itinerario:
+
+Atraccion: Mordor
+Costo: 175.0$
+Tiempo de excursion 3.0H
+
+Atraccion: Moria
+Costo: 100.0$
+Tiempo de excursion 2.0H
+
+TOTAL: 5.0H    275.0$

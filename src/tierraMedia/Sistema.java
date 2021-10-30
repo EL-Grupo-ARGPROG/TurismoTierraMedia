@@ -21,9 +21,9 @@ public class Sistema {
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 	
 	public static void instanciaDeObjetos() {
-		usuarioDAO.instanciadorDeUsuarios();
-		atraccionDAO.instanciadorDeAtracciones();
-		promocionDAO.instanciadorDePromociones();
+			atraccionDAO.instanciadorDeAtracciones();
+			promocionDAO.instanciadorDePromociones();
+			usuarioDAO.instanciadorDeUsuarios();
 		
 //		System.out.println(PromocionesDAOImpl.vendiblesList);
 //		System.out.println(AtraccionesDAOImpl.atraccionesList);

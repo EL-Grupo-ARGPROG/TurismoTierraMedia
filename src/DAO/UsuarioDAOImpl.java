@@ -4,38 +4,76 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import JDBC.TierraMediaConnectionProvider;
 import tierraMedia.TiposAtracciones;
 import tierraMedia.Usuario;
+import tierraMedia.Vendible;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 	public static List<Usuario> usuariosList = new LinkedList<Usuario>();
+	ArrayList<Vendible> itinerarioUsuario;
 
 	private Usuario toUsuario(ResultSet result) {
 		// constructor: (String nombre, double presupuesto, double tiempoDisponible,
 		// TiposAtracciones preferencia)
 		try {
+
+//			for(Vendible vendible : PromocionesDAOImpl.vendiblesList) {
+//				if(result.getString(8) == vendible.getNombre()) {
+//					itinerarioUsuario.add(vendible);
+//				} else if (result.getString(9) == vendible.getNombre()) {
+//					itinerarioUsuario.add(vendible);
+//				}
+//			}
+
 			return new Usuario(result.getInt(1), result.getString(2), result.getDouble(3), result.getDouble(4),
-					TiposAtracciones.valueOf(result.getString(5)));
+					TiposAtracciones.valueOf(result.getString(5)), itinerarioUsuario);
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
 	}
 	
+	public ArrayList<Vendible> creadorDeArrayItinerario(ResultSet result) {
+		try {
+			for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
+				if (result.getString(3) == vendible.getNombre()) {
+					itinerarioUsuario.add(vendible);
+				} else if (result.getString(4) == vendible.getNombre()) {
+					itinerarioUsuario.add(vendible);
+				}
+			}
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		return itinerarioUsuario;
+
+	}
+
 	public void instanciadorDeUsuarios() {
 		try {
-			String query = "SELECT * FROM USUARIOS";
+			String query1 = "SELECT * FROM USUARIOS";
+			String query2 = "SELECT * FROM ITINERARIO WHERE ID_USUARIO = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
-			PreparedStatement statement = conn.prepareStatement(query);
-			ResultSet results = statement.executeQuery();
-
-			while (results.next()) {
-				usuariosList.add(toUsuario(results));
+			PreparedStatement statement1 = conn.prepareStatement(query1);
+			PreparedStatement statement2 = conn.prepareStatement(query2);
+			ResultSet results1 = statement1.executeQuery();
+			ResultSet results2 = statement2.executeQuery();
+			
+			
+			while(results1.next()) {
+				itinerarioUsuario = new ArrayList<Vendible>();
+				statement2.setInt(1, results1.getInt(1));
+				while (results2.next()) {
+					this.creadorDeArrayItinerario(results2);
+				}
+				usuariosList.add(toUsuario(results1));
 			}
+			
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
@@ -49,7 +87,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int insert(Usuario t) {
 		try {
-			String query = "INSERT INTO USUARIO(ID, NOMBRE, PRESUPUESTO, TIEMPO_DISPONIBLE, TIPO_PREFERENCIA)" + "VALUES(?, ?, ?, ?, ?)";
+			String query = "INSERT INTO USUARIO(ID, NOMBRE, PRESUPUESTO, TIEMPO_DISPONIBLE, TIPO_PREFERENCIA)"
+					+ "VALUES(?, ?, ?, ?, ?)";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(query);
@@ -71,7 +110,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		try {
 			String query = "UPDATE USUARIOS SET PRESUPUESTO = ?, TIEMPO_DISPONIBLE = ? WHERE ID = ?";
 			conn = TierraMediaConnectionProvider.getConnection();
-			
+
 //			conn.setAutoCommit(false);
 
 			PreparedStatement statement = conn.prepareStatement(query);
