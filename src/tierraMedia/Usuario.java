@@ -1,6 +1,7 @@
 package tierraMedia;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import DAO.ItinerarioDAOImpl;
 
@@ -13,14 +14,14 @@ public class Usuario {
 	protected ArrayList<Atracciones> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
-	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario) {
+	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario2) {
 		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Atracciones>();
-		this.itinerario = itinerario;
+		this.itinerario = itinerario2;
 	}
 	
 	public int getId() {
@@ -113,6 +114,11 @@ public class Usuario {
 		}
 		if (!oferta.hayCupo()) {
 			return false;
+		}
+		for (Vendible vendible: this.itinerario) {
+			if (vendible.equals(oferta)) {
+				return false;
+			}
 		}
 		for (Vendible atraccion : this.getAtraccionesAceptadas()) {
 			if (oferta.equals(atraccion)) {
