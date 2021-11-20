@@ -1,0 +1,57 @@
+:root {
+  /* --verde: rgba(117, 231, 126, 0.836); */
+  /* --verde-light: rgba(151, 224, 157, 0.55); */
+  --verde-dark: rgb(36, 124, 70);
+  --verde: rgb(62, 184, 98);
+  --mint: hsla(151, 54%, 76%, 1);
+}
+
+.bg-verde {
+  background: var(--verde);
+  color: white;
+}
+
+.bg-verde-dark {
+  background: var(--verde-dark);
+  color: white;
+}
+
+.bg-mint {
+  background: var(--mint);
+  color: white;
+}
+
+body {
+  margin: 0 !important;
+}
+
+.img-carrusel {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.form-select-border-width {
+  width: 200px;
+  margin-right: 25px;
+  margin-left: 25px;
+  background: var(--mint);
+  box-shadow: 5px 4px 14px 4px rgba(41, 56, 49, 0.77);
+}
+
+.center-element {
+  display: flex;
+  justify-content: center;
+}
+
+.boton-listado {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  color: rgb(201, 238, 216);
+  padding: 15px;
+  text-shadow: 7px 5px 6px #678a80;
+}
