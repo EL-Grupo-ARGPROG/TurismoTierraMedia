@@ -1,9 +1,12 @@
 :root {
-  /* --verde: rgba(117, 231, 126, 0.836); */
-  /* --verde-light: rgba(151, 224, 157, 0.55); */
   --verde-dark: rgb(36, 124, 70);
   --verde: rgb(62, 184, 98);
   --mint: hsla(151, 54%, 76%, 1);
+}
+
+body {
+  background-image: url(img/fondo.jpg);
+  background-attachment: fixed;
 }
 
 .bg-verde {
@@ -54,4 +57,8 @@ body {
   color: rgb(201, 238, 216);
   padding: 15px;
   text-shadow: 7px 5px 6px #678a80;
+}
+
+#by {
+  text-align: right;
 }
