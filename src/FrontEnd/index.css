@@ -70,3 +70,18 @@ body {
 #by {
   text-align: right;
 }
+
+.card-title {
+  font-family: Estonia;
+  font-size: 48px;
+  text-shadow: 6px 6px 5px #000000;
+}
+
+.navbar-brand {
+  font-family: Estonia;
+  font-size: 36px;
+}
+
+.navbar {
+  padding: 0;
+}
