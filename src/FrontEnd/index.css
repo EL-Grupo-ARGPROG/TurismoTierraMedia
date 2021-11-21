@@ -1,6 +1,6 @@
 :root {
   --verde-dark: rgb(36, 124, 70);
-  --verde: rgb(62, 184, 98);
+  --verde: rgba(68, 133, 87, 0.9);
   --mint: hsla(151, 54%, 76%, 1);
 }
 
@@ -17,6 +17,10 @@ body {
 .bg-verde-dark {
   background: var(--verde-dark);
   color: white;
+}
+
+.bg-celeste {
+  background: #456990;
 }
 
 .bg-mint {
@@ -46,11 +50,15 @@ body {
   justify-content: center;
 }
 
-.boton-listado {
+.boton-filtro {
   margin: 10px;
   padding: 10px;
   display: flex;
   justify-content: center;
+}
+
+.boton-filtro > button {
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.7);
 }
 
 .text-center {

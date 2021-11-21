@@ -9,3 +9,11 @@
 #listado-cartas {
   margin: 1px 7px 15px 4px;
 }
+
+#filtro {
+  margin-top: 14px;
+}
+
+.select-filtro {
+  margin: 6px;
+}
