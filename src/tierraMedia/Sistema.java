@@ -1,4 +1,3 @@
-
 package tierraMedia;
 
 import java.io.IOException;

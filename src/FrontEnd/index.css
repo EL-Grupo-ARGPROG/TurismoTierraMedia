@@ -1,7 +1,8 @@
 :root {
   --verde-dark: rgb(36, 124, 70);
-  --verde: rgba(68, 133, 87, 0.9);
-  --mint: hsla(151, 54%, 76%, 1);
+  --verde: rgb(68, 133, 88);
+  --mint: rgba(161, 227, 195, 0.671);
+  --verde-light: rgb(96, 187, 131);
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 
 .bg-verde {
   background: var(--verde);
-  color: white;
+  color: rgba(255, 255, 255, 0.966);
 }
 
 .bg-verde-dark {
@@ -19,8 +20,9 @@ body {
   color: white;
 }
 
-.bg-celeste {
-  background: #456990;
+.bg-verde-light {
+  background: var(--verde-light);
+  color: white;
 }
 
 .bg-mint {
@@ -39,10 +41,13 @@ body {
 
 .form-select-border-width {
   width: 200px;
-  margin-right: 25px;
-  margin-left: 25px;
-  background: var(--mint);
-  box-shadow: 5px 4px 14px 4px rgba(41, 56, 49, 0.77);
+  height: 40px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background: whitesmoke;
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.7);
+  margin-bottom: 50px;
+  padding: 5px;
 }
 
 .center-element {
@@ -51,10 +56,10 @@ body {
 }
 
 .boton-filtro {
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  padding: 1.2px; 
 }
 
 .boton-filtro > button {
@@ -67,9 +72,6 @@ body {
   text-shadow: 7px 5px 6px #678a80;
 }
 
-#by {
-  text-align: right;
-}
 
 .card-title {
   font-family: Estonia;
@@ -78,10 +80,20 @@ body {
 }
 
 .navbar-brand {
-  font-family: Estonia;
-  font-size: 36px;
+  font-family: Arial;
+  font-size: 26px;
 }
 
 .navbar {
-  padding: 0;
+  padding: 0px;
+  margin-bottom: 0px;
+
+}
+.carousel {
+  margin-bottom: 0px;
+  box-shadow: 5px 5px 7px 5px #00000048;
+}
+.shadow {
+  box-shadow: 5px 5px 7px 5px #00000048;
+
 }
