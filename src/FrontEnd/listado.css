@@ -19,10 +19,33 @@
   margin: 1px 7px 15px 4px;
 }
 
-#filtro {
-  margin-top: 14px;
-}
+
 
 .select-filtro {
   margin: 6px;
+}
+
+#filtro {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.boton-filtro {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 1.2px; 
+}
+
+.form-select-border-width {
+  width: 100px;
+  height: 40px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  background: whitesmoke;
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.7);
+  padding: 5px;
 }
