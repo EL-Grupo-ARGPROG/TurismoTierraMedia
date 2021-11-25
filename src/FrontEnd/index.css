@@ -29,6 +29,10 @@ body {
   background: var(--mint);
   color: white;
 }
+.bg-gris-translucid {
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.733) 0%, rgba(98, 98, 98, 0) 100%);
+}
 
 body {
   margin: 0 !important;
@@ -104,6 +108,3 @@ body {
   color: rgb(177, 207, 189);
 }
 
-.carousel-item {
-  background: rgba(175, 175, 175, 0.322);
-}
