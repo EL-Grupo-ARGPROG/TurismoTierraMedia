@@ -1,14 +1,12 @@
 :root {
-  --verde-dark: rgb(36, 124, 70);
+  --verde-dark: rgb(21, 104, 53);
   --verde: rgb(68, 133, 88);
   --mint: rgba(161, 227, 195, 0.671);
   --verde-light: rgb(96, 187, 131);
+  --text-light: rgb(237, 252, 243);
 }
 
-body {
-  background-image: url(img/fondo.jpg);
-  background-attachment: fixed;
-}
+
 
 .bg-verde {
   background: var(--verde);
@@ -31,27 +29,23 @@ body {
 }
 .bg-gris-translucid {
   background: rgb(0,0,0);
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.733) 0%, rgba(98, 98, 98, 0) 100%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.527) 0%, rgba(98, 98, 98, 0) 100%);
 }
 
 body {
-  margin: 0 !important;
+  margin: 0px !important;
+  margin-bottom:0 px ;
 }
 
-.img-carrusel {
-  height: 100% !important;
-  width: 100% !important;
-}
 
-.form-select-border-width {
+.form-select {
   width: 200px;
-  height: 40px;
+  height: 32px;
   margin-right: 5px;
   margin-left: 5px;
   background: whitesmoke;
-  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.7);
-  margin-bottom: 50px;
-  padding: 5px;
+  margin-bottom: 20px;
+  padding: 3px;
 }
 
 .center-element {
@@ -60,25 +54,26 @@ body {
 }
 
 .boton-filtro {
+  height: 35px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 50px;
-  padding: 1.2px;
+  margin-bottom: 20px;
+  padding: 0.5px;
 }
 
-.boton-filtro > button {
-  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.7);
+.text-color-light{
+  color: var(--text-light);
 }
 
 .text-center {
-  color: rgb(201, 238, 216);
   padding: 15px;
-  text-shadow: 7px 5px 6px #678a80;
+  text-shadow:  3px 10px 2px rgba(0, 0, 0, 0.082);
+
 }
 
 .card-title {
   font-family: Estonia;
-  font-size: 48px;
+  font-size: 6vh;
   text-shadow: 6px 6px 5px #000000;
 }
 
@@ -89,14 +84,17 @@ body {
 
 .navbar {
   padding: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 .carousel {
   margin-bottom: 0px;
-  box-shadow: 5px 5px 7px 5px #00000048;
+  margin-top: 10px;
+  min-width: 100%;
+
+
 }
 .shadow {
-  box-shadow: 5px 5px 7px 5px #00000048;
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.466);
 }
 
 .titulo-atraccion-index {
@@ -104,7 +102,15 @@ body {
   font-size: 38px;
 }
 
-.text-atraccion-index {
-  color: rgb(177, 207, 189);
+.flex-column{
+  min-height: 100%;
+  position: relative;
 }
+
+
+
+
+
+
+
 
