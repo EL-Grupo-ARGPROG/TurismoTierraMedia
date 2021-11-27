@@ -6,6 +6,10 @@ Preferencias: DEGUSTACION
 ITINERARIO:
 Frodo, este es tu itinerario:
 
+Atraccion: La Comarca
+Costo: 120.0$
+Tiempo de excursion 6.5H
+ 
 Atraccion: Lothlorein
 Costo: 135.0$
 Tiempo de excursion 1.0H
@@ -14,4 +18,8 @@ Atraccion: Los Arboles Del Infinito
 Costo: 115.0$
 Tiempo de excursion 2.0H
 
-TOTAL: 3.0H    250.0$
+Atraccion: Abismo de Helm
+Costo: 105.0$
+Tiempo de excursion 2.0H
+
+TOTAL: 11.5H    420.0$

@@ -1,0 +1,17 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Gandalf
+Preferencias: PAISAJE
+
+ITINERARIO:
+Gandalf, este es tu itinerario:
+
+Atraccion: Erebor
+Costo: 160.0$
+Tiempo de excursion 3.0H
+ 
+Atraccion: Minas Tirith
+Costo: 75.0$
+Tiempo de excursion 2.5H
+
+TOTAL: 5.5H    199.75$
