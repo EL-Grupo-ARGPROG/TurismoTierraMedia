@@ -1,3 +1,0 @@
-Eowyn;400;ocho;AVENTURA
-Gandalf;doscientos;6;PAISAJE
-Sam;800;9;FANTASIA

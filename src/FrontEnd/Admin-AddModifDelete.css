@@ -1,0 +1,13 @@
+.offcanvas {
+  width: 40vh;
+}
+
+
+
+.center-element {
+  display: flex;
+  justify-content: center;
+}
+
+
+

@@ -1,4 +1,3 @@
-
 package tierraMedia;
 
 import java.io.IOException;
@@ -21,9 +20,9 @@ public class Sistema {
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 	
 	public static void instanciaDeObjetos() {
-		usuarioDAO.instanciadorDeUsuarios();
-		atraccionDAO.instanciadorDeAtracciones();
-		promocionDAO.instanciadorDePromociones();
+			atraccionDAO.instanciadorDeAtracciones();
+			promocionDAO.instanciadorDePromociones();
+			usuarioDAO.instanciadorDeUsuarios();
 		
 //		System.out.println(PromocionesDAOImpl.vendiblesList);
 //		System.out.println(AtraccionesDAOImpl.atraccionesList);
@@ -89,6 +88,7 @@ public class Sistema {
 
 	public static void main(String[] args) throws IOException {
 		instanciaDeObjetos();
+		
 		sugerirVisitasYEscribirItinerario();
 
 	}

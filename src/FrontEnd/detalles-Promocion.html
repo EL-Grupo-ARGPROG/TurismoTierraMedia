@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="index.css" rel="stylesheet">
+    <link href="detalles.css" rel="stylesheet">
+    <link href="detalles-promocion.css" rel="stylesheet">
+    <link href="sticky-footer.css" rel="stylesheet">
+
+    <title>Turismo Tierra Media</title>
+</head>
+<body class="flex-column h-100 w-100 bg-verde-light">
+
+    <nav class="navbar navbar-light bg-verde-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><strong>GAMGEE TOURISM <b>AGENCY</b></strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end bg-mint" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="card bg-dark text-white card-detalles">
+        <img src="img/La-Comarca.jpg" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          <h5 class="card-title card-titulo">Paquete Aventura</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">Last updated 3 mins ago</p>
+        </div>
+      </div>
+
+      <div>
+          <h1>Atracciones Incluidas</h1>
+      <div id="listado-cartas" class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card bg-dark text-white carta">
+            <img src="img/La-Comarca.jpg" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title">La Comarca</h5>
+                <h6>Aventura - 2hs de Excursion</h6>
+                </div>
+            <div class="card-body">
+              <h5>Precio: $</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card bg-dark text-white carta">
+              <img src="img/Mordor.jpg" class="card-img-top" alt="...">
+              <div class="card-img-overlay">
+                  <h5 class="card-title">Mordor</h5>
+                  <h6>Aventura - 2hs de Excursion</h6>
+                  </div>
+              <div class="card-body">
+                <h5>Precio: $</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+            <div class="card bg-dark text-white carta">
+              <img src="img/Moria.jpg" class="card-img-top" alt="...">
+              <div class="card-img-overlay">
+                  <h5 class="card-title">Moria</h5>
+                  <h6>Aventura - 2hs de Excursion</h6>
+                  </div>
+              <div class="card-body">
+                <h5>Precio: $</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>

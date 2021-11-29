@@ -2,7 +2,6 @@ package DAO;
 
 import java.util.List;
 
-import tierraMedia.Promociones;
 
 public interface GenericDAO<T> {
 

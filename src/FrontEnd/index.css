@@ -1,0 +1,112 @@
+:root {
+  --verde-dark: rgb(21, 104, 53);
+  --verde: rgb(68, 133, 88);
+  --mint: rgba(161, 227, 195, 0.877);
+  --verde-light: rgb(96, 187, 131);
+  --text-light: rgb(237, 252, 243);
+}
+
+
+
+.bg-verde {
+  background: var(--verde);
+  color: rgba(255, 255, 255, 0.966);
+}
+
+.bg-verde-dark {
+  background: var(--verde-dark);
+  color: white;
+}
+
+.bg-verde-light {
+  background: var(--verde-light);
+  color: white;
+}
+
+.bg-mint {
+  background: var(--mint);
+  color: white;
+}
+.bg-gris-translucid {
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.527) 0%, rgba(98, 98, 98, 0) 100%);
+}
+
+body {
+  margin: 0px !important;
+  margin-bottom:0 px ;
+  height: 100vh;
+  width: 100vh;
+}
+
+
+.form-select {
+  width: 200px;
+  height: 35px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background: whitesmoke;
+  margin-bottom: 20px;
+  padding: 3px;
+}
+
+.center-element {
+  display: flex;
+  justify-content: center;
+}
+
+.boton-filtro {
+  width: 80px;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  padding: 0.2px;
+}
+
+.text-color-light{
+  color: var(--text-light);
+}
+
+.text-center {
+  padding: 15px;
+  text-shadow:  3px 10px 2px rgba(0, 0, 0, 0.082);
+
+}
+
+.card-title {
+  font-family: Estonia;
+  font-size: 6vh;
+  text-shadow: 6px 6px 5px #000000;
+}
+
+.navbar-brand {
+  font-family: Estonia;
+  font-size: 36px;
+}
+
+.navbar {
+  padding: 0px;
+  margin-bottom: 10px;
+}
+.carousel {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  min-width: 100%;
+
+
+}
+.shadow {
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.466);
+}
+
+.titulo-atraccion-index {
+  font-family: Estonia;
+  font-size: 38px;
+}
+
+.flex-column{
+  min-height: 100%;
+  position: relative;
+}
+
