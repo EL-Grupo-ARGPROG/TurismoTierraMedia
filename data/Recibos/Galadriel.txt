@@ -1,0 +1,21 @@
+GAMGEE TOURISM AGENCY
+
+Cliente: Galadriel
+Preferencias: AVENTURA
+
+ITINERARIO:
+Galadriel, este es tu itinerario:
+
+Atraccion: Moria
+Costo: 100.0$
+Tiempo de excursion 2.0H
+
+Atraccion: Lothlorein
+Costo: 135.0$
+Tiempo de excursion 1.0H
+
+Atraccion: Los Arboles Del Infinito
+Costo: 115.0$
+Tiempo de excursion 2.0H
+
+TOTAL: 5.0H    350.0$
