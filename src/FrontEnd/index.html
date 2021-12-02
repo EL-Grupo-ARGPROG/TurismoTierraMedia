@@ -20,40 +20,49 @@
   <title>Turismo Tierra Media</title>
 </head>
 
-<body  id="container-body" class=" container-fluid bg-verde-light">
+<body id="container-body" class=" container-fluid bg-verde-light">
 
-  <nav  class="shadow navbar sticky-top navbar-dark bg-obscure">
+  <nav class="shadow navbar sticky-top navbar-dark bg-obscure">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-top">
-        GAMGEE TOURISM AGENCY</a>
+        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-bottom">
+        GAMGEE TOURISM AGENCY
+      </a>
       <button class="btn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
-         <i class="bi bi-list" style="font-size: 2rem; color:white"></i>
+        <i class="bi bi-list" style="font-size: 2rem; color:white"></i>
       </button>
       <div class="offcanvas offcanvas-end bg-verde-dark" tabindex="-1" id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h3 class="offcanvas-title" id="offcanvasNavbarLabel"></h3>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#homepage"><h5>Inicio</h5></a>
+              <a class="nav-link active" aria-current="page" href="#homepage">
+                <h5>Inicio</h5>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><h5>Contacto</h5></a>
+              <a class="nav-link" href="#">
+                <h5>Contacto</h5>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><h5>Promociones</h5></a>
+              <a class="nav-link" href="#">
+                <h5>Promociones</h5>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><h5>Paquetes turisticos</h5></a>
+              <a class="nav-link" href="#">
+                <h5>Paquetes turisticos</h5>
+              </a>
             </li>
           </ul>
-          <img id="logo-offcanvas"class="float-end"src="img/GAMGEE-verde.png"> 
-          </form>
+          <img id="logo-offcanvas" class="float-end" src="img/GAMGEE-verde.png">
         </div>
       </div>
     </div>
@@ -119,68 +128,67 @@
     </div>
 
     <div class="container navbar mt-5 border-round shadow bg-obscure justify-content-center">
-        <h2 class="text-center mt-1 text-color-light col-sm-12">
-          Lista nuestros paquetes segun tus preferencias.
-        </h2>
-        <div class="container row justify-content-center">  
-          <select class="form-select shadow center-element " aria-label="Default select example">
-            <option class="text-center text-dark" selected placeholder="Tipo Paquete">
-              Tipo de Paquete
-            </option>
-            <option class="text-center text-dark" value="1">Aventura</option>
-            <option class="text-center text-dark" value="2">
-              Degustacion
-            </option>
-            <option class="text-center text-dark" value="3">Paisaje</option>
-          </select>
-          <select class="form-select shadow center-element " aria-label="Default select example">
-            <option class="text-center text-dark" selected>
-              Rango de Precio
-            </option>
-            <option class="text-center text-dark" value="1">0 - 200</option>
-            <option class="text-center text-dark" value="2">201 - 400</option>
-            <option class="text-center text-dark" value="3">401 - 600</option>
-            <option class="text-center text-dark" value="3">601 - 800</option>
-            <option class="text-center text-dark" value="3">
-              801 - 1000
-            </option>
-          </select>
-          <select class="form-select shadow center-element " aria-label="Default select example">
-            <option class="text-center text-dark" selected>Duracion</option>
-            <option class="text-center text-dark" value="1">1 - 2hs</option>
-            <option class="text-center text-dark" value="2">3 - 4hs</option>
-            <option class="text-center text-dark" value="3">5 - 6hs</option>
-          </select>
-            <button class="btn boton-filtro shadow btn-success bg-verde-light" type="submit">
-              <b><i class="bi bi-search"></i></b>
-            </button>
-        </div>
+      <h2 class="text-center mt-1 text-color-light col-sm-12">
+        Lista nuestros paquetes segun tus preferencias.
+      </h2>
+      <div class="container row justify-content-center">
+        <select class="form-select shadow center-element " aria-label="Default select example">
+          <option class="text-center text-dark" selected placeholder="Tipo Paquete">
+            Tipo de Paquete
+          </option>
+          <option class="text-center text-dark" value="1">Aventura</option>
+          <option class="text-center text-dark" value="2">
+            Degustacion
+          </option>
+          <option class="text-center text-dark" value="3">Paisaje</option>
+        </select>
+        <select class="form-select shadow center-element " aria-label="Default select example">
+          <option class="text-center text-dark" selected>
+            Rango de Precio
+          </option>
+          <option class="text-center text-dark" value="1">0 - 200</option>
+          <option class="text-center text-dark" value="2">201 - 400</option>
+          <option class="text-center text-dark" value="3">401 - 600</option>
+          <option class="text-center text-dark" value="3">601 - 800</option>
+          <option class="text-center text-dark" value="3">
+            801 - 1000
+          </option>
+        </select>
+        <select class="form-select shadow center-element " aria-label="Default select example">
+          <option class="text-center text-dark" selected>Duracion</option>
+          <option class="text-center text-dark" value="1">1 - 2hs</option>
+          <option class="text-center text-dark" value="2">3 - 4hs</option>
+          <option class="text-center text-dark" value="3">5 - 6hs</option>
+        </select>
+        <button class="btn boton-filtro shadow btn-success bg-verde-light" type="submit">
+          <b><i class="bi bi-search" href="#listado"></i></b>
+        </button>
       </div>
     </div>
-  </div>
 
-  <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
-    <div class="container">
-      <div class="row">
-        <div  class="text-left col-xs-12 col-md-6">
-          <h5>GAMGEE TOURISM AGENCY</h5>
+    <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
+      <div class="container">
+        <div class="row">
+          <div class="text-left col-xs-12 col-md-6">
+            <h6>GAMGEE TOURISM AGENCY</h6>
+          </div>
+          <div class="col-xs-12 col-md-6 text-derecha ">
+            <h6>Created by: EL Grupo</h6>
+            <h6><small>Proyecto final: Turismo en la Tierra Media</small></h6>
+            <div class="redes-footer">
+              <a href="https://github.com/EL-Grupo-ARGPROG/TurismoTierraMedia">
+                <i class="d-inline-block align-text-top link-light bi bi-github" style="font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.youtube.com/watch?v=wM8Hfo-M_Vw">
+                <i class="d-inline-block align-text-top link-light bi bi-youtube" style="font-size: 2rem;"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      <div  class="col-xs-12 col-md-6 text-derecha">
-        <h5>Created by: EL Grupo</h5>
-        <div class="redes-footer">
-        <a href="https://github.com/EL-Grupo-ARGPROG/TurismoTierraMedia">
-          <i class="link-light bi bi-github" style="font-size: 2rem;"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=wM8Hfo-M_Vw">
-          <i class="link-light bi bi-youtube" style="font-size: 2rem;"></i>
-        </a>
       </div>
-        </div>
-      </div>
-    </div>
     </footer>
- 
-  
+
+
 </body>
 
 </html>

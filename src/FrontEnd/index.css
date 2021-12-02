@@ -39,6 +39,14 @@
     rgba(98, 98, 98, 0) 100%
   );
 }
+.bg-gris {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  border: 1px solid #f1f1f1af;
+  height: 85%;
+  padding-left: 15px;
+  }
 
 body {
   margin: 0px !important;
@@ -84,13 +92,13 @@ body {
 
 .card-title {
   font-family: Estonia;
-  font-size: 6vh;
+  font-size: 10vh;
   text-shadow: 6px 6px 5px #000000;
 }
 
 .navbar-brand {
   font-family: Estonia;
-  font-size: 36px;
+  font-size: 25px;
 }
 
 .navbar {
@@ -154,4 +162,16 @@ body {
 
 .text-derecha {
   text-align: right;
+}
+
+.atraccion{
+  height: auto ;
+  width: auto;
+  overflow:hidden;
+  filter: blur(2px);
+  transform: scale(1,0.98);
+}
+
+#banner {
+  height: 250px;
 }
