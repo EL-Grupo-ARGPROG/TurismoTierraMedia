@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,11 +78,11 @@
         <option class="text-center text-dark" selected placeholder="Tipo Paquete">
           Tipo de Paquete
         </option>
-        <option class="text-center text-dark" value="1">Aventura</option>
+        <option class="text-center text-dark" value="1">AVENTURA</option>
         <option class="text-center text-dark" value="2">
-          Degustacion
+          DEGUSTACION
         </option>
-        <option class="text-center text-dark" value="3">Paisaje</option>
+        <option class="text-center text-dark" value="3">PAISAJE</option>
       </select>
       <select class="form-select shadow center-element " aria-label="Default select example">
         <option class="text-center text-dark" selected>
@@ -94,24 +97,26 @@
         </option>
       </select>
       <select class="form-select shadow center-element " aria-label="Default select example">
-        <option class="text-center text-dark" selected>Duracion</option>
-        <option class="text-center text-dark" value="1">1 - 2hs</option>
-        <option class="text-center text-dark" value="2">3 - 4hs</option>
-        <option class="text-center text-dark" value="3">5 - 6hs</option>
+        <option class="text-center text-dark" selected>Duracion Hs</option>
+        <option class="text-center text-dark" value="1">1 - 2</option>
+        <option class="text-center text-dark" value="2">3 - 4</option>
+        <option class="text-center text-dark" value="3">5 - 6</option>
       </select>
       <button class="btn boton-filtro shadow btn-success bg-verde-light" type="submit">
         <b><i class="bi bi-search"></i></b>
       </button>
     </div>
   </div>
-
+  
   <div id="listado-cartas" class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
+  <c:forEach items="${vendiblesFiltrados} var="vendiblesFiltrados">
+  
+  	<div class="col">
       <div class="card bg-verde-dark shadow text-white carta">
         <img src="img/La-Comarca.jpg" class="card-img-top" alt="..." />
         <div class="card-img-overlay">
-          <h5 class="card-title">La Comarca</h5>
-          <h6>Aventura - 2hs de Excursion</h6>
+          <h5 class="card-title">${vendiblesFiltrados.getNombre()}</h5>
+          <h6>${vendiblesFiltrados.getTipo()} - ${vendiblesFiltrados.getTiempoNecesario()}hs de Excursion</h6>
         </div>
         <div class="container card-body">
           <div class="row">
@@ -119,13 +124,18 @@
               <h6>Detalles</h6>
             </div>
             <div class="text-derecha col-xs-12 col-md-6">
-              <h5 class="btn btn-outline-light">Precio: $100</h5>
+              <h5 class="btn btn-outline-light">Precio: ${vendiblesFiltrados.getCosto()}</h5>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col">
+  </c:forEach>
+  </div>
+
+  
+    
+   <%-- <div class="col">
       <div class="card bg-verde-dark shadow text-white carta">
         <img src="img/Mordor.jpg" class="card-img-top" alt="..." />
         <div class="card-img-overlay">
@@ -182,7 +192,7 @@
         </div>
       </div>
     </div>
-  </div>
+   --%>
 
   <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
     <div class="container">
