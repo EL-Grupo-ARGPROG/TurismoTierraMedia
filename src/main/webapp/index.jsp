@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,7 +23,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
-<link href="index.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
 <link href="sticky-footer.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
@@ -148,13 +151,16 @@
 						<option class="text-center text-dark" selected>Rango de
 							Precio</option>
 						<option class="text-center text-dark" value="1">1 - 200</option>
-						<option class="text-center text-dark" value="2">201 - 400 </option>
+						<option class="text-center text-dark" value="2">201 - 400
+						</option>
 						<option class="text-center text-dark" value="3">401 - 600</option>
 						<option class="text-center text-dark" value="3">601 - 800</option>
-						<option class="text-center text-dark" value="3">801 - 1000</option>
+						<option class="text-center text-dark" value="3">801 -
+							1000</option>
 					</select> <select name="duracion" class="form-select shadow center-element "
 						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Duracion Hs</option>
+						<option class="text-center text-dark" selected>Duracion
+							Hs</option>
 						<option class="text-center text-dark" value="1">1 - 2</option>
 						<option class="text-center text-dark" value="2">3 - 4</option>
 						<option class="text-center text-dark" value="3">5 - 6</option>

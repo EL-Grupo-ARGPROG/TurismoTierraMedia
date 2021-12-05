@@ -36,7 +36,7 @@
         aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h3 class="offcanvas-title" id="offcanvasNavbarLabel">
-            AdministraciÃ²n
+            Administraciòn
           </h3>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
