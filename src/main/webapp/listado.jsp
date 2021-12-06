@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +25,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
-<link href="index.css" rel="stylesheet">
-<link href="Admin-AddModifDelete.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 <link href="sticky-footer.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
@@ -67,7 +69,6 @@
 					</ul>
 					<img id="logo-offcanvas" class="float-end"
 						src="img/GAMGEE-verde.png">
-					</form>
 				</div>
 			</div>
 		</div>
@@ -109,100 +110,38 @@
 	</div>
 
 	<div id="listado-cartas" class="row row-cols-1 row-cols-md-2 g-4">
-		<c:forEach items="${vendiblesFiltrados} var="vendiblesFiltrados">
 
-			<a
-				href="/detalles-
-			<%if (vendiblesFiltrados.esPromocion()) {
-				out.println("Promocion");
-			} else {
-				out.println("Atraccion");
-			}%>">
-				<div class="col">
-					<div class="card bg-verde-dark shadow text-white carta">
-						<img src="img/La-Comarca.jpg" class="card-img-top" alt="..." />
-						<div class="card-img-overlay">
-							<h5 class="card-title">${vendiblesFiltrados.getNombre()}</h5>
-							<h6>${vendiblesFiltrados.getTipo()}-
-								${vendiblesFiltrados.getTiempoNecesario()}hs de Excursion</h6>
-						</div>
-						<div class="container card-body">
-							<div class="row">
-								<div class="text-left col-xs-12 col-md-6">
-									<h6>Detalles</h6>
-								</div>
-								<div class="text-derecha col-xs-12 col-md-6">
-									<h5 class="btn btn-outline-light">Precio:
-										${vendiblesFiltrados.getCosto()}</h5>
-								</div>
+		<c:forEach items="${vendiblesFiltrados}" var="lista">
+			<div class="col">
+				<div class="card bg-verde-dark shadow text-white carta">
+					<img src="img/La-Comarca.jpg" class="card-img-top" alt="..." />
+					<div class="card-img-overlay">
+						<h5 class="card-title">
+							<c:out value="${lista.getNombre() }"></c:out>
+						</h5>
+						<h6>
+							<c:out value="${lista.getTipo() }"></c:out>
+							-
+							<c:out value="${lista.getTiempoNecesario() }"></c:out>
+							}hs de Excursion
+						</h6>
+					</div>
+					<div class="container card-body">
+						<div class="row">
+							<div class="text-left col-xs-12 col-md-6">
+								<h6>Detalles</h6>
+							</div>
+							<div class="text-derecha col-xs-12 col-md-6">
+								<h5 class="btn btn-outline-light">Precio:
+									${lista.getCosto()}</h5>
 							</div>
 						</div>
 					</div>
 				</div>
-			</a>
+			</div>
 		</c:forEach>
+
 	</div>
-
-
-
-	<%-- <div class="col">
-      <div class="card bg-verde-dark shadow text-white carta">
-        <img src="img/Mordor.jpg" class="card-img-top" alt="..." />
-        <div class="card-img-overlay">
-          <h5 class="card-title">Mordor</h5>
-          <h6>Aventura - 2hs de Excursion</h6>
-        </div>
-        <div class="container card-body">
-          <div class="row">
-            <div class="text-left col-xs-12 col-md-6">
-              <h6>Detalles</h6>
-            </div>
-            <div class="text-derecha col-xs-12 col-md-6">
-              <h5 class="btn btn-outline-light">Precio: $100</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-verde-dark shadow text-white carta">
-        <img src="img/Moria.jpg" class="card-img-top" alt="..." />
-        <div class="card-img-overlay">
-          <h5 class="card-title">Moria</h5>
-          <h6>Aventura - 2hs de Excursion</h6>
-        </div>
-        <div class="container card-body">
-          <div class="row">
-            <div class="text-left col-xs-12 col-md-6">
-              <h6>Detalles</h6>
-            </div>
-            <div class="text-derecha col-xs-12 col-md-6">
-              <h5 class="btn btn-outline-light">Precio: $100</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-verde-dark shadow text-white carta">
-        <img src="img/La-Comarca.jpg" class="card-img-top" alt="..." />
-        <div class="card-img-overlay">
-          <h5 class="card-title">La Isla Misteriosa</h5>
-          <h6>Aventura - 2hs de Excursion</h6>
-        </div>
-        <div class="container card-body">
-          <div class="row">
-            <div class="text-left col-xs-12 col-md-6">
-              <h6>Detalles</h6>
-            </div>
-            <div class="text-derecha col-xs-12 col-md-6">
-              <h5 class="btn btn-outline-light">Precio: $100</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-   --%>
 
 	<footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
 		<div class="container">

@@ -1,5 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -52,10 +51,11 @@
 				</div>
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#homepage">
-								<h5>Inicio</h5>
-						</a></li>
+						<li class="nav-item">
+						 <a class="nav-link active" aria-current="page" href="index.jsp">
+						   <h5>Inicio</h5>
+						 </a>
+						</li>
 						<li class="nav-item"><a class="nav-link" href="#">
 								<h5>Contacto</h5>
 						</a></li>
@@ -121,12 +121,12 @@
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
-				data-bs-target="#carousel-preferencias" data-bs-slide="prev">
+				data-bs-target="carousel" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button"
-				data-bs-target="#carousel-preferencias" data-bs-slide="next">
+				data-bs-target="carousel" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
@@ -136,12 +136,11 @@
 			class="container navbar mt-5 border-round shadow bg-obscure justify-content-center">
 			<h2 class="text-center mt-1 text-color-light col-sm-12">Lista
 				nuestros paquetes segun tus preferencias.</h2>
-			<form action="filter" method="get">
+			<form action="listado.jsp" method="get">
 				<div class="container row justify-content-center">
 					<select name="tipo" class="form-select shadow center-element "
 						aria-label="Default select example">
-						<option class="text-center text-dark" selected
-							placeholder="Tipo Paquete">Tipo de Paquete</option>
+						<option class="text-center text-dark" selected>Tipo de Paquete</option>
 						<option class="text-center text-dark" value="1">AVENTURA</option>
 						<option class="text-center text-dark" value="2">
 							DEGUSTACION</option>
@@ -167,10 +166,12 @@
 					</select>
 					<button class="btn boton-filtro shadow btn-success bg-verde-light"
 						type="submit">
-						<b><i class="bi bi-search" href="#listado"></i></b>
+						<b><i class="bi bi-search"></i></b>
 					</button>
 				</div>
 			</form>
+		</div>
+		
 		</div>
 
 		<footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
