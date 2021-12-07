@@ -43,6 +43,7 @@ DROP TABLE IF EXISTS "Usuarios";
 CREATE TABLE "Usuarios" (
 	"id"	INTEGER NOT NULL,
 	"nombre"	TEXT,
+	"password"	TEXT,
 	"presupuesto"	NUMERIC,
 	"tiempo_disponible"	NUMERIC,
 	"tipo_preferencia"	TEXT,
