@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.*;
-import persistence.MissingDataException;
 import persistence.PromocionesDAO;
-import persistence.TierraMediaConnectionProvider;
+import persistence.commons.MissingDataException;
+import persistence.commons.TierraMediaConnectionProvider;
 
 
 public class PromocionesDAOImpl implements PromocionesDAO {

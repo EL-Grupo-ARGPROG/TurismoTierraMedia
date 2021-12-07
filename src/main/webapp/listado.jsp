@@ -1,8 +1,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,9 +37,10 @@
 
 	<nav class="shadow navbar navbar-dark bg-obscure">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/TierraMedia/index.jsp"> <img src="img/GAMGEE-White.png"
-				width="60" height="50" class="d-inline-block align-text-bottom">
-				GAMGEE TOURISM AGENCY
+			<a class="navbar-brand" href="/TierraMedia/index.jsp"> <img
+				src="img/GAMGEE-White.png" width="60" height="50"
+				class="d-inline-block align-text-bottom"> GAMGEE TOURISM
+				AGENCY
 			</a>
 			<button class="btn shadow" type="button" data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -76,70 +77,74 @@
 
 	<div
 		class="container navbar sticky-top border-round shadow bg-obscure justify-content-center">
-		<form action="filter" method="get"  class="container row justify-content-center">
-				
-					<select name="tipo" class="form-select shadow center-element "
-						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Tipo de Paquete</option>
-						<option class="text-center text-dark" value="1">AVENTURA</option>
-						<option class="text-center text-dark" value="2">DEGUSTACION</option>
-						<option class="text-center text-dark" value="3">PAISAJE</option>
-						
-					</select> <select name="precio" class="form-select shadow center-element "
-						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Rango de Precio</option>
-						<option class="text-center text-dark" value="1">1 - 200</option>
-						<option class="text-center text-dark" value="2">201 - 400</option>
-						<option class="text-center text-dark" value="3">401 - 600</option>
-						<option class="text-center text-dark" value="3">601 - 800</option>
-						<option class="text-center text-dark" value="3">801 - 1000</option>
-							
-					</select> <select name="duracion" class="form-select shadow center-element "
-						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Duracion Hs</option>
-						<option class="text-center text-dark" value="1">1 - 2</option>
-						<option class="text-center text-dark" value="2">3 - 4</option>
-						<option class="text-center text-dark" value="3">5 - 6</option>
-					</select>
-					<button class="btn boton-filtro shadow btn-success bg-verde-light"
-						type="submit">
-						<b><i class="bi bi-search"></i></b>
-					</button>
-			</form>
+		<form action="filter" method="get"
+			class="container row justify-content-center">
+
+			<select name="tipo" class="form-select shadow center-element "
+				aria-label="Default select example">
+				<option class="text-center text-dark" selected>Tipo de
+					Paquete</option>
+				<option class="text-center text-dark" value="1">AVENTURA</option>
+				<option class="text-center text-dark" value="2">DEGUSTACION</option>
+				<option class="text-center text-dark" value="3">PAISAJE</option>
+
+			</select> <select name="precio" class="form-select shadow center-element "
+				aria-label="Default select example">
+				<option class="text-center text-dark" selected>Rango de
+					Precio</option>
+				<option class="text-center text-dark" value="1">1-200</option>
+				<option class="text-center text-dark" value="2">201-400</option>
+				<option class="text-center text-dark" value="3">401-600</option>
+				<option class="text-center text-dark" value="3">601-800</option>
+				<option class="text-center text-dark" value="3">801-1000</option>
+
+			</select> <select name="duracion" class="form-select shadow center-element "
+				aria-label="Default select example">
+				<option class="text-center text-dark" selected>Duracion Hs</option>
+				<option class="text-center text-dark" value="1">1-2</option>
+				<option class="text-center text-dark" value="2">3-4</option>
+				<option class="text-center text-dark" value="3">5-6</option>
+			</select>
+			<button class="btn boton-filtro shadow btn-success bg-verde-light"
+				type="submit">
+				<b><i class="bi bi-search"></i></b>
+			</button>
+		</form>
 	</div>
 
 	<div id="listado-cartas" class="row row-cols-1 row-cols-md-2 g-4">
 
 		<c:forEach items="${vendiblesFiltrados}" var="lista">
-			<div class="col">
-				<div class="card bg-verde-dark shadow text-white carta">
-					<img src="img/La-Comarca.jpg" class="card-img-top" alt="..." />
-					<div class="card-img-overlay">
-						<h5 class="card-title">
-							<c:out value="${lista.getNombre() }"></c:out>
-						</h5>
-						<h6>
-							<c:out value="${lista.getTipo() }"></c:out>
-							-
-							<c:out value="${lista.getTiempoNecesario() }"></c:out>
-							hs de Excursion
-						</h6>
-					</div>
-					<div class="container card-body">
-						<div class="row">
-							<div class="text-left col-xs-12 col-md-6">
-								<h6>Detalles</h6>
-							</div>
-							<div class="text-derecha col-xs-12 col-md-6">
-								<h5 class="btn btn-outline-light">Precio:
-									${lista.getCosto()}</h5>
+			<a href="/TierraMedia/index.jsp">
+				<div class="col">
+					<div class="card bg-verde-dark shadow text-white carta">
+						<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
+						<div class="card-img-overlay">
+							<h5 class="card-title">
+								<c:out value="${lista.getNombre() }"></c:out>
+							</h5>
+							<h6>
+								<c:out value="${lista.getTipo() }"></c:out>
+								-
+								<c:out value="${lista.getTiempoNecesario() }"></c:out>
+								hs de Excursion
+							</h6>
+						</div>
+						<div class="container card-body">
+							<div class="row">
+								<div class="text-left col-xs-12 col-md-6">
+									<h6 class="btn btn-outline-light"> Detalles</h6>
+								</div>
+								<div class="text-derecha col-xs-12 col-md-6">
+									<h5 class="btn btn-outline-light">Precio:
+										${lista.getCosto()}</h5>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		</c:forEach>
-
 	</div>
 
 	<footer class="sticky-bottom mt-5 py-4 bg-verde-dark">

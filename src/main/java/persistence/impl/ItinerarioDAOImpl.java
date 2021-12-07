@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.*;
-import persistence.GenericDAO;
-import persistence.MissingDataException;
-import persistence.TierraMediaConnectionProvider;
+import persistence.commons.GenericDAO;
+import persistence.commons.MissingDataException;
+import persistence.commons.TierraMediaConnectionProvider;
 
 
 public class ItinerarioDAOImpl implements GenericDAO<Itinerario> {

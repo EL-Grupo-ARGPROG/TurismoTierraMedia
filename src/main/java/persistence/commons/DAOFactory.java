@@ -1,5 +1,8 @@
-package persistence;
+package persistence.commons;
 
+import persistence.AtraccionesDAO;
+import persistence.PromocionesDAO;
+import persistence.UsuarioDAO;
 import persistence.impl.AtraccionesDAOImpl;
 import persistence.impl.ItinerarioDAOImpl;
 import persistence.impl.PromocionesDAOImpl;

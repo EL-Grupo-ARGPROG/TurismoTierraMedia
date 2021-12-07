@@ -25,29 +25,27 @@ public class DetallesServlet extends HttpServlet implements Servlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Sistema.instanciaDeObjetos();
-//		String[] rangoPrecio = req.getParameter("precio").split(" - ");
-//		int valor1 = Integer.parseInt(String.valueOf(rangoPrecio[0]));
-//		int valor2 = Integer.parseInt(String.valueOf(rangoPrecio[1]));
-//
-//		String[] rangoDuracion = req.getParameter("tiempo").split(" - ");
-//		int hora1 = Integer.parseInt(String.valueOf(rangoDuracion[0]));
-//		int hora2 = Integer.parseInt(String.valueOf(rangoDuracion[1]));
-//		
-//		String tipo = req.getParameter("tipo");
+		String[] rangoPrecio = req.getParameter("precio").split(" - ");
+		int valor1 = Integer.parseInt(String.valueOf(rangoPrecio[0]));
+		int valor2 = Integer.parseInt(String.valueOf(rangoPrecio[1]));
+
+		String[] rangoDuracion = req.getParameter("tiempo").split(" - ");
+		int hora1 = Integer.parseInt(String.valueOf(rangoDuracion[0]));
+		int hora2 = Integer.parseInt(String.valueOf(rangoDuracion[1]));
+		
+		String tipo = req.getParameter("tipo");
 		
 
-	    vendiblesFiltrados = PromocionesDAOImpl.vendiblesList;
 
-
-//		for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
-//			if (vendible.getTipo().toString() == tipo) {
-//				if (vendible.getCosto() >= valor1 && vendible.getCosto() <= valor2) {
-//					if (vendible.getTiempoNecesario() >= hora1 && vendible.getTiempoNecesario() <= hora2) {
-//						vendiblesFiltrados.add(vendible);
-//					}
-//				}
-//			}
-//		}
+		for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
+			if (vendible.getTipo().toString() == tipo) {
+				if (vendible.getCosto() >= valor1 && vendible.getCosto() <= valor2) {
+					if (vendible.getTiempoNecesario() >= hora1 && vendible.getTiempoNecesario() <= hora2) {
+						vendiblesFiltrados.add(vendible);
+					}
+				}
+			}
+		}
 		req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
 		dispatcher.forward(req, resp);
