@@ -34,7 +34,7 @@
 
 	<nav class="shadow navbar sticky-top navbar-dark bg-obscure">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"> <img src="C:/Users/matu_/eclipse-workspace/TurismoTierraMedia/main/img/GAMGEE-White.png"
+			<a class="navbar-brand" href="#"> <img src="img/GAMGEE-White.png"
 				width="60" height="50" class="d-inline-block align-text-bottom">
 				GAMGEE TOURISM AGENCY
 			</a>
@@ -67,7 +67,7 @@
 						</a></li>
 					</ul>
 					<img id="logo-offcanvas" class="float-end"
-						src="img/GAMGEE-verde.png">
+						src="img/GAMGEE-Verde.png">
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 
 	<div id="container-body" class="container-fluid">
 
-		<div class="carousel  slide w-100" data-bs-ride="carousel">
+		<div id ="CarouselIndex" class="carousel  slide w-100" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img src="img/La-Comarca.jpg" class="d-block h-100 w-100" alt="..." />
@@ -121,12 +121,12 @@
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
-				data-bs-target="carousel" data-bs-slide="prev">
+				data-bs-target="#CarouselIndex" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button"
-				data-bs-target="carousel" data-bs-slide="next">
+				data-bs-target="#CarouselIndex" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
