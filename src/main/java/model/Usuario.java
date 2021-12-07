@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import DAO.ItinerarioDAOImpl;
+import persistence.impl.ItinerarioDAOImpl;
 
 public class Usuario {
 	protected int id;

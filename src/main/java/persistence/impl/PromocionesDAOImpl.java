@@ -1,4 +1,4 @@
-package DAO;
+package persistence.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import JDBC.TierraMediaConnectionProvider;
 import model.*;
+import persistence.MissingDataException;
+import persistence.PromocionesDAO;
+import persistence.TierraMediaConnectionProvider;
 
 
 public class PromocionesDAOImpl implements PromocionesDAO {

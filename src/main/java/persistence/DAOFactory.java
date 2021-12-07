@@ -1,4 +1,9 @@
-package DAO;
+package persistence;
+
+import persistence.impl.AtraccionesDAOImpl;
+import persistence.impl.ItinerarioDAOImpl;
+import persistence.impl.PromocionesDAOImpl;
+import persistence.impl.UsuarioDAOImpl;
 
 public class DAOFactory {
 	
