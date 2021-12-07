@@ -34,7 +34,7 @@
 
 	<nav class="shadow navbar sticky-top navbar-dark bg-obscure">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"> <img src="img/GAMGEE-White.png"
+			<a class="navbar-brand" href="#"> <img src="C:/Users/matu_/eclipse-workspace/TurismoTierraMedia/main/img/GAMGEE-White.png"
 				width="60" height="50" class="d-inline-block align-text-bottom">
 				GAMGEE TOURISM AGENCY
 			</a>

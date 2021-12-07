@@ -24,7 +24,7 @@
   <nav class="shadow navbar sticky-top navbar-dark bg-obscure">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-bottom">
+        <img src="css/GAMGEE-Verde.png" width="60" height="50" class="d-inline-block align-text-bottom">
         GAMGEE TOURISM AGENCY
       </a>
       <button class="btn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
