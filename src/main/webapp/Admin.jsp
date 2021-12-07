@@ -13,8 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <link href="index.css" rel="stylesheet" />
-  <link href="Admin-AddModifDelete.css" rel="stylesheet" />
+  <link href="css/index.css" rel="stylesheet" />
   <link href="sticky-footer.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
   <title>Turismo Tierra Media</title>
@@ -25,7 +24,7 @@
   <nav class="shadow navbar sticky-top navbar-dark bg-obscure">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-bottom">
+        <img src="css/GAMGEE-Verde.png" width="60" height="50" class="d-inline-block align-text-bottom">
         GAMGEE TOURISM AGENCY
       </a>
       <button class="btn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -63,7 +62,7 @@
               </a>
             </li>
           </ul>
-          <img id="logo-offcanvas" class="float-end" src="img/GAMGEE-verde.png">
+          <img id="logo-offcanvas" class="float-end" src="img/GAMGEE-Verde.png">
         </div>
       </div>
     </div>

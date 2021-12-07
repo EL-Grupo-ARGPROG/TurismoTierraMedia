@@ -1,2 +1,9 @@
-/target/
 *.db
+/shelf/
+/workspace.xml
+.settings
+/bin
+/target
+.classpath
+.project
+/.idea

@@ -8,13 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import DAO.AtraccionesDAOImpl;
-import DAO.PromocionesDAOImpl;
-import DAO.UsuarioDAOImpl;
-import tierraMedia.Atracciones;
-import tierraMedia.Sistema;
-import tierraMedia.TiposAtracciones;
-import tierraMedia.Vendible;
 
 public class OrdenamientoPorPreferenciaTest {
 	
