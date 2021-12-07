@@ -136,30 +136,28 @@
 			class="container navbar mt-5 border-round shadow bg-obscure justify-content-center">
 			<h2 class="text-center mt-1 text-color-light col-sm-12">Lista
 				nuestros paquetes segun tus preferencias.</h2>
-			<form action="listado.jsp" method="get">
-				<div class="container row justify-content-center">
+				
+			<form action="filter" method="get"  class="container row justify-content-center">
+				
 					<select name="tipo" class="form-select shadow center-element "
 						aria-label="Default select example">
 						<option class="text-center text-dark" selected>Tipo de Paquete</option>
 						<option class="text-center text-dark" value="1">AVENTURA</option>
-						<option class="text-center text-dark" value="2">
-							DEGUSTACION</option>
+						<option class="text-center text-dark" value="2">DEGUSTACION</option>
 						<option class="text-center text-dark" value="3">PAISAJE</option>
+						
 					</select> <select name="precio" class="form-select shadow center-element "
 						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Rango de
-							Precio</option>
+						<option class="text-center text-dark" selected>Rango de Precio</option>
 						<option class="text-center text-dark" value="1">1 - 200</option>
-						<option class="text-center text-dark" value="2">201 - 400
-						</option>
+						<option class="text-center text-dark" value="2">201 - 400</option>
 						<option class="text-center text-dark" value="3">401 - 600</option>
 						<option class="text-center text-dark" value="3">601 - 800</option>
-						<option class="text-center text-dark" value="3">801 -
-							1000</option>
+						<option class="text-center text-dark" value="3">801 - 1000</option>
+							
 					</select> <select name="duracion" class="form-select shadow center-element "
 						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Duracion
-							Hs</option>
+						<option class="text-center text-dark" selected>Duracion Hs</option>
 						<option class="text-center text-dark" value="1">1 - 2</option>
 						<option class="text-center text-dark" value="2">3 - 4</option>
 						<option class="text-center text-dark" value="3">5 - 6</option>
@@ -168,7 +166,6 @@
 						type="submit">
 						<b><i class="bi bi-search"></i></b>
 					</button>
-				</div>
 			</form>
 		</div>
 		

@@ -6,16 +6,8 @@ Preferencias: DEGUSTACION
 ITINERARIO:
 Sam, este es tu itinerario:
 
-<<<<<<< HEAD
-Atraccion: La Comarca
-Costo: 120.0$
-Tiempo de excursion 6.5H
- 
 Atraccion: Lothlorein
 Costo: 135.0$
 Tiempo de excursion 1.0H
 
-TOTAL: 7.5H    200.0$
-=======
-TOTAL: 0.0H    0.0$
->>>>>>> e8953b213423b642fbc622503ec35eaae2eee7b3
+TOTAL: 1.0H    135.0$

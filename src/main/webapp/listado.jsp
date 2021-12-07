@@ -79,8 +79,7 @@
 		<div class="container row justify-content-center">
 			<select class="form-select shadow center-element "
 				aria-label="Default select example">
-				<option class="text-center text-dark" selected
-					placeholder="Tipo Paquete">Tipo de Paquete</option>
+				<option class="text-center text-dark" selected>Tipo de Paquete</option>
 				<option class="text-center text-dark" value="1">AVENTURA</option>
 				<option class="text-center text-dark" value="2">
 					DEGUSTACION</option>
@@ -123,7 +122,7 @@
 							<c:out value="${lista.getTipo() }"></c:out>
 							-
 							<c:out value="${lista.getTiempoNecesario() }"></c:out>
-							}hs de Excursion
+							hs de Excursion
 						</h6>
 					</div>
 					<div class="container card-body">
