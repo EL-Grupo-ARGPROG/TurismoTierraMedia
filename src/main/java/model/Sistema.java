@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import DAO.AtraccionesDAOImpl;
-import DAO.ItinerarioDAOImpl;
-import DAO.PromocionesDAOImpl;
-import DAO.UsuarioDAOImpl;
+import persistence.impl.AtraccionesDAOImpl;
+import persistence.impl.ItinerarioDAOImpl;
+import persistence.impl.PromocionesDAOImpl;
+import persistence.impl.UsuarioDAOImpl;
 
 public class Sistema {
 	static UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
