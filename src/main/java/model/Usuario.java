@@ -4,19 +4,21 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import persistence.impl.ItinerarioDAOImpl;
+import utils.Crypt;
 
 public class Usuario {
 	protected int id;
-	protected String nombre;
+	protected String username, password;
 	protected double presupuesto;
 	protected double tiempoDisponible;
 	protected TiposAtracciones preferencia;
 	protected ArrayList<Atracciones> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
 
-	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario2) {
+	public Usuario(int id, String username, String password, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario2) {
 		this.id = id;
-		this.nombre = nombre;
+		this.username = username;
+		this.password = password;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
@@ -41,7 +43,7 @@ public class Usuario {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return username;
 	}
 
 	public double getPresupuesto() {
@@ -156,6 +158,14 @@ public class Usuario {
 			return true;
 		}
 
+	}
+
+	public boolean isNull() {
+		return false;
+	}
+	
+	public boolean checkPassword(String password) {
+		return Crypt.match(password, this.password);
 	}
 
 }

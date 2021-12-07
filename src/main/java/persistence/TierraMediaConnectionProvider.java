@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 
-public class ConnectionProvider {
+public class TierraMediaConnectionProvider {
 
 	private static String url;
 	private static Connection connection;
@@ -17,7 +17,7 @@ public class ConnectionProvider {
 	static {
 		Properties properties = new Properties();
 		try {
-			properties.load(ConnectionProvider.class.getResourceAsStream("/env.properties"));
+			properties.load(TierraMediaConnectionProvider.class.getResourceAsStream("/env.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
