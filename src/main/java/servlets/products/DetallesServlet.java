@@ -7,6 +7,7 @@ import java.util.List;
 
 import DAO.PromocionesDAOImpl;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,14 +17,14 @@ import model.*;
 
 
 @WebServlet("/filter")
-public class DetallesServlet extends HttpServlet {
+public class DetallesServlet extends HttpServlet implements Servlet{
 	private static final long serialVersionUID = 6386557501870415113L;
 	List<Vendible> vendiblesFiltrados;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-//		Sistema.instanciaDeObjetos();
+		Sistema.instanciaDeObjetos();
 //		String[] rangoPrecio = req.getParameter("precio").split(" - ");
 //		int valor1 = Integer.parseInt(String.valueOf(rangoPrecio[0]));
 //		int valor2 = Integer.parseInt(String.valueOf(rangoPrecio[1]));
