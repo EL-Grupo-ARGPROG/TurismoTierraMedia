@@ -46,6 +46,7 @@ public class DetallesServlet extends HttpServlet implements Servlet{
 				}
 			}
 		}
+		req.setAttribute("vendiblesList", PromocionesDAOImpl.vendiblesList);
 		req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
 		dispatcher.forward(req, resp);
