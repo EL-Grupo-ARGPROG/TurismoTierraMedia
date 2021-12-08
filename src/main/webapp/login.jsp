@@ -30,11 +30,11 @@
 
 <title>Turismo Tierra Media</title>
 </head>
-<body style="width:100%" >
+<body style="width:100%; margin:0;" >
 
+<jsp:include page="components/nav.jsp"></jsp:include>
 	<div class="container-fluid">
-		<jsp:include page="components/nav.jsp"></jsp:include>
-
+		
 		<div class="col-lg-5 mx-auto p-3 py-md-5">
 
 			<main>

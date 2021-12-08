@@ -167,5 +167,9 @@ public class Usuario {
 	public boolean checkPassword(String password) {
 		return Crypt.match(password, this.password);
 	}
+	
+	public void setPassword(String password) {
+		this.password = Crypt.hash(password);
+	}
 
 }

@@ -90,13 +90,13 @@ VALUES ("Moria",100,2,6,"AVENTURA"),
 ("Los Arboles Del Infinito",115,1.5,5,"DEGUSTACION");
 
 INSERT INTO "Usuarios"
-VALUES (1, "Eowyn",400,8,"AVENTURA"),
-(2, "Gandalf",600,6,"PAISAJE"),
-(3, "Sam",800,9,"DEGUSTACION"),
-(4, "Galadriel",900,5,"AVENTURA"),
-(5, "Frodo",500,12,"DEGUSTACION"),
-(6, "Golum",100,3,"PAISAJE"),
-(7, "Aragog",1000,2.5,"AVENTURA");
+VALUES (1, "Eowyn", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay", 400,8,"AVENTURA"),
+(2, "Gandalf", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",600,6,"PAISAJE"),
+(3, "Sam", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",800,9,"DEGUSTACION"),
+(4, "Galadriel", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",900,5,"AVENTURA"),
+(5, "Frodo", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",500,12,"DEGUSTACION"),
+(6, "Golum", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",100,3,"PAISAJE"),
+(7, "Aragog", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",1000,2.5,"AVENTURA");
 
 
 INSERT INTO "Tipos_Promos"
@@ -141,4 +141,3 @@ VALUES (1, "Bosque Negro"),
 (6, "Lothlorein"),
 (6, "La Comarca"),
 (6, "Los Arboles Del Infinito");
-
