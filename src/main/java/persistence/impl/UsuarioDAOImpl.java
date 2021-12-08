@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.*;
+import model.nullobjects.NullUser;
 import persistence.UsuarioDAO;
 import persistence.commons.MissingDataException;
 import persistence.commons.TierraMediaConnectionProvider;
@@ -21,8 +22,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	private Usuario toUsuario(ResultSet result) {
 
 		try {
-			return new Usuario(result.getInt(1), result.getString(2), result.getDouble(3), result.getDouble(4),
-					TiposAtracciones.valueOf(result.getString(5)), itinerarioUsuario);
+			return new Usuario(result.getInt(1), result.getString(2), result.getString(3), result.getDouble(4), result.getDouble(5),
+					TiposAtracciones.valueOf(result.getString(6)), itinerarioUsuario);
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
@@ -126,6 +127,26 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			return statement.executeUpdate();
 		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public Usuario findByUsername(String username) {
+		try {
+			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, username);
+			ResultSet resultados = statement.executeQuery();
+
+			Usuario user = NullUser.build();
+
+			if (resultados.next()) {
+				user = toUsuario(resultados);
+			}
+
+			return user;
+		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
 	}

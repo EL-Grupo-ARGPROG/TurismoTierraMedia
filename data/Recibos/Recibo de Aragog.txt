@@ -1,9 +1,0 @@
-GAMGEE TOURISM AGENCY
-
-Cliente: Aragog
-Preferencias: AVENTURA
-
-ITINERARIO:
-Aragog, este es tu itinerario:
-
-TOTAL: 0.0H    0.0$

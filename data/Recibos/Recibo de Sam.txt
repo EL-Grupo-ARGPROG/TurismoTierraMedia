@@ -1,9 +1,0 @@
-GAMGEE TOURISM AGENCY
-
-Cliente: Sam
-Preferencias: DEGUSTACION
-
-ITINERARIO:
-Sam, este es tu itinerario:
-
-TOTAL: 0.0H    0.0$
