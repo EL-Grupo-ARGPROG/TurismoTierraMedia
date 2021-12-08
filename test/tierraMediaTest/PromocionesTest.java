@@ -1,23 +1,18 @@
-package TierraMediaTest;
+package tierraMediaTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import tierraMedia.Absoluta;
-import tierraMedia.Atracciones;
-import tierraMedia.AxB;
-import tierraMedia.Porcentual;
-import tierraMedia.Promociones;
-import tierraMedia.TiposAtracciones;
-import tierraMedia.Usuario;
-import tierraMedia.Vendible;
+import model.*;
+import persistence.impl.PromocionesDAOImpl;
+
+
 
 public class PromocionesTest {
 	Atracciones isla;
@@ -76,6 +71,15 @@ public class PromocionesTest {
 		u1.comprar(promo2);
 		
 		assertFalse(u1.puedeComprar(mordor));
+
+	}
+	
+	@Test
+	public void tipoGetName() {
+		Sistema.instanciaDeObjetos();
+		for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
+			System.out.println(vendible.getTipo().name().equals("AVENTURA"));
+		}
 
 	}
 

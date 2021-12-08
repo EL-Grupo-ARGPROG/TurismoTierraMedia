@@ -10,9 +10,9 @@ import java.util.List;
 
 import model.*;
 import model.nullobjects.NullUser;
-import persistence.MissingDataException;
-import persistence.TierraMediaConnectionProvider;
 import persistence.UsuarioDAO;
+import persistence.commons.MissingDataException;
+import persistence.commons.TierraMediaConnectionProvider;
 
 
 public class UsuarioDAOImpl implements UsuarioDAO {

@@ -2,6 +2,7 @@ package persistence;
 
 import model.Atracciones;
 import model.Vendible;
+import persistence.commons.GenericDAO;
 
 public interface AtraccionesDAO extends GenericDAO<Atracciones> {
 	

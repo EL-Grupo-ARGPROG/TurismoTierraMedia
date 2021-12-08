@@ -1,4 +1,4 @@
-package TierraMediaTest;
+package tierraMediaTest;
 
 import static org.junit.Assert.*;
 
@@ -6,13 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import tierraMedia.Absoluta;
-import tierraMedia.Atracciones;
-import tierraMedia.AxB;
-import tierraMedia.Porcentual;
-import tierraMedia.TiposAtracciones;
-import tierraMedia.Usuario;
-import tierraMedia.Vendible;
+import model.*;
+
+
 
 public class UsuarioTest {
 	Usuario u1 = new Usuario(2, "pepito", 100, 100, TiposAtracciones.AVENTURA, new ArrayList<Vendible>());

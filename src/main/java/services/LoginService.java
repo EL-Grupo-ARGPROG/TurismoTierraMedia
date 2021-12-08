@@ -3,8 +3,8 @@ package services;
 
 import model.Usuario;
 import model.nullobjects.NullUser;
-import persistence.DAOFactory;
 import persistence.UsuarioDAO;
+import persistence.commons.DAOFactory;
 
 public class LoginService {
 

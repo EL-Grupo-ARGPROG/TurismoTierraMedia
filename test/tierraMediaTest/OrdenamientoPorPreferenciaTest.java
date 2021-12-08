@@ -1,12 +1,21 @@
-package TierraMediaTest;
+package tierraMediaTest;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import model.*
+;
+import persistence.impl.AtraccionesDAOImpl;
+import persistence.impl.PromocionesDAOImpl;
+import persistence.impl.UsuarioDAOImpl;
+
+
 
 
 public class OrdenamientoPorPreferenciaTest {
