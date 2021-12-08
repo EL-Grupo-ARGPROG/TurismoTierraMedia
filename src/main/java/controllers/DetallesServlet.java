@@ -29,7 +29,7 @@ public class DetallesServlet extends HttpServlet implements Servlet{
 		int valor1 = Integer.parseInt(String.valueOf(rangoPrecio[0]));
 		int valor2 = Integer.parseInt(String.valueOf(rangoPrecio[1]));
 
-		String[] rangoDuracion = req.getParameter("tiempo").split(" - ");
+		String[] rangoDuracion = req.getParameter("duracion").split(" - ");
 		int hora1 = Integer.parseInt(String.valueOf(rangoDuracion[0]));
 		int hora2 = Integer.parseInt(String.valueOf(rangoDuracion[1]));
 		

@@ -84,26 +84,26 @@
 				aria-label="Default select example">
 				<option class="text-center text-dark" selected>Tipo de
 					Paquete</option>
-				<option class="text-center text-dark" value="1">AVENTURA</option>
-				<option class="text-center text-dark" value="2">DEGUSTACION</option>
-				<option class="text-center text-dark" value="3">PAISAJE</option>
+				<option class="text-center text-dark" >AVENTURA</option>
+				<option class="text-center text-dark" >DEGUSTACION</option>
+				<option class="text-center text-dark" >PAISAJE</option>
 
 			</select> <select name="precio" class="form-select shadow center-element "
 				aria-label="Default select example">
 				<option class="text-center text-dark" selected>Rango de
 					Precio</option>
-				<option class="text-center text-dark" value="1">1-200</option>
-				<option class="text-center text-dark" value="2">201-400</option>
-				<option class="text-center text-dark" value="3">401-600</option>
-				<option class="text-center text-dark" value="3">601-800</option>
-				<option class="text-center text-dark" value="3">801-1000</option>
+				<option class="text-center text-dark" >1 - 200</option>
+				<option class="text-center text-dark" >201 - 400</option>
+				<option class="text-center text-dark" >401 - 600</option>
+				<option class="text-center text-dark" >601 - 800</option>
+				<option class="text-center text-dark" >801 - 1000</option>
 
 			</select> <select name="duracion" class="form-select shadow center-element "
 				aria-label="Default select example">
 				<option class="text-center text-dark" selected>Duracion Hs</option>
-				<option class="text-center text-dark" value="1">1-2</option>
-				<option class="text-center text-dark" value="2">3-4</option>
-				<option class="text-center text-dark" value="3">5-6</option>
+				<option class="text-center text-dark" >1 - 2</option>
+				<option class="text-center text-dark" >3 - 4</option>
+				<option class="text-center text-dark" >5-6</option>
 			</select>
 			<button class="btn boton-filtro shadow btn-success bg-verde-light"
 				type="submit">
@@ -137,7 +137,7 @@
 								</div>
 								<div class="text-derecha col-xs-12 col-md-6">
 									<h5 class="btn btn-outline-light">Precio:
-										${lista.getCosto()}</h5>
+										<c:out value="${lista.getCosto()}"></c:out></h5>
 								</div>
 							</div>
 						</div>
