@@ -25,17 +25,15 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Sistema.instanciaDeObjetos();
-
-		
-
 		vendiblesFiltrados.clear();
+		
+		
 
 		if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
 				|| req.getParameter("duracion").equals("Duracion Hs")) {
                 req.setAttribute("flash", "Seleccionar un opcion de cada casilla");
                 
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp/#seleccionador");
-				dispatcher.forward(req, resp);
+				getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
 				
 		} else {
 			
@@ -54,8 +52,8 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 			int hora2 = Integer.parseInt(string2);
 
 			String tipo = req.getParameter("tipo");
-			
-			for (Vendible vendible : Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo))) {
+			List<Vendible> lista =  Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo));
+			for (Vendible vendible : lista ) {
 				if ((vendible.getTipo().name().equals(tipo)) && (vendible.getTiempoNecesario() >= hora1)
 						&& (vendible.getTiempoNecesario() <= hora2) && (vendible.getCosto() >= valor1)
 						&& (vendible.getCosto() <= valor2) && (!vendiblesFiltrados.contains(vendible))) {
@@ -71,4 +69,5 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 			
 		}
 	}
+	
 }

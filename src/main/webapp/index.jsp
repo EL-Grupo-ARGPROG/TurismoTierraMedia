@@ -97,7 +97,7 @@
 		</div>
 
 		<div
-			id="seleccionador"  class="container navbar mt-5 pt-2 shadow bg-obscure justify-content-center">
+			 class="container navbar mt-5 pt-2 shadow bg-obscure justify-content-center">
 			<h2 class="text-center mt-1 text-color-light col-sm-12">Lista
 				nuestros paquetes segun tus preferencias.</h2>
 				<c:if test="${flash != null}">

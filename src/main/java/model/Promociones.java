@@ -16,12 +16,6 @@ public abstract class Promociones implements Vendible {
 	}
 	
 	
-	@Override
-	public String mostrarOfertaDescriptiva() {
-		return ("\nPromocion: " + this.getNombre() + "\n" + "Atracciones incluidas:\n" + this.toString()
-        + "\nCosto: " + this.getCosto() + "$" + "\nTiempo de excursion: "
-        + this.getTiempoNecesario() +"H\n");
-	}
 	
 	public String getNombre() {
 		return this.nombre;
@@ -66,12 +60,7 @@ public abstract class Promociones implements Vendible {
 
 	@Override
 	public String toString() {
-		String s = Arrays.toString(this.getPack());
-		s = s.replace("[", "" );
-		s= s.replace("]", "");
-		s= s.replace(",", "");
-
-		return s;
+		return this.getNombre();
 	}
 
 	public boolean esPromocion() {
