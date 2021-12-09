@@ -75,48 +75,15 @@
 		</div>
 	</nav>
 
-	<div
-		class="container navbar sticky-top border-round shadow bg-obscure justify-content-center">
-		<form action="filter" method="get"
-			class="container row justify-content-center">
-
-			<select name="tipo" class="form-select shadow center-element "
-				aria-label="Default select example">
-				<option class="text-center text-dark" selected>Tipo de
-					Paquete</option>
-				<option class="text-center text-dark" >AVENTURA</option>
-				<option class="text-center text-dark" >DEGUSTACION</option>
-				<option class="text-center text-dark" >PAISAJE</option>
-
-			</select> <select name="precio" class="form-select shadow center-element "
-				aria-label="Default select example">
-				<option class="text-center text-dark" selected>Rango de
-					Precio</option>
-				<option class="text-center text-dark" >1 - 200</option>
-				<option class="text-center text-dark" >201 - 400</option>
-				<option class="text-center text-dark" >401 - 600</option>
-				<option class="text-center text-dark" >601 - 800</option>
-				<option class="text-center text-dark" >801 - 1000</option>
-
-			</select> <select name="duracion" class="form-select shadow center-element "
-				aria-label="Default select example">
-				<option class="text-center text-dark" selected>Duracion Hs</option>
-				<option class="text-center text-dark" >1 - 2</option>
-				<option class="text-center text-dark" >3 - 4</option>
-				<option class="text-center text-dark" >5-6</option>
-			</select>
-			<button class="btn boton-filtro shadow btn-success bg-verde-light"
-				type="submit">
-				<b><i class="bi bi-search"></i></b>
-			</button>
-		</form>
-	</div>
+	<jsp:include page="components/seleccionador.jsp"></jsp:include>
 
 	<div id="listado-cartas" class="row row-cols-1 row-cols-md-2 g-4">
 
+
 		<c:forEach items="${vendiblesFiltrados}" var="lista">
-			<a href="/TierraMedia/index.jsp">
-				<div class="col">
+			
+					<a href="/TierraMedia/index.jsp">
+						<div class="col">
 					<div class="card bg-verde-dark shadow text-white carta">
 						<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
 						<div class="card-img-overlay">
@@ -137,40 +104,19 @@
 								</div>
 								<div class="text-derecha col-xs-12 col-md-6">
 									<h5 class="btn btn-outline-light">Precio:
-										<c:out value="${lista.getCosto()}"></c:out></h5>
+										<c:out value="${lista.getCosto()}"></c:out>
+											</h5>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</a>
-		</c:forEach>
+		
+				</c:forEach>
 	</div>
 
-	<footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
-		<div class="container">
-			<div class="row">
-				<div class="text-left col-xs-12 col-md-6">
-					<h6>GAMGEE TOURISM AGENCY</h6>
-				</div>
-				<div class="col-xs-12 col-md-6 text-derecha ">
-					<h6>Created by: EL Grupo</h6>
-					<h6>
-						<small>Proyecto final: Turismo en la Tierra Media</small>
-					</h6>
-					<div class="redes-footer">
-						<a href="https://github.com/EL-Grupo-ARGPROG/TurismoTierraMedia">
-							<i class="d-inline-block align-text-top link-light bi bi-github"
-							style="font-size: 2rem;"></i>
-						</a> <a href="https://www.youtube.com/watch?v=wM8Hfo-M_Vw"> <i
-							class="d-inline-block align-text-top link-light bi bi-youtube"
-							style="font-size: 2rem;"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<jsp:include page="components/footer.jsp"></jsp:include>
 </body>
 
 </html>

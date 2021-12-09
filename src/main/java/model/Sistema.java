@@ -2,6 +2,7 @@ package model;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,15 +16,12 @@ public class Sistema {
 	static AtraccionesDAOImpl atraccionDAO = new AtraccionesDAOImpl();
 	static PromocionesDAOImpl promocionDAO = new PromocionesDAOImpl();
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
-	
+
 	public static void instanciaDeObjetos() {
-			atraccionDAO.instanciadorDeAtracciones();
-			promocionDAO.instanciadorDePromociones();
-			usuarioDAO.instanciadorDeUsuarios();
-		
-//		System.out.println(PromocionesDAOImpl.vendiblesList);
-//		System.out.println(AtraccionesDAOImpl.atraccionesList);
-//		System.out.println(UsuarioDAOImpl.usuariosList);
+		atraccionDAO.instanciadorDeAtracciones();
+		promocionDAO.instanciadorDePromociones();
+		usuarioDAO.instanciadorDeUsuarios();
+
 	}
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
@@ -31,63 +29,19 @@ public class Sistema {
 		return PromocionesDAOImpl.vendiblesList;
 	}
 
-	// usuario.comprar()
+	public static List<Vendible> sugerirVisitas(Usuario usuario) throws IOException {
+		List<Vendible> sugerenciasList = new LinkedList<Vendible>();
 
-	public static void sugerirVisitasYEscribirItinerario() throws IOException {
-		Scanner sc = new Scanner(System.in);
+		ordenadorDeVendibles(usuario.getPreferencia());
 
-		for (Usuario usuario : UsuarioDAOImpl.usuariosList) {
-			ordenadorDeVendibles(usuario.getPreferencia());
-
-			for (Vendible oferta : PromocionesDAOImpl.vendiblesList) {
-				boolean invalidResponse = true;
-				if (!usuario.tieneDinero() || !usuario.tieneTiempo()) {
-					break;
-				}
-				if (usuario.puedeComprar(oferta)) {
-					while (invalidResponse) {
-						//le muestro al usuario sus recursos restantes.
-						System.out.println("\n"+usuario.getNombre() + 
-								", tus recursos restantes: $" + usuario.getPresupuesto() 
-								+ ", " + usuario.getTiempoDisponible() + "H.");
-						//le muestro al usuario la oferta
-						System.out.println("\n" + usuario.getNombre() + " �Deseas aceptar la siguiente oferta?\n"
-								+ oferta.mostrarOfertaDescriptiva() + "\n1-Si\n2-No");
-						String response = sc.nextLine().toLowerCase();
-						// if(el usuario responde que acepta)
-						if (response.equals("1") || response.equals("si")) {
-							invalidResponse = false;
-							usuario.comprar(oferta);
-							oferta.restarCupo();
-						} else if (response.equals("2") || response.equals("no")) {
-							invalidResponse = false;
-							continue;
-						} else {
-							System.out.println("Respuesta invalida");
-						}
-					}
-				} else {
-					continue;
-				}
+		for (Vendible oferta : PromocionesDAOImpl.vendiblesList) {
+			if(usuario.getPresupuesto() >= oferta.getCosto()
+			  && usuario.getTiempoDisponible() >= oferta.getTiempoNecesario()
+			  && usuario.puedeComprar(oferta)) {
+				sugerenciasList.add(oferta);
 			}
-			System.out.println(usuario.mostrarItinerario());
-			EscritorDeRecibos.escribirRecibos(usuario);
-			usuarioDAO.update(usuario);
-			for(Vendible atraccion : usuario.atraccionesAceptadas) {
-				atraccionDAO.update(atraccion);
-			}
+
 		}
-		System.out.println("Gracias por usar los servicios de GAMGEE TOURISM AGENCY");
-		for(Itinerario itinerario : ItinerarioDAOImpl.itinerarioList) {
-			itinerarioDAO.insert(itinerario);
-		}
+		return sugerenciasList;
 	}
-
-	public static void main(String[] args) throws IOException {
-		instanciaDeObjetos();
-		
-		sugerirVisitasYEscribirItinerario();
-
-	}
-
 }
