@@ -40,7 +40,7 @@
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
 			<div class="container row justify-content-center">
-				<select class="form-select shadow center-element"
+				<select name="tipo" class="form-select shadow center-element"
 					aria-label="Default select example">
 					<option class="text-center text-dark" selected>Tipo de
 						Paquete</option>
@@ -56,8 +56,9 @@
 					type="button" data-bs-toggle="modal" data-bs-target="#modal1">
 					<i style="font-size: 1.3rem" class="bi bi-plus-square"></i>
 				</button>
+				
 			</div>
-
+			
 			<div class="modal fade" id="modal1" data-bs-backdrop="static"
 				data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel"
 				aria-hidden="true">
