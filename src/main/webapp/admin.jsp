@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="persistence.impl.PromocionesDAOImpl,model.Sistema" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,12 +91,20 @@
 					</div>
 				</div>
 			</div>
+			
+			<%
+			
+			PromocionesDAOImpl.vendiblesList.clear();
+			Sistema.instanciaDeObjetos();
+			
+			pageContext.setAttribute("vendiblesList", PromocionesDAOImpl.vendiblesList);
+			
+			%>
 
 			<div class="container">
 				<table class="table table-success table-striped table-hover">
 					<thead>
 						<tr>
-							<th scope="col">Id</th>
 							<th scope="col">Nombre</th>
 							<th scope="col">Costo</th>
 							<th scope="col">Tiempo</th>

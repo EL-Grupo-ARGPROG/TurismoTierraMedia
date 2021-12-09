@@ -26,17 +26,15 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 
 		Sistema.instanciaDeObjetos();
 		vendiblesFiltrados.clear();
-		
-		
 
 		if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
 				|| req.getParameter("duracion").equals("Duracion Hs")) {
-                req.setAttribute("flash", "Seleccionar un opcion de cada casilla");
-                
-				getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
-				
+			req.setAttribute("flash", "Seleccionar un opcion de cada casilla");
+
+			getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+
 		} else {
-			
+
 			String[] rangoPrecio = req.getParameter("precio").split(" - ");
 			String stringV = String.valueOf(rangoPrecio[0]);
 			String stringV1 = String.valueOf(rangoPrecio[1]);
@@ -52,8 +50,8 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 			int hora2 = Integer.parseInt(string2);
 
 			String tipo = req.getParameter("tipo");
-			List<Vendible> lista =  Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo));
-			for (Vendible vendible : lista ) {
+			List<Vendible> lista = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo));
+			for (Vendible vendible : lista) {
 				if ((vendible.getTipo().name().equals(tipo)) && (vendible.getTiempoNecesario() >= hora1)
 						&& (vendible.getTiempoNecesario() <= hora2) && (vendible.getCosto() >= valor1)
 						&& (vendible.getCosto() <= valor2) && (!vendiblesFiltrados.contains(vendible))) {
@@ -61,13 +59,14 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 					vendiblesFiltrados.add(vendible);
 
 				}
-				req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
-				dispatcher.forward(req, resp);
 
 			}
-			
+
+			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+			dispatcher.forward(req, resp);
+
 		}
 	}
-	
+
 }
