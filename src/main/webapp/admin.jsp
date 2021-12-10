@@ -66,7 +66,7 @@
 					<div class="modal-content shadow bg-obscure">
 						<div class="modal-header">
 							<h5 class="modal-title">Nueva atraccion</h5>
-							<button type="button" class="btn-close btn-close-white"
+							<button type="button" class="btn-close btn-close-white text-reset"
 								data-bs-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>

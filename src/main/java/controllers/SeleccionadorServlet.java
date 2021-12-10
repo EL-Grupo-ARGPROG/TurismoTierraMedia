@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.*;
-import persistence.impl.PromocionesDAOImpl;
 
 @WebServlet("/seleccionar")
 public class SeleccionadorServlet extends HttpServlet implements Servlet {
@@ -26,8 +25,16 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 
 		Sistema.instanciaDeObjetos();
 		vendiblesFiltrados.clear();
-
-		if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
+		
+		if(req.getParameter("todos").equals("TODOS")){
+			
+			vendiblesFiltrados = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA"));
+			
+			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+			dispatcher.forward(req, resp);
+			
+		} else if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
 				|| req.getParameter("duracion").equals("Duracion Hs")) {
 			req.setAttribute("flash", "Seleccionar un opcion de cada casilla");
 
@@ -50,7 +57,9 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 			int hora2 = Integer.parseInt(string2);
 
 			String tipo = req.getParameter("tipo");
+			
 			List<Vendible> lista = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo));
+			
 			for (Vendible vendible : lista) {
 				if ((vendible.getTipo().name().equals(tipo)) && (vendible.getTiempoNecesario() >= hora1)
 						&& (vendible.getTiempoNecesario() <= hora2) && (vendible.getCosto() >= valor1)

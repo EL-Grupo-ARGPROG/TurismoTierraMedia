@@ -18,13 +18,20 @@ public class Sistema {
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 
 	public static void instanciaDeObjetos() {
+		PromocionesDAOImpl.vendiblesList.clear();
+		PromocionesDAOImpl.promocionesList.clear();
+		AtraccionesDAOImpl.atraccionesList.clear();
+		
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();
 		usuarioDAO.instanciadorDeUsuarios();
 
+
 	}
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {
+
+
 		Collections.sort(PromocionesDAOImpl.vendiblesList, new ComparadorDeVendibles(tipo));
 		return PromocionesDAOImpl.vendiblesList;
 	}

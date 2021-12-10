@@ -3,7 +3,6 @@ package controllers;
 import java.io.IOException;
 import java.util.List;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,14 +13,14 @@ import model.Vendible;
 import services.CarruselService;
 
 @WebServlet("/index")
-public class CarruselServlet extends HttpServlet implements Servlet {
+public class CarruselServlet extends HttpServlet {
 	private static final long serialVersionUID = -1980302624620822273L;
-	private CarruselServlet carruselService;
+	private CarruselService carruselService;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		carruselService = new CarruselServlet();
+		carruselService = new CarruselService();
 	}
 	
 	@Override
@@ -29,7 +28,7 @@ public class CarruselServlet extends HttpServlet implements Servlet {
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
 		
 		if (!user.isNull()) {
-			List<Vendible> lista = CarruselService.getVendibles(user); //llamo al service y paso usuario
+			List<Vendible> lista = carruselService.getVendibles(user); //llamo al service y paso usuario
 			req.getSession().setAttribute("lista", lista); //seteo lista como atributo
 		}
 		

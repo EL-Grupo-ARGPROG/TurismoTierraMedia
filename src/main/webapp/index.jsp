@@ -34,7 +34,9 @@
 
 <body id="container-body" class=" container-fluid bg-verde-light">
 
-	<jsp:include page="components/nav.jsp"></jsp:include>
+	<div class="sticky-top">
+    <jsp:include page="components/nav.jsp"></jsp:include>
+    </div>
 
 	<div id="container-body" class="container-fluid">
 
@@ -101,7 +103,7 @@
 			<h2 class="text-center mt-1 text-color-light col-sm-12">Lista
 				nuestros paquetes segun tus preferencias.</h2>
 				<c:if test="${flash != null}">
-					<div class="alert alert-danger">
+					<div class="alert alert-warning">
 						<p>
 							<c:out value="${flash}" />
 						</p>

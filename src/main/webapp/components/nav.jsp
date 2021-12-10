@@ -2,9 +2,9 @@
 
 <link href="css/index.css" rel="stylesheet" />
 
-<nav class="shadow navbar sticky-top navbar-dark bg-obscure">
+<nav class="shadow navbar navbar-dark bg-obscure">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#"> <img src="img/GAMGEE-White.png"
+		<a class="navbar-brand" href="/TierraMedia/index.jsp"> <img src="img/GAMGEE-White.png"
 			width="60" height="50" class="d-inline-block align-text-bottom">
 			GAMGEE TOURISM AGENCY
 		</a>

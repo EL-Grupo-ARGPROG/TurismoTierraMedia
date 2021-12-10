@@ -15,7 +15,7 @@ import persistence.commons.TierraMediaConnectionProvider;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
 	public static List<Vendible> vendiblesList = new LinkedList<Vendible>();
-	public List<Promociones> promocionesList = new LinkedList<Promociones>();
+	public static List<Promociones> promocionesList = new LinkedList<Promociones>();
 	
 	private static List<Vendible> setVendiblesList() {
 		for(Atracciones atraccion : AtraccionesDAOImpl.atraccionesList) {
@@ -186,6 +186,12 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	@Override
 	public List<Promociones> findAll() {
 		return promocionesList;
+	}
+
+	@Override
+	public int update(Vendible atraccion) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

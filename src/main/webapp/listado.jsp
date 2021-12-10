@@ -34,86 +34,63 @@
 </head>
 
 <body id="listado" class="flex-column h-100 w-100 bg-verde-light">
+	<jsp:include page="components/nav.jsp"></jsp:include>
+	<div class="sticky-top">
+		<jsp:include page="components/seleccionador.jsp"></jsp:include>
+	</div>
 
-	<nav class="shadow navbar navbar-dark bg-obscure">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="/TierraMedia/index.jsp"> <img
-				src="img/GAMGEE-White.png" width="60" height="50"
-				class="d-inline-block align-text-bottom"> GAMGEE TOURISM
-				AGENCY
-			</a>
-			<button class="btn shadow" type="button" data-bs-toggle="offcanvas"
-				data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-				<i class="bi bi-list" style="font-size: 2rem; color: white"></i>
-			</button>
-			<div class="offcanvas offcanvas-end bg-verde-dark" tabindex="-1"
-				id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-				<div class="offcanvas-header">
-					<button type="button" class="btn-close btn-close-white text-reset"
-						data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+	<div id="listado-cartas" class="container-fluid row row-cols-1 row-cols-md-2 g-4">
+
+
+		<c:choose>
+			<c:when test="${vendiblesFiltrados.isEmpty() }">
+				<div class="container-fluid justify-center bg-verde"style="height: 300px; width:1000px ;">
+					<h1 class="text-center">No se encontraron coincidencias</h1>
+					<h3 class="text-center">Pruebe con otros parametros</h3>
 				</div>
-				<div class="offcanvas-body">
-					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/TierraMedia/index.jsp">
-								<h5>Inicio</h5>
-						</a></li>
-						<li class="nav-item"><a class="nav-link" href="">
-								<h5>Contacto</h5>
-						</a></li>
-						<li class="nav-item"><a class="nav-link" href="">
-								<h5>Promociones</h5>
-						</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">
-								<h5>Paquetes turisticos</h5>
-						</a></li>
-					</ul>
-					<img id="logo-offcanvas" class="float-end"
-						src="img/GAMGEE-verde.png">
-				</div>
-			</div>
-		</div>
-	</nav>
+			</c:when>
+			<c:when test="${!vendiblesfiltrados.isEmpty() }">
+				<c:forEach items="${vendiblesFiltrados}" var="lista">
 
-	<jsp:include page="components/seleccionador.jsp"></jsp:include>
-
-	<div id="listado-cartas" class="row row-cols-1 row-cols-md-2 g-4">
-
-
-		<c:forEach items="${vendiblesFiltrados}" var="lista">
-			
 					<a href="/TierraMedia/index.jsp">
 						<div class="col">
-					<div class="card bg-verde-dark shadow text-white carta">
-						<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
-						<div class="card-img-overlay">
-							<h5 class="card-title">
-								<c:out value="${lista.getNombre() }"></c:out>
-							</h5>
-							<h6>
-								<c:out value="${lista.getTipo() }"></c:out>
-								-
-								<c:out value="${lista.getTiempoNecesario() }"></c:out>
-								hs de Excursion
-							</h6>
-						</div>
-						<div class="container card-body">
-							<div class="row">
-								<div class="text-left col-xs-12 col-md-6">
-									<h6 class="btn btn-outline-light"> Detalles</h6>
+							<div class="card bg-verde-dark shadow text-white carta">
+								<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
+								<div class="card-img-overlay">
+									<h5 class="card-title">
+										<c:out value="${lista.getNombre() }"></c:out>
+									</h5>
+									<h6>
+										<c:out value="${lista.getTipo() }"></c:out>
+										-
+										<c:out value="${lista.getTiempoNecesario() }"></c:out>
+										hs de Excursion
+									</h6>
 								</div>
-								<div class="text-derecha col-xs-12 col-md-6">
-									<h5 class="btn btn-outline-light">Precio:
-										<c:out value="${lista.getCosto()}"></c:out>
+								<div class="container card-body">
+									<div class="row">
+										<div class="text-left col-xs-12 col-md-6">
+											<h6 class="btn btn-outline-light">Detalles</h6>
+										</div>
+										<div class="text-derecha col-xs-12 col-md-6">
+											<h5 class="btn btn-outline-light">
+												Precio:
+												<c:out value="${lista.getCosto()}"></c:out>
 											</h5>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</a>
-		
+					</a>
+
 				</c:forEach>
+			</c:when>
+		</c:choose>
+
+
+
 	</div>
 
 	<jsp:include page="components/footer.jsp"></jsp:include>
