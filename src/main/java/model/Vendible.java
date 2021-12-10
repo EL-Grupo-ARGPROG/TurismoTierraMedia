@@ -17,6 +17,4 @@ public interface Vendible {
 	public void restarCupo();
 	
 	public String getNombre();
-	
-	public String mostrarOfertaDescriptiva();
 }

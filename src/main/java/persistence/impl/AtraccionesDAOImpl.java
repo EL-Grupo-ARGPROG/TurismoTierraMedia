@@ -47,6 +47,26 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	public List<Atracciones> findAll() {
 			return atraccionesList;
 	}
+	
+	public Atracciones find(Integer id) {
+		try {
+			String sql = "SELECT * FROM producto WHERE id = ?";
+			Connection conn = TierraMediaConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id);
+			
+			ResultSet resultados = statement.executeQuery();
+
+			Atracciones atraccion = null;
+			if (resultados.next()) {
+				atraccion = toAtraccion(resultados);
+			}
+
+			return atraccion;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 	@Override
 	public int insert(Atracciones t) {
