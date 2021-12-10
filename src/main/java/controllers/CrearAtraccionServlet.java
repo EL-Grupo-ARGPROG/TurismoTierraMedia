@@ -1,4 +1,4 @@
-/*package controllers;
+package controllers;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -11,31 +11,28 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Sistema;
+import model.Atracciones;
 import model.TiposAtracciones;
-import model.Vendible;
-import persistence.impl.PromocionesDAOImpl;
+import services.AtraccionService;
 
-//NO SE SI ESTAN BIEN LAS REDIRECCIONES
 
-@WebServlet("/atraccion/crear.adm")
+@WebServlet("/create")
 public class CrearAtraccionServlet extends HttpServlet implements Servlet {
-
-
 	private static final long serialVersionUID = 9079190486756258068L;
+	AtraccionService atraccionService = new AtraccionService();
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		atraccionService = new AtraccionService();
+		AtraccionService atraccionService = new AtraccionService();
 	}
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		getServletContext()
-			.getRequestDispatcher("/views/productos/create.jsp")
-			.forward(req, resp);
-	}
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		getServletContext()
+//			.getRequestDispatcher("/views/productos/create.jsp")
+//			.forward(req, resp);
+//	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,23 +42,17 @@ public class CrearAtraccionServlet extends HttpServlet implements Servlet {
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		String tipo = req.getParameter("tipo"); 
 		
-		Atraccion atraccion = atraccionService.crear(nombre, costo, tiempoNecesario, cupo, tipo)
+		Atracciones atraccion = atraccionService.create(nombre, costo, tiempoNecesario, cupo, TiposAtracciones.valueOf(tipo));
 		
        	if(atraccion.isValid()) {
-			resp.sendRedirect("listado.do");
+			resp.sendRedirect("/admin.jsp");
 		} else {
-			// MANEJAR PRODUCTO INVALIDO
-			//req.setAttribute("errors", prod.validate());
-			//req.setAttribute("producto", prod);
+			req.setAttribute("atraccion", atraccion);
 
-			getServletContext()
-				.getRequestDispatcher("/listado.jsp")
-				.forward(req, resp);			
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/admin.jsp");
+			dispatcher.forward(req, resp);		
 		}
 	}
-}
 	
-
 }
-
-*/

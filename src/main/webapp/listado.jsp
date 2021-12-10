@@ -40,12 +40,14 @@
 	</div>
 
 
-	<div id="listado-cartas" class="container-fluid row row-cols-1 row-cols-md-2 g-4">
+	<div id="listado-cartas"
+		class="container-fluid row row-cols-1 row-cols-md-2 g-4">
 
 
 		<c:choose>
 			<c:when test="${vendiblesFiltrados.isEmpty() }">
-				<div class="container-fluid justify-center bg-verde"style="height: 300px; width:1000px ;">
+				<div class="container-fluid justify-center bg-verde"
+					style="height: 300px; width: 1000px;">
 					<h1 class="text-center">No se encontraron coincidencias</h1>
 					<h3 class="text-center">Pruebe con otros parametros</h3>
 				</div>

@@ -48,7 +48,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return atraccionesList;
 	}
 	
-	public Atracciones find(Integer id) {
+	public Atracciones findByID(Integer id) {
 		try {
 			String sql = "SELECT * FROM producto WHERE id = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
@@ -71,7 +71,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	@Override
 	public int insert(Atracciones t) {
 		try {
-			String query = "INSERT INTO ATRACCION(NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_TEMATICA)"
+			String query = "INSERT INTO ATRACCIONES(NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_TEMATICA)"
 					+ "VALUES(?, ?, ?, ?, ?)";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
@@ -89,14 +89,15 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	}
 
 	@Override
-	public int update(Vendible atraccion) {
+	public int update(Vendible t) {
 		try {
-			String query = "UPDATE ATRACCIONES SET CUPO = ? WHERE NOMBRE = ?";
+			String query = "UPDATE ATRACCIONES SET CUPO = ?, COSTO = ? WHERE NOMBRE = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setDouble(1, atraccion.getCupo());
-			statement.setString(2, atraccion.getNombre());
+			statement.setDouble(1, t.getCupo());
+			statement.setDouble(2, t.getCosto());
+			statement.setString(2, t.getNombre());
 
 			return statement.executeUpdate();
 		} catch (SQLException e) {

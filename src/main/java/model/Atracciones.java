@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Atracciones implements Vendible {
@@ -9,6 +11,8 @@ public class Atracciones implements Vendible {
 	protected double tiempoNecesario;
 	protected int cupo;
 	protected TiposAtracciones tipo;
+	
+	private Map<String, String> errors;
 
 	public Atracciones(String nombre, double costo, double tiempoNecesario, int cupo, TiposAtracciones tipo) {
 		this.costo = costo;
@@ -92,7 +96,27 @@ public class Atracciones implements Vendible {
 				&& tipo == other.tipo;
 	}
 
-	// es(vendible)
-	// le llega un vendible y se fija si equals
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (this.costo <= 0) {
+			errors.put("costo", "Debe ser positivo");
+		}
+		if (this.tiempoNecesario <= 0) {
+			errors.put("duracion", "Debe ser positivo");
+		}
+		if (this.cupo <= 0) {
+			errors.put("cupo", "Debe ser positivo");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 
 }
