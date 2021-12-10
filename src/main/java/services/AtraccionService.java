@@ -1,4 +1,4 @@
-/*package services;
+package services;
 import java.util.List;
 
 import model.Atracciones;
@@ -6,36 +6,33 @@ import model.TiposAtracciones;
 import persistence.impl.AtraccionesDAOImpl;
 
 public class AtraccionService {
+	AtraccionesDAOImpl atraccionDao = new AtraccionesDAOImpl();
 	
-    // HAY UN PROBLEMA CON QUE ATRACCIONESDAOIMP USE METODOS ESTATICOS
     public List<Atracciones> list(){
-		return AtraccionesDAOImpl.findAll();
+			return atraccionDao.findAll();
 	}
 	
 	public void delete(Atracciones atraccion) {
-		AtraccionesDAOImpl.delete(atraccion);
+		atraccionDao.delete(atraccion);
 	}
 	
 	public Atracciones update (String nombre, double costo, double tiempoNecesario, int cupo, TiposAtracciones tipo)  {
 		Atracciones atraccion = new Atracciones (nombre, costo, tiempoNecesario, cupo, tipo);
 		if(atraccion.isValid()) {
-			AtraccionesDAOImpl.update(atraccion);
+			atraccionDao.update(atraccion);
 		}
 		return atraccion;
 	}
 	
 	public Atracciones find(Integer id) {
-		return AtraccionesDAOImpl.find(id);
+		return atraccionDao.findByID(id);
 	}
 	
 	public Atracciones create(String nombre, double costo, double tiempoNecesario, int cupo, TiposAtracciones tipo) {
 		Atracciones atraccion = new Atracciones (nombre, costo, tiempoNecesario, cupo, tipo);
 		if(atraccion.isValid()) {
-			AtraccionesDAOImpl.insert(atraccion);
+			atraccionDao.insert(atraccion);
 		}
 		return atraccion;
 	}
 }
-
-}
-*/

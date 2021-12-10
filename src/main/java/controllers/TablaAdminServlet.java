@@ -15,7 +15,7 @@ import model.Sistema;
 import model.Vendible;
 import persistence.impl.PromocionesDAOImpl;
 
-@WebServlet("/lalalalala")
+@WebServlet("/tablaAdmin")
 public class TablaAdminServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
 	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();

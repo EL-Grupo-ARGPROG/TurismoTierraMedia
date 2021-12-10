@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="persistence.impl.PromocionesDAOImpl,model.Sistema" %>
+<%@ page import="persistence.impl.PromocionesDAOImpl,model.Sistema"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,25 +40,32 @@
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
 			<div class="container row justify-content-center">
-				<select name="tipo" class="form-select shadow center-element"
-					aria-label="Default select example">
-					<option class="text-center text-dark" selected>Tipo de
-						Paquete</option>
-					<option class="text-center text-dark" value="1">Aventura</option>
-					<option class="text-center text-dark" value="2">Degustacion</option>
-					<option class="text-center text-dark" value="3">Paisaje</option>
-				</select>
-				<button class="btn boton-filtro shadow btn-success bg-verde-light"
-					type="submit">
-					<i style="font-size: 1.5rem" class="bi bi-filter"></i>
-				</button>
+				<form action="tablaAdmin" method="get">
+					<select name="tipo" class="form-select shadow center-element"
+						aria-label="Default select example">
+						<option class="text-center text-dark" selected>Tipo de
+							Paquete</option>
+						<option class="text-center text-dark" value="1">Aventura</option>
+						<option class="text-center text-dark" value="2">Degustacion</option>
+						<option class="text-center text-dark" value="3">Paisaje</option>
+					</select>
+					<button class="btn boton-filtro shadow btn-success bg-verde-light"
+						type="submit">
+						<i style="font-size: 1.5rem" class="bi bi-filter"></i>
+					</button>
+				</form>
 				<button class="btn boton-filtro shadow btn-success bg-verde-light"
 					type="button" data-bs-toggle="modal" data-bs-target="#modal1">
 					<i style="font-size: 1.3rem" class="bi bi-plus-square"></i>
 				</button>
-				
+
 			</div>
-			
+
+			<c:if test="${atraccion != null && !atraccion.isValid()}">
+				<div class="alert alert-danger">
+					<p>Se encontraron errores al crear la atracción.</p>
+				</div>
+			</c:if>
 			<div class="modal fade" id="modal1" data-bs-backdrop="static"
 				data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel"
 				aria-hidden="true">
@@ -71,75 +78,129 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<div class="modal-body">
-							<form>
+
+						<form id="createForm" action="create" method="post">
+							<div class="modal-body">
 								<div class="form g-4 mb-2">
-									<p>Nombre:</p>
-									<input type="text" class="form" />
+									<label for="nombre" class=col-form-label>Nombre:</label> <br>
+									<input name="nombre" type="text" class="form" />
 								</div>
 								<div class="form g-3 mb-2">
-									<p>Costo:</p>
-									<input type="number" class="form" />
+									<label for="costo"
+										class='col-form-label ${atraccion.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
+									<br> <input name="costo" type="number" class="form" />
 								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-success bg-verde-dark">
-								Send message</button>
-						</div>
+								<div class="form g-3 mb-2">
+									<label for="tiempoNecesario"
+										class='col-form-label ${atraccion.errors.get("duracion") != null ? "is-invalid" : "" }'>Tiempo
+										Necesario: </label> <br> <input name="tiempoNecesario"
+										type="number" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label for="cupo"
+										class='col-form-label ${atraccion.errors.get("cupo") != null ? "is-invalid" : "" }'>Cupo:</label>
+									<br> <input name="cupo" type="number" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label>Tipo</label> <select name="tipo"
+										class="form-select shadow center-element "
+										aria-label="Default select example">
+										<option class="text-center text-dark" selected>Tipo</option>
+										<option class="text-center text-dark">AVENTURA</option>
+										<option class="text-center text-dark">DEGUSTACION</option>
+										<option class="text-center text-dark">PAISAJE</option>
+									</select>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-success bg-verde-dark">
+										Send message</button>
+								</div>
+							</div>
+						</form>
+
 					</div>
 				</div>
 			</div>
-			
-			<%
-			
-			PromocionesDAOImpl.vendiblesList.clear();
-			Sistema.instanciaDeObjetos();
-			
-			pageContext.setAttribute("vendiblesList", PromocionesDAOImpl.vendiblesList);
-			
-			%>
-
-			<div class="container">
-				<table class="table table-success table-striped table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Costo</th>
-							<th scope="col">Tiempo</th>
-							<th scope="col">Cupos</th>
-							<th scope="col">Tematica</th>
-							<th scope="col">Administrar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${vendiblesList}" var="vendible">
-							<tr>
-								<td><strong><c:out value="${vendible.getNombre()}"></c:out></strong></td>
-								<td><c:out value="${vendible.getCosto()}"></c:out></td>
-								<td><c:out value="${vendible.getTiempoNecesario()}"></c:out></td>
-								<td><c:out value="${vendible.getCupo()}"></c:out></td>
-								<td><c:out value="${vendible.getTipo()}"></c:out></td>
-								<td>
-									<div class="d-flex justify-content-center">
-										<button class="btn btn-sm me-2 btn-success bg-verde-light"
-											type="submit">
-											<i style="font-size: 1.3rem" class="bi bi-pencil-square"></i>
-										</button>
-										<button class="btn btn-sm btn-success bg-verde-light"
-											type="submit">
-											<i style="font-size: 1.3rem" class="bi bi-eye"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
 		</div>
+
+	<%--	<%
+		PromocionesDAOImpl.vendiblesList.clear();
+		Sistema.instanciaDeObjetos();
+
+		pageContext.setAttribute("vendiblesList", PromocionesDAOImpl.vendiblesList);
+		%>
+ --%>
+
+		<div class="container">
+			<table class="table table-success table-striped table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Costo</th>
+						<th scope="col">Tiempo</th>
+						<th scope="col">Cupos</th>
+						<th scope="col">Tematica</th>
+						<th scope="col">Administrar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${!vendiblesFiltrados.isEmpty()}">
+
+							<c:forEach items="${vendiblesFiltrados}" var="vendible">
+								<tr>
+									<td><strong><c:out
+												value="${vendible.getNombre()}"></c:out></strong></td>
+									<td><c:out value="${vendible.getCosto()}"></c:out></td>
+									<td><c:out value="${vendible.getTiempoNecesario()}"></c:out></td>
+									<td><c:out value="${vendible.getCupo()}"></c:out></td>
+									<td><c:out value="${vendible.getTipo()}"></c:out></td>
+									<td>
+										<div class="d-flex justify-content-center">
+											<button class="btn btn-sm me-2 btn-success bg-verde-light"
+												type="submit">
+												<i style="font-size: 1.3rem" class="bi bi-pencil-square"></i>
+											</button>
+											<button class="btn btn-sm btn-success bg-verde-light"
+												type="submit">
+												<i style="font-size: 1.3rem" class="bi bi-eye"></i>
+											</button>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${vendiblesList}" var="vendible">
+								<tr>
+									<td><strong><c:out
+												value="${vendible.getNombre()}"></c:out></strong></td>
+									<td><c:out value="${vendible.getCosto()}"></c:out></td>
+									<td><c:out value="${vendible.getTiempoNecesario()}"></c:out></td>
+									<td><c:out value="${vendible.getCupo()}"></c:out></td>
+									<td><c:out value="${vendible.getTipo()}"></c:out></td>
+									<td>
+										<div class="d-flex justify-content-center">
+											<button class="btn btn-sm me-2 btn-success bg-verde-light"
+												type="submit">
+												<i style="font-size: 1.3rem" class="bi bi-pencil-square"></i>
+											</button>
+											<button class="btn btn-sm btn-success bg-verde-light"
+												type="submit">
+												<i style="font-size: 1.3rem" class="bi bi-eye"></i>
+											</button>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 	</div>
 
