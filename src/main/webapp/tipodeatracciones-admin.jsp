@@ -36,29 +36,29 @@
 	<div class="container-fluid">
 
 		<div
-			class="container navbar mt-5 shadow bg-verde justify-content-center col-sm-12">
+			class="container navbar mt-5 shadow bg-verde justify-content-center">
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
-			<div class="container row justify-content-center">
-				<form action="tablaAdmin" method="get">
-					<select name="tipo" class="form-select shadow center-element"
+				<form action="tablaAdmin" method="get"
+					class="shadow center-element">
+					<select name="tipo" class="form-select shadow center-element "
 						aria-label="Default select example">
 						<option class="text-center text-dark" selected>Tipo de
 							Paquete</option>
 						<option class="text-center text-dark">AVENTURA</option>
 						<option class="text-center text-dark">DEGUSTACION</option>
 						<option class="text-center text-dark">PAISAJE</option>
+
 					</select>
-					<button class="btn row boton-filtro shadow btn-success bg-verde-light"
+					<button class="btn boton-filtro shadow btn-success bg-verde-light"
 						type="submit">
 						<i style="font-size: 1.5rem" class="bi bi-filter"></i>
 					</button>
-					<button class="btn row boton-filtro shadow btn-success bg-verde-light"
+					<button class="btn boton-filtro shadow btn-success bg-verde-light"
 						type="button" data-bs-toggle="modal" data-bs-target="#modal1">
 						<i style="font-size: 1.3rem" class="bi bi-plus-square"></i>
 					</button>
 				</form>
-			</div>
 
 
 			<c:if test="${atraccion != null && !atraccion.isValid()}">
@@ -173,4 +173,3 @@
 	<jsp:include page="components/footer.jsp"></jsp:include>
 </body>
 
-</html>

@@ -172,4 +172,11 @@ public class Usuario {
 		this.password = Crypt.hash(password);
 	}
 
+	public boolean esAdmin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 }

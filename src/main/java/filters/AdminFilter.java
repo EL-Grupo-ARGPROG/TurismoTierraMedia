@@ -1,4 +1,4 @@
-/*package filters;
+package filters;
 
 import java.io.IOException;
 
@@ -34,4 +34,3 @@ public class AdminFilter implements Filter {
 	}
 
 }
-*/

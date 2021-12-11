@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Sistema;
 import model.Vendible;
 import persistence.impl.AtraccionesDAOImpl;
-@WebServlet("/tablaAdmin")
-public class TablaAdminServlet extends HttpServlet implements Servlet {
+@WebServlet("/usuario-admin.adm")
+public class UsuarioAdminServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
 	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();
 
@@ -33,7 +33,7 @@ public class TablaAdminServlet extends HttpServlet implements Servlet {
 			}
 
 			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/usuario-admin.jsp");
 			dispatcher.forward(req, resp);
 		}
 
