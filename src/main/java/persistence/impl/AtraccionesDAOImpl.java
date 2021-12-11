@@ -48,12 +48,12 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return atraccionesList;
 	}
 	
-	public Atracciones findByID(Integer id) {
+	public Atracciones findByName(String name) {
 		try {
-			String sql = "SELECT * FROM producto WHERE id = ?";
+			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
 			Connection conn = TierraMediaConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, id);
+			statement.setString(1, name);
 			
 			ResultSet resultados = statement.executeQuery();
 

@@ -8,7 +8,7 @@ public interface AtraccionesDAO extends GenericDAO<Atracciones> {
 	
 	public int update(Vendible t);
 	
-	public Atracciones findByID(Integer id);
+	public Atracciones findByName(String name);
 	
 
 }

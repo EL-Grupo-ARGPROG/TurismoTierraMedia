@@ -24,8 +24,8 @@ public class AtraccionService {
 		return atraccion;
 	}
 	
-	public Atracciones find(Integer id) {
-		return atraccionDao.findByID(id);
+	public Atracciones find(String name) {
+		return atraccionDao.findByName(name);
 	}
 	
 	public Atracciones create(String nombre, double costo, double tiempoNecesario, int cupo, TiposAtracciones tipo) {
