@@ -151,4 +151,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
+	@Override
+	public int update(Vendible atraccion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

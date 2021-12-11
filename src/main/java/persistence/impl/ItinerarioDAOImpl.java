@@ -90,4 +90,10 @@ public class ItinerarioDAOImpl implements GenericDAO<Itinerario> {
 		}
 	}
 
+	@Override
+	public int update(Vendible atraccion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

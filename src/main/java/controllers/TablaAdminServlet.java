@@ -13,8 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Sistema;
 import model.Vendible;
-import persistence.impl.PromocionesDAOImpl;
-
+import persistence.impl.AtraccionesDAOImpl;
 @WebServlet("/tablaAdmin")
 public class TablaAdminServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
@@ -23,17 +22,16 @@ public class TablaAdminServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			String tipo = req.getParameter("tipo");
-			PromocionesDAOImpl.vendiblesList.clear();
+			vendiblesFiltrados.clear();
 			Sistema.instanciaDeObjetos();
 			
-			for (Vendible vendible : PromocionesDAOImpl.vendiblesList) {
+			for (Vendible vendible : AtraccionesDAOImpl.atraccionesList) {
 				if ((vendible.getTipo().name().equals(tipo))) {
 
 					vendiblesFiltrados.add(vendible);
 				}
 			}
 
-			req.setAttribute("vendiblesList", PromocionesDAOImpl.vendiblesList);
 			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 			dispatcher.forward(req, resp);
