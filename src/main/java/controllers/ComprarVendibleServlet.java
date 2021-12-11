@@ -15,25 +15,30 @@ import model.Vendible;
 import persistence.impl.PromocionesDAOImpl;
 
 //REVISAR RUTEADO
-@WebServlet("/atraccion/comprar.do")
+@WebServlet("/vendible/comprar.do")
 public class ComprarVendibleServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -6677999252619657687L;
 	
 		ComprarVendibleService comprarVendibleService;
-		VendibleService vendibleService;
+		AtraccionService atraccionService;
+		PromocionService promocionService;
 
 		@Override
 		public void init() throws ServletException {
 			super.init();
 			comprarVendibleService = new ComprarVendibleService ();
-			vendibleService = new VendibleService();
+			atraccionService = new AtraccionService();
+			promocionService = new PromocionService();
 		}
 		
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			Usuario user = (Usuario) req.getSession().getAttribute("user");
 			Integer vendibleId = Integer.parseInt(req.getParameter("id"));
+			
+			// LOGICA DE SI EL VENDIBLE ES PROMO O NO USE EL SERVICE QUE LE CORRESPONDA.
+			
 			Vendible vendible = vendibleService.find(vendibleId);
 			
 			if(ComprarVendibleService.comprar(user, vendible)) {
@@ -54,3 +59,4 @@ public class ComprarVendibleServlet extends HttpServlet implements Servlet {
 
 }
 */
+

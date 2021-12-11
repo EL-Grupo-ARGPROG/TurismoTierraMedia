@@ -1,4 +1,4 @@
-package filters;
+/*package filters;
 
 import java.io.IOException;
 
@@ -12,15 +12,17 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-
-@WebFilter("*.do")
-public class LoginFilter implements Filter {
+//en el login filter lo hicieron al user como string en vez
+//de pasar el objeto completo, aca necesitamos el objeto
+//para poder preguntar si es admin (tambien hay que crear el metodo)
+@WebFilter("*.adm")
+public class AdminFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		String username = (String) ((HttpServletRequest) request).getSession().getAttribute("username");
-		if (username != null) {
+		Usuario user = (Usuario) ((HttpServletRequest) request).getSession().getAttribute("user");
+		if (user != null && user.esAdmin()) {
 			chain.doFilter(request, response);
 		} else {
 			request.setAttribute("flash", "Por favor, ingresa al sistema con tu usuario y contraseña.");
@@ -32,3 +34,4 @@ public class LoginFilter implements Filter {
 	}
 
 }
+*/
