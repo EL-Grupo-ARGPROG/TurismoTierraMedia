@@ -39,11 +39,9 @@
 			class="container navbar mt-5 shadow bg-verde justify-content-center">
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
-
 				<form action="tablaAdmin" method="get"
 					class="shadow center-element">
 					<select name="tipo" class="form-select shadow center-element "
-
 						aria-label="Default select example">
 						<option class="text-center text-dark" selected>Tipo de
 							Paquete</option>
@@ -68,7 +66,6 @@
 					<p>Se encontraron errores al crear la atracción.</p>
 				</div>
 			</c:if>
-			
 			<div class="modal fade" id="modal1" data-bs-backdrop="static"
 				data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel"
 				aria-hidden="true">
@@ -84,7 +81,42 @@
 						</div>
 
 						<form id="createForm" action="create" method="post">
-							<jsp:include page="components/formAdmin.jsp"></jsp:include>
+							<div class="modal-body">
+								<div class="form g-4 mb-2">
+									<label for="nombre" class=col-form-label>Nombre:</label> <br>
+									<input name="nombre" type="text" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label for="costo"
+										class='col-form-label ${atraccion.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
+									<br> <input name="costo" type="number" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label for="tiempoNecesario"
+										class='col-form-label ${atraccion.errors.get("duracion") != null ? "is-invalid" : "" }'>Tiempo
+										Necesario: </label> <br> <input name="tiempoNecesario"
+										type="number" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label for="cupo"
+										class='col-form-label ${atraccion.errors.get("cupo") != null ? "is-invalid" : "" }'>Cupo:</label>
+									<br> <input name="cupo" type="number" class="form" />
+								</div>
+								<div class="form g-3 mb-2">
+									<label>Tipo</label> <select name="tipo"
+										class="form-select shadow center-element "
+										aria-label="Default select example">
+										<option class="text-center text-dark" selected>Tipo</option>
+										<option class="text-center text-dark">AVENTURA</option>
+										<option class="text-center text-dark">DEGUSTACION</option>
+										<option class="text-center text-dark">PAISAJE</option>
+									</select>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-success bg-verde-dark">
+										Send message</button>
+								</div>
+							</div>
 						</form>
 
 					</div>
@@ -116,48 +148,22 @@
 										<td><c:out value="${vendible.getTipo()}"></c:out></td>
 										<td>
 											<div class="d-flex justify-content-center">
-											<form action="edit" method="get">
 												<button class="btn btn-sm me-2 btn-success bg-verde-light"
-													type="button" data-bs-toggle="modal"
-													data-bs-target="#modal2">
+													type="submit">
 													<i style="font-size: 1.3rem" class="bi bi-pencil-square"></i>
-												
 												</button>
-												<input type="hidden" name="name" value="${vendible.getNombre()}">
-												</form>
 												<button class="btn btn-sm btn-success bg-verde-light"
 													type="submit">
 													<i style="font-size: 1.3rem" class="bi bi-eye"></i>
 												</button>
-
-												<div class="modal fade" id="modal2"
-													data-bs-backdrop="static" data-bs-keyboard="false"
-													tabindex="-1" aria-labelledby="modalLabel"
-													aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content shadow bg-obscure">
-															<div class="modal-header">
-																<h5 class="modal-title">Editar atraccion</h5>
-																<button type="button"
-																	class="btn-close btn-close-white text-reset"
-																	data-bs-dismiss="modal" aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-
-															<form id="editForm" action="edit" method="post">
-															<input type="hidden" name="name" value="${vendible.getNombre()}">
-																<jsp:include page="components/formAdmin.jsp"></jsp:include>
-															</form>
-														</div>
-													</div>
-												</div>
 											</div>
 										</td>
 									</tr>
 								</c:forEach>
 							</c:when>
 						</c:choose>
+
+
 					</tbody>
 				</table>
 			</div>
