@@ -22,10 +22,6 @@ public class Sistema {
 		PromocionesDAOImpl.promocionesList.clear();
 		AtraccionesDAOImpl.atraccionesList.clear();
 		UsuarioDAOImpl.usuariosList.clear();
-		
-		atraccionDAO.instanciadorDeAtracciones();
-		promocionDAO.instanciadorDePromociones();
-		usuarioDAO.instanciadorDeUsuarios();
 
 
 	}
@@ -52,4 +48,5 @@ public class Sistema {
 		}
 		return sugerenciasList;
 	}
+	
 }

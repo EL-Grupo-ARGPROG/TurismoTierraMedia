@@ -38,27 +38,26 @@
 		<div
 			class="container navbar mt-5 shadow bg-verde justify-content-center">
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
-				control: Atracciones</h2>
-				<form action="tablaAdmin.adm" method="get"
-					class="shadow center-element">
-					<select name="tipo" class="form-select shadow center-element "
-						aria-label="Default select example">
-						<option class="text-center text-dark" selected>Tipo de
-							Paquete</option>
-						<option class="text-center text-dark">AVENTURA</option>
-						<option class="text-center text-dark">DEGUSTACION</option>
-						<option class="text-center text-dark">PAISAJE</option>
+				control: Usuarios</h2>
+			<form action="usuario-admin" method="get"
+				class="shadow center-element">
+				<select name="tipo" class="form-select shadow center-element "
+					aria-label="Default select example">
+					<option class="text-center text-dark" selected>Tipo de
+						Usuario</option>
+					<option class="text-center text-dark" value="True">ADMIN</option>
+					<option class="text-center text-dark" value="False">NO-ADMIN</option>
 
-					</select>
-					<button class="btn boton-filtro shadow btn-success bg-verde-light"
-						type="submit">
-						<i style="font-size: 1.5rem" class="bi bi-filter"></i>
-					</button>
-					<button class="btn boton-filtro shadow btn-success bg-verde-light"
-						type="button" data-bs-toggle="modal" data-bs-target="#modal1">
-						<i style="font-size: 1.3rem" class="bi bi-plus-square"></i>
-					</button>
-				</form>
+				</select>
+				<button class="btn boton-filtro shadow btn-success bg-verde-light"
+					type="submit">
+					<i style="font-size: 1.5rem" class="bi bi-filter"></i>
+				</button>
+				<button class="btn boton-filtro shadow btn-success bg-verde-light"
+					type="button" data-bs-toggle="modal" data-bs-target="#modal1">
+					<i style="font-size: 1.3rem" class="bi bi-plus-square"></i>
+				</button>
+			</form>
 
 
 			<c:if test="${atraccion != null && !atraccion.isValid()}">
@@ -127,25 +126,27 @@
 				<table class="table table-success table-striped table-hover">
 					<thead>
 						<tr>
+							<th scope="col">Id</th>
 							<th scope="col">Nombre</th>
-							<th scope="col">Costo</th>
-							<th scope="col">Tiempo</th>
-							<th scope="col">Cupos</th>
-							<th scope="col">Tematica</th>
+							<th scope="col">Password</th>
+							<th scope="col">Presupuesto</th>
+							<th scope="col">Disponibilidad</th>
+							<th scope="col">Preferencia</th>
 							<th scope="col">Administrar</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:choose>
-							<c:when test="${!vendiblesFiltrados.isEmpty()}">
-								<c:forEach items="${vendiblesFiltrados}" var="vendible">
+							<c:when test="${!usuariosFiltrados.isEmpty()}">
+								<c:forEach items="${usuariosFiltrados}" var="usuarios">
 									<tr>
-										<td><strong><c:out
-													value="${vendible.getNombre()}"></c:out></strong></td>
-										<td><c:out value="${vendible.getCosto()}"></c:out></td>
-										<td><c:out value="${vendible.getTiempoNecesario()}"></c:out></td>
-										<td><c:out value="${vendible.getCupo()}"></c:out></td>
-										<td><c:out value="${vendible.getTipo()}"></c:out></td>
+										<td><strong><c:out value="${usuarios.getId()}"></c:out></strong></td>
+										<td><c:out value="${usuarios.getNombre()}"></c:out></td>
+										<td><c:out value="${usuarios.getPassword()}"></c:out></td>
+										<td><c:out value="${usuarios.getPresupuesto()}"></c:out></td>
+										<td><c:out value="${usuarios.getTiempoDisponible()}"></c:out></td>
+										<td><c:out value="${usuarios.getPreferencia()}"></c:out></td>
+
 										<td>
 											<div class="d-flex justify-content-center">
 												<button class="btn btn-sm me-2 btn-success bg-verde-light"
@@ -154,7 +155,7 @@
 												</button>
 												<button class="btn btn-sm btn-success bg-verde-light"
 													type="submit">
-													<i style="font-size: 1.3rem" class="bi bi-eye"></i>
+													<i style="font-size: 1.3rem" class="bi bi-trash"></i>
 												</button>
 											</div>
 										</td>
@@ -172,4 +173,3 @@
 
 	<jsp:include page="components/footer.jsp"></jsp:include>
 </body>
-

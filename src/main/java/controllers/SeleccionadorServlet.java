@@ -22,26 +22,32 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	public void init() throws ServletException {
+		super.init();
 		Sistema.instanciaDeObjetos();
 		vendiblesFiltrados.clear();
-		
-		if(req.getParameter("todos").equals("TODOS")){
-			
-			PromocionesDAOImpl.vendiblesList = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA"));
-			
-			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		  if (req.getParameter("todos") != null) {
+
+
+			req.setAttribute("vendiblesFiltrados", Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA")));
+
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
 			dispatcher.forward(req, resp);
-			
-		} else if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
+
+		} else 
+			if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
 				|| req.getParameter("duracion").equals("Duracion Hs")) {
 			req.setAttribute("flash", "Seleccionar un opcion de cada casilla");
 
 			getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
 
 		} else {
+			
 
 			String[] rangoPrecio = req.getParameter("precio").split(" - ");
 			String stringV = String.valueOf(rangoPrecio[0]);
@@ -58,9 +64,9 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 			int hora2 = Integer.parseInt(string2);
 
 			String tipo = req.getParameter("tipo");
-			
+
 			List<Vendible> lista = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf(tipo));
-			
+
 			for (Vendible vendible : lista) {
 				if ((vendible.getTipo().name().equals(tipo)) && (vendible.getTiempoNecesario() >= hora1)
 						&& (vendible.getTiempoNecesario() <= hora2) && (vendible.getCosto() >= valor1)
@@ -78,5 +84,4 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 
 		}
 	}
-
 }

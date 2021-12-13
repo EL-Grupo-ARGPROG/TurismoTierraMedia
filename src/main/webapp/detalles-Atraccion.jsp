@@ -1,11 +1,18 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="persistence.impl.PromocionesDAOImpl,model.Sistema"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<<<<<<< HEAD
 <meta name="viewport"
 	content="width=device-width, height=device-height initial-scale=1.0" />
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+>>>>>>> 95e2a8b1f6125ec296a45f135134f52e648b4093
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -30,52 +37,8 @@
 
 <body class="flex-column h-100 w-100 bg-verde-light">
 
-  <nav class="shadow navbar navbar-dark bg-obscure">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-bottom">
-        GAMGEE TOURISM AGENCY
-      </a>
-      <button class="btn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <i class="bi bi-list" style="font-size: 2rem; color:white"></i>
-      </button>
-      <div class="offcanvas offcanvas-end bg-verde-dark" tabindex="-1" id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h3 class="offcanvas-title" id="offcanvasNavbarLabel"></h3>
-          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#homepage">
-                <h5>Inicio</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Contacto</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Promociones</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Paquetes turisticos</h5>
-              </a>
-            </li>
-          </ul>
-          <img id="logo-offcanvas" class="float-end" src="img/GAMGEE-verde.png">
-          </form>
-        </div>
-      </div>
-    </div>
-  </nav>
+  	<jsp:include page="components/nav.jsp"></jsp:include>
+  
 
   <div class="container-fluid py-0 px-0">
     <div id="banner" class="card bg-dark mb-5 text-white">
@@ -130,27 +93,8 @@
     </div>
   </div>
 
-  <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
-    <div class="container">
-      <div class="row">
-        <div class="text-left col-xs-12 col-md-6">
-          <h6>GAMGEE TOURISM AGENCY</h6>
-        </div>
-        <div class="col-xs-12 col-md-6 text-derecha ">
-          <h6>Created by: EL Grupo</h6>
-          <h6><small>Proyecto final: Turismo en la Tierra Media</small></h6>
-          <div class="redes-footer">
-            <a href="https://github.com/EL-Grupo-ARGPROG/TurismoTierraMedia">
-              <i class="d-inline-block align-text-top link-light bi bi-github" style="font-size: 2rem;"></i>
-            </a>
-            <a href="https://www.youtube.com/watch?v=wM8Hfo-M_Vw">
-              <i class="d-inline-block align-text-top link-light bi bi-youtube" style="font-size: 2rem;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+ 	<jsp:include page="components/footer.jsp"></jsp:include>
+
 
 </body>
 
