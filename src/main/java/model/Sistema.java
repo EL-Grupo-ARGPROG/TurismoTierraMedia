@@ -21,6 +21,7 @@ public class Sistema {
 		PromocionesDAOImpl.vendiblesList.clear();
 		PromocionesDAOImpl.promocionesList.clear();
 		AtraccionesDAOImpl.atraccionesList.clear();
+		UsuarioDAOImpl.usuariosList.clear();
 		
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();

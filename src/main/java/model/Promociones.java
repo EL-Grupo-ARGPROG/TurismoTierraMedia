@@ -79,6 +79,14 @@ public abstract class Promociones implements Vendible {
 		}
 		return false;
 	}
+	
+	@Override
+	public void serVendido() {
+		for (Atracciones atraccion : this.pack) {
+			atraccion.cupo -= 1;
+		}
+		
+	}
 }
 
 

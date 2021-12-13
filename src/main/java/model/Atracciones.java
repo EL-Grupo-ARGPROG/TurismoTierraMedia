@@ -119,4 +119,10 @@ public class Atracciones implements Vendible {
 		return errors;
 	}
 
+	@Override
+	public void serVendido() {
+		this.cupo -= 1;
+		
+	}
+
 }

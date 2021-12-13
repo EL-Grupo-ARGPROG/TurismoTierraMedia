@@ -2,23 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <link href="index.css" rel="stylesheet">
-  <link href="Admin-AddModifDelete.css" rel="stylesheet">
-  <link href="sticky-footer.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-  <title>Turismo Tierra Media</title>
-  
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, height=device-height initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Estonia&display=swap"
+	rel="stylesheet" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+<link href="css/index.css" rel="stylesheet" />
+<link href="sticky-footer.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+<title>Turismo Tierra Media</title>
 </head>
 
 <body class="flex-column h-100 w-100 bg-verde-light">
@@ -74,7 +81,7 @@
     <div id="banner" class="card bg-dark mb-5 text-white">
       <img src="img/La-Comarca.jpg" class="card-img  atraccion " alt="...">
       <div class="d-flex bg-gris carousel-caption text-start d-none d-sm-block">
-        <h1 class="card-title">La Comarca</h1>
+        <h1 class="card-title">${vendible.getNombre() }</h1>
           <p class="">This is a wider card with supporting text below as a natural lead-in to additional
             content.
             This content is a little bit longer.</p>
@@ -84,8 +91,12 @@
                 <h6>Alojamiento incluido</h6>
               </div>
               <div class="text-derecha col-xs-12 col-md-8">
-               <h5 class="btn border text-white"> Precio: $100</h5>
+               <h5 class="btn border text-white"> Precio: ${vendible.getCosto()}</h5>
+               <form action="comprar.do">
+               <input type=hidden name="nombre" value="${vendible.getNombre()}">
+               <input type=hidden name="esPromo" value="${vendible.esPromocion()}">
                <h5 class="btn btn-success"> COMPRAR</h5>
+               </form>
               </div>
             </div>
           </div>

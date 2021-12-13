@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.*;
+import persistence.impl.PromocionesDAOImpl;
 
 @WebServlet("/seleccionar")
 public class SeleccionadorServlet extends HttpServlet implements Servlet {
@@ -28,7 +29,7 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 		
 		if(req.getParameter("todos").equals("TODOS")){
 			
-			vendiblesFiltrados = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA"));
+			PromocionesDAOImpl.vendiblesList = Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA"));
 			
 			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
