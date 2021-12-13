@@ -14,8 +14,9 @@ public class Usuario {
 	protected TiposAtracciones preferencia;
 	protected ArrayList<Atracciones> atraccionesAceptadas;
 	protected ArrayList<Vendible> itinerario;
+	protected boolean admin;
 
-	public Usuario(int id, String username, String password, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario2) {
+	public Usuario(int id, String username, String password, double presupuesto, double tiempoDisponible, TiposAtracciones preferencia, ArrayList<Vendible> itinerario2, boolean admin) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -24,6 +25,7 @@ public class Usuario {
 		this.preferencia = preferencia;
 		this.atraccionesAceptadas = new ArrayList<Atracciones>();
 		this.itinerario = itinerario2;
+		this.admin = admin;
 	}
 	
 	public int getId() {
@@ -49,6 +51,10 @@ public class Usuario {
 	public double getPresupuesto() {
 		return presupuesto;
 	}
+	
+	public boolean isAdmin() {
+		return admin;
+	}
 
 	public double getTiempoDisponible() {
 		return tiempoDisponible;
@@ -60,6 +66,10 @@ public class Usuario {
 
 	public ArrayList<Atracciones> getAtraccionesAceptadas() {
 		return atraccionesAceptadas;
+	}
+	
+	public String getPassword() {
+		return this.password;
 	}
 
 	public ArrayList<Atracciones> setOfertasAceptadas(Vendible oferta) {

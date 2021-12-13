@@ -1,5 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <div
 	class="container navbar border-round shadow bg-obscure justify-content-center">
+	<c:if test="${flash != null}">
+		<div class="alert alert-warning">
+			<p>
+				<c:out value="${flash}" />
+			</p>
+		</div>
+	</c:if>
+
+
 	<form action="seleccionar" method="get"
 		class="container row justify-content-center">
 

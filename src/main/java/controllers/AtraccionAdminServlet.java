@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Sistema;
 import model.Vendible;
 import persistence.impl.AtraccionesDAOImpl;
-@WebServlet("/atraccion-admin.adm")
+@WebServlet("/atraccion-admin")
 public class AtraccionAdminServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
 	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();

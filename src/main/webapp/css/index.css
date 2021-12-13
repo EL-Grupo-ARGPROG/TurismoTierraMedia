@@ -9,7 +9,6 @@
 
 .bg-obscure {
   background: var(--verde-obscure);
-  color: white;
 }
 
 .bg-verde {
@@ -176,4 +175,6 @@ body {
   height: 250px;
 }
 
-
+#nav-vertical {
+	width:100px;
+}

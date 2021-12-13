@@ -26,7 +26,7 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<c:out value="${user.getNombre()}"></c:out>
 					</a>
-						<ul class="dropdown-menu dark dropdown-menu-end"
+						<ul class="dropdown-menu bg-verde dropdown-menu-end"
 							aria-labelledby="navbarDropdown" style=" border-radius: 15%">
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="monedas" style="color: gold;" class="bi bi-coin"></i>

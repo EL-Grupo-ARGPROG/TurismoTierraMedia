@@ -24,26 +24,6 @@ public class TierraMediaConnectionProvider {
 		url = properties.getProperty("datasource");
 	}
 
-	public static Properties readPropertiesFile(String fileName) {
-		FileInputStream fis = null;
-		Properties prop = null;
-		try {
-			fis = new FileInputStream(fileName);
-			prop = new Properties();
-			prop.load(fis);
-		} catch (FileNotFoundException fnfe) {
-			fnfe.printStackTrace();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} finally {
-			try {
-				fis.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return prop;
-	}
 
 	public static Connection getConnection() throws SQLException {
 		try {

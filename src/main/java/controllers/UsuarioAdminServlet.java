@@ -12,28 +12,32 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Sistema;
+import model.Usuario;
 import model.Vendible;
 import persistence.impl.AtraccionesDAOImpl;
-@WebServlet("/usuario-admin.adm")
+import persistence.impl.UsuarioDAOImpl;
+@WebServlet("/usuario-admin")
 public class UsuarioAdminServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
-	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();
+	List<Usuario> usuariosFiltrados = new LinkedList<Usuario>();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			String tipo = req.getParameter("tipo");
-			vendiblesFiltrados.clear();
-			Sistema.instanciaDeObjetos();
+			usuariosFiltrados.clear();
 			
-			for (Vendible vendible : AtraccionesDAOImpl.atraccionesList) {
-				if ((vendible.getTipo().name().equals(tipo))) {
+			Sistema.instanciaDeObjetos();
+			boolean adm = Boolean.parseBoolean(req.getParameter("tipo"));
+			
+			req.getParameter("tipo");
+			for (Usuario usuario : UsuarioDAOImpl.usuariosList) {
+				if (adm == usuario.isAdmin()) {
 
-					vendiblesFiltrados.add(vendible);
+					usuariosFiltrados.add(usuario);
 				}
 			}
 
-			req.setAttribute("vendiblesFiltrados", vendiblesFiltrados);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/usuario-admin.jsp");
+			req.setAttribute("usuariosFiltrados", usuariosFiltrados);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/usuarios-admin.jsp");
 			dispatcher.forward(req, resp);
 		}
 

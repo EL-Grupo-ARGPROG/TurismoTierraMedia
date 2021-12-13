@@ -23,7 +23,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		try {
 			return new Usuario(result.getInt(1), result.getString(2), result.getString(3), result.getDouble(4), result.getDouble(5),
-					TiposAtracciones.valueOf(result.getString(6)), itinerarioUsuario);
+					TiposAtracciones.valueOf(result.getString(6)), itinerarioUsuario, Boolean.parseBoolean(result.getString(7)) );
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
