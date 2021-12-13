@@ -1,74 +1,38 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="persistence.impl.PromocionesDAOImpl,model.Sistema"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <link href="index.css" rel="stylesheet">
-  <link href="Admin-AddModifDelete.css" rel="stylesheet">
-  <link href="sticky-footer.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-  <title>Turismo Tierra Media</title>
-  
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Estonia&display=swap"
+	rel="stylesheet" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+<link href="css/index.css" rel="stylesheet" />
+<link href="sticky-footer.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+<title>Turismo Tierra Media</title>
 </head>
 
 <body class="flex-column h-100 w-100 bg-verde-light">
 
-  <nav class="shadow navbar navbar-dark bg-obscure">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="img/GAMGEE-White.png" width="60" height="50" class="d-inline-block align-text-bottom">
-        GAMGEE TOURISM AGENCY
-      </a>
-      <button class="btn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <i class="bi bi-list" style="font-size: 2rem; color:white"></i>
-      </button>
-      <div class="offcanvas offcanvas-end bg-verde-dark" tabindex="-1" id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h3 class="offcanvas-title" id="offcanvasNavbarLabel"></h3>
-          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#homepage">
-                <h5>Inicio</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Contacto</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Promociones</h5>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <h5>Paquetes turisticos</h5>
-              </a>
-            </li>
-          </ul>
-          <img id="logo-offcanvas" class="float-end" src="img/GAMGEE-verde.png">
-          </form>
-        </div>
-      </div>
-    </div>
-  </nav>
+  	<jsp:include page="components/nav.jsp"></jsp:include>
+  
 
   <div class="container-fluid py-0 px-0">
     <div id="banner" class="card bg-dark mb-5 text-white">
@@ -119,27 +83,8 @@
     </div>
   </div>
 
-  <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
-    <div class="container">
-      <div class="row">
-        <div class="text-left col-xs-12 col-md-6">
-          <h6>GAMGEE TOURISM AGENCY</h6>
-        </div>
-        <div class="col-xs-12 col-md-6 text-derecha ">
-          <h6>Created by: EL Grupo</h6>
-          <h6><small>Proyecto final: Turismo en la Tierra Media</small></h6>
-          <div class="redes-footer">
-            <a href="https://github.com/EL-Grupo-ARGPROG/TurismoTierraMedia">
-              <i class="d-inline-block align-text-top link-light bi bi-github" style="font-size: 2rem;"></i>
-            </a>
-            <a href="https://www.youtube.com/watch?v=wM8Hfo-M_Vw">
-              <i class="d-inline-block align-text-top link-light bi bi-youtube" style="font-size: 2rem;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+ 	<jsp:include page="components/footer.jsp"></jsp:include>
+
 
 </body>
 

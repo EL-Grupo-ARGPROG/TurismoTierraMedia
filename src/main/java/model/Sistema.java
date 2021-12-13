@@ -18,9 +18,6 @@ public class Sistema {
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 
 	public static void instanciaDeObjetos() {
-		PromocionesDAOImpl.vendiblesList.clear();
-		PromocionesDAOImpl.promocionesList.clear();
-		AtraccionesDAOImpl.atraccionesList.clear();
 		
 		atraccionDAO.instanciadorDeAtracciones();
 		promocionDAO.instanciadorDePromociones();
@@ -51,4 +48,5 @@ public class Sistema {
 		}
 		return sugerenciasList;
 	}
+	
 }

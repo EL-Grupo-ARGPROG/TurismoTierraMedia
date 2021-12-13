@@ -39,7 +39,7 @@
 			class="container navbar mt-5 shadow bg-verde justify-content-center">
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
-				<form action="tablaAdmin" method="get"
+				<form action="atraccion-admin" method="get"
 					class="shadow center-element">
 					<select name="tipo" class="form-select shadow center-element "
 						aria-label="Default select example">

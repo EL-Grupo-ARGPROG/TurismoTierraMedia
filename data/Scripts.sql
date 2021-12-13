@@ -4,10 +4,11 @@ CREATE TABLE "Itinerario" (
 	"id_usuario"	INTEGER NOT NULL,
 	"atraccion"	TEXT,
 	"promocion"	TEXT,
-	PRIMARY KEY("id"),
-	FOREIGN KEY("promocion") REFERENCES "Promociones"("nombre"),
+	"precio"	INTEGER,
 	FOREIGN KEY("id_usuario") REFERENCES "Usuarios"("id"),
-	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre")
+	FOREIGN KEY("promocion") REFERENCES "Promociones"("nombre"),
+	FOREIGN KEY("atraccion") REFERENCES "Atracciones"("nombre"),
+	PRIMARY KEY("id")
 );
 
 DROP TABLE IF EXISTS "Pack_Atracciones";
@@ -28,9 +29,10 @@ CREATE TABLE "Promociones" (
 	"beneficio_Abs"	NUMERIC,
 	"beneficio_Porcen"	NUMERIC,
 	"beneficio_AxB"	TEXT,
+	"valido"	INTEGER DEFAULT 1,
+	PRIMARY KEY("id_pack" AUTOINCREMENT),
 	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
-	FOREIGN KEY("tipo_promo") REFERENCES "Tipos_Promos"("nombre"),
-	PRIMARY KEY("id_pack" AUTOINCREMENT)
+	FOREIGN KEY("tipo_promo") REFERENCES "Tipos_Promos"("nombre")
 );
 
 DROP TABLE IF EXISTS "Tipos_Promos";
@@ -38,7 +40,6 @@ CREATE TABLE "Tipos_Promos" (
 	"nombre"	TEXT NOT NULL,
 	PRIMARY KEY("nombre")
 );
-
 DROP TABLE IF EXISTS "Usuarios";
 CREATE TABLE "Usuarios" (
 	"id"	INTEGER NOT NULL,
@@ -47,8 +48,10 @@ CREATE TABLE "Usuarios" (
 	"presupuesto"	NUMERIC,
 	"tiempo_disponible"	NUMERIC,
 	"tipo_preferencia"	TEXT,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre")
+	"admin"	TEXT,
+	"valido"	INTEGER DEFAULT 1,
+	FOREIGN KEY("tipo_preferencia") REFERENCES "Tipos_Tematicas"("Nombre"),
+	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 DROP TABLE IF EXISTS "Atracciones";
@@ -58,8 +61,9 @@ CREATE TABLE "Atracciones" (
 	"tiempo_necesario"	INTEGER,
 	"cupo"	INTEGER,
 	"tipo_tematica"	TEXT,
-	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre"),
-	PRIMARY KEY("nombre")
+	"valido"	INTEGER DEFAULT 1,
+	PRIMARY KEY("nombre"),
+	FOREIGN KEY("tipo_tematica") REFERENCES "Tipos_Tematicas"("Nombre")
 );
 
 
@@ -90,13 +94,13 @@ VALUES ("Moria",100,2,6,"AVENTURA"),
 ("Los Arboles Del Infinito",115,1.5,5,"DEGUSTACION");
 
 INSERT INTO "Usuarios"
-VALUES (1, "Eowyn", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay", 400,8,"AVENTURA"),
-(2, "Gandalf", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",600,6,"PAISAJE"),
-(3, "Sam", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",800,9,"DEGUSTACION"),
-(4, "Galadriel", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",900,5,"AVENTURA"),
-(5, "Frodo", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",500,12,"DEGUSTACION"),
-(6, "Golum", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",100,3,"PAISAJE"),
-(7, "Aragog", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",1000,2.5,"AVENTURA");
+VALUES (1, "Eowyn", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay", 400,8,"AVENTURA", "False"),
+(2, "Gandalf", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",600,6,"PAISAJE", "False"),
+(3, "Sam", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",800,9,"DEGUSTACION", "True"),
+(4, "Galadriel", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",900,5,"AVENTURA", "False"),
+(5, "Frodo", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",500,12,"DEGUSTACION", "True"),
+(6, "Golum", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",100,3,"PAISAJE", "False"),
+(7, "Aragon", "$2a$13$sOCJTM86cugRbHbhkZE.AePVqVymjkX2UNp6kFhm94etpfEDBpMay",1000,2.5,"AVENTURA", "True");
 
 
 INSERT INTO "Tipos_Promos"
