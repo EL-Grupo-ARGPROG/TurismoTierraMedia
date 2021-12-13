@@ -27,7 +27,7 @@
 							<c:out value="${user.getNombre()}"></c:out>
 					</a>
 						<ul class="dropdown-menu bg-verde dropdown-menu-end"
-							aria-labelledby="navbarDropdown" style=" border-radius: 15%">
+							aria-labelledby="navbarDropdown" >
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="monedas" style="color: gold;" class="bi bi-coin"></i>
 									<c:out value="${user.getPresupuesto()}"></c:out>

@@ -32,21 +32,41 @@
 
 
 
-<body class="flex-column h-100 w-100 bg-verde-light">
+<body class="flex-column h-20 w-100 bg-verde-light ">
 	<jsp:include page="components/nav.jsp"></jsp:include>
-	<div class="container-fluid">
+	<div class="row mt-5 bg-verde shadow">
 
-		<div class="nav flex-column justify-content-left bg-verde " style="width: 20%; height: 500px;">
-			<img style="width:80px; height:70px; position:center;" src="img/GAMGEE-Verde.png">
+		<div class="flex-column shadow p-0 col-md-2 bg-obscure">
+			<h2 class="text-center mt-3">Sam</h2>
 
-			<nav class="nav nav-pills nav-fill">
-				<a class="nav-link active" aria-current="page" href="#">Active</a> <a
-					class="nav-link" href="#">Much longer nav link</a> <a
-					class="nav-link" href="#">Link</a> <a class="nav-link disabled">Disabled</a>
-			</nav>
+			<img class="foto-perfil"style="" src="img/Sam.jpg">
+
+			<div class="row px-4">
+				<i title="monedas" style="color: white;" class="bi bi-coin p-1"></i>
+				<c:out value="${user.getPresupuesto()}"></c:out>
+				<i title="tiempo" style="color: white;" class="p-1 bi bi-clock-fill"></i>
+				<c:out value="${user.getTiempoDisponible()}h"></c:out>
+			</div>
+
+			<div class="nav navbuttons flex-column py-2 justify-content-top">
+				<a class="btn bg-verde-dark active btn-success" aria-current="page" href="/TierraMedia/perfil-datos.jsp">Datos</a> 
+				<a class="btn mt-1 mb-5 bg-verde-light btn-success" href="perfil-compras.html">Compras</a> 
+				<a class="btn mt-5 border-0 bg-verde-light btn-danger" href="/TierraMedia/logout">Cerrar session</a>
+			</div>
 		</div>
+        <div class="col-md-10 p-5 container text-center">
+			<h1>Bienvenido a tu perfil, Sam.</h1><br>
+			<h6> Ahorra monedas y viaja con nosotros! </h6><br>
+			<div class="container p-4 bg-verde-dark border" style="width:30%">
+            <p>Tiempo disponible: 100</p>
+            <p>Tiempo disponible: 100</p>
+			<p>Tiempo disponible: 100</p>
+			<p>Tiempo disponible: 100</p>
+			</div>
 
+	    </div>
 	</div>
+	
 
 	<jsp:include page="components/footer.jsp"></jsp:include>
 </body>

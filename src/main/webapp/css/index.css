@@ -175,6 +175,13 @@ body {
   height: 250px;
 }
 
-#nav-vertical {
-	width:100px;
+.foto-perfil {
+  margin: 15%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border-radius: 10%;
+  border-style: double;
+  max-width: 70%;
+  max-height: 70%;
 }
+
