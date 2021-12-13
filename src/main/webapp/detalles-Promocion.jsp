@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport"
+	content="width=device-width, height=device-height initial-scale=1.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -25,7 +26,7 @@
 <link href="css/index.css" rel="stylesheet" />
 <link href="sticky-footer.css" rel="stylesheet" />
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <title>Turismo Tierra Media</title>
 </head>
 
@@ -49,7 +50,11 @@
               </div>
               <div class="text-derecha col-xs-12 col-md-8">
                <h5 class="btn border text-white"> Precio: $100</h5>
+               <form action="comprar.do">
+               <input type=hidden name="nombre" value="${vendible.getNombre()}">
+               <input type=hidden name="esPromo" value="${vendible.esPromocion()}">
                <h5 class="btn btn-success"> COMPRAR</h5>
+               </form>
               </div>
             </div>
           </div>
