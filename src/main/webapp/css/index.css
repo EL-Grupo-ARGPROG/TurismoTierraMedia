@@ -118,10 +118,7 @@ body {
   font-size: 38px;
 }
 
-.flex-column {
-  min-height: 100%;
-  position: relative;
-}
+
 
 .border-round {
   border-bottom-left-radius: 100px;

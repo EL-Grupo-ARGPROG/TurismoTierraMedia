@@ -32,7 +32,7 @@
 <title>Turismo Tierra Media</title>
 </head>
 
-<body id="container-body" class=" container-fluid bg-verde-light">
+<body id="container-body" class="container-fluid bg-verde-light">
 
 	<div class="sticky-top">
     <jsp:include page="components/nav.jsp"></jsp:include>
@@ -40,7 +40,7 @@
 
 	<div id="container-body" class="container-fluid">
 
-		<div id="CarouselIndex" class="carousel  slide w-100"
+		<div id="CarouselIndex" class="carousel slide w-100"
 			data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">

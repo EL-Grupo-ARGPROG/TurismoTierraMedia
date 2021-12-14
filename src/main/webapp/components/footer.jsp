@@ -1,5 +1,5 @@
 <footer class="sticky-bottom mt-5 py-4 bg-verde-dark">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="text-left col-xs-12 col-md-6">
 				<h6>GAMGEE TOURISM AGENCY</h6>
