@@ -82,7 +82,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${user.}" var="vendible">
+							<c:forEach items="${user.getItinerario}" var="itinerario">
 								<tr>
 									<td><strong><c:out
 												value="${itinerario.getNombre()}"></c:out></strong></td>

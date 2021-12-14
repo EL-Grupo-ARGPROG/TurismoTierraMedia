@@ -86,17 +86,8 @@ public class Usuario {
 		itinerario.add(oferta);
 	}
 
-	public String mostrarItinerario() {
-		double tiempo = 0;
-		double costo = 0;
-		String aux = "";
-		for (Vendible vendible : this.itinerario) {
-			tiempo += vendible.getTiempoNecesario();
-			costo += vendible.getCosto();
-			aux += (vendible);
-		}
-		return this.getNombre() + ", este es tu itinerario:\n" + aux + "\nTOTAL: " + String.valueOf(tiempo) + "H"
-				+ "    " + String.valueOf(costo) + "$";
+	public ArrayList<Vendible> getItinerario() {
+		return this.itinerario;
 	}
 
 	@Override
