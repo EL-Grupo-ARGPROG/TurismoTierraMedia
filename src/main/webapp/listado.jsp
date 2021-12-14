@@ -55,37 +55,84 @@
 			<c:when test="${!vendiblesfiltrados.isEmpty() }">
 				<c:forEach items="${vendiblesFiltrados}" var="lista">
 
-					<a href="/TierraMedia/index.jsp">
-						<div class="col">
-							<div class="card bg-verde-dark shadow text-white carta">
-								<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
-								<div class="card-img-overlay">
-									<h5 class="card-title">
-										<c:out value="${lista.getNombre() }"></c:out>
-									</h5>
-									<h6>
-										<c:out value="${lista.getTipo() }"></c:out>
-										-
-										<c:out value="${lista.getTiempoNecesario() }"></c:out>
-										hs de Excursion
-									</h6>
-								</div>
-								<div class="container card-body">
-									<div class="row">
-										<div class="text-left col-xs-12 col-md-6">
-											<h6 class="btn btn-outline-light">Detalles</h6>
-										</div>
-										<div class="text-derecha col-xs-12 col-md-6">
-											<h5 class="btn btn-outline-light">
-												Precio:
-												<c:out value="${lista.getCosto()}"></c:out>
-											</h5>
+
+				<%--	<form action="detalles" method="get">
+						 				<button type="submit" style="background:transparent;border:none">
+				<c:choose>
+							<c:when test="${lista.esPromocion() == true}">--%>
+						<a href='comprar'>
+						<input type="hidden" name="vendibleName" value="${lista.getNombre()}">
+						<input type=hidden name="esPromo" value="${lista.esPromocion()}">
+							<div class="col">
+								<div class="card bg-verde-dark shadow text-white carta">
+									<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
+									<div class="card-img-overlay">
+										<h5 class="card-title">
+											<c:out value="${lista.getNombre() }"></c:out>
+										</h5>
+										<h6>
+											<c:out value="${lista.getTipo() }"></c:out>
+											-
+											<c:out value="${lista.getTiempoNecesario() }"></c:out>
+											hs de Excursion
+										</h6>
+									</div>
+									<div class="container card-body">
+										<div class="row">
+											<div class="text-left col-xs-12 col-md-6">
+												<h6 class="btn btn-outline-light">Detalles</h6>
+											</div>
+											<div class="text-derecha col-xs-12 col-md-6">
+												<h5 class="btn btn-outline-light">
+													Precio:
+													<c:out value="${lista.getCosto()}"></c:out>
+												</h5>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+
+						<%--	</button>
+						</c:when>
+							<c:otherwise>
+								<a href="/TierraMedia/detalles-Atraccion.jsp">
+								<input type="hidden" name="vendible" value="${lista.getNombre()}">
+									<div class="col">
+										<div class="card bg-verde-dark shadow text-white carta">
+											<img src="img/La-Comarca.jpg" class="card-img" alt="..." />
+											<div class="card-img-overlay">
+												<h5 class="card-title">
+													<c:out value="${lista.getNombre() }"></c:out>
+												</h5>
+												<h6>
+													<c:out value="${lista.getTipo() }"></c:out>
+													-
+													<c:out value="${lista.getTiempoNecesario() }"></c:out>
+													hs de Excursion
+												</h6>
+											</div>
+											<div class="container card-body">
+												<div class="row">
+													<div class="text-left col-xs-12 col-md-6">
+														<h6 class="btn btn-outline-light">Detalles</h6>
+													</div>
+													<div class="text-derecha col-xs-12 col-md-6">
+														<h5 class="btn btn-outline-light">
+															Precio:
+															<c:out value="${lista.getCosto()}"></c:out>
+														</h5>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</c:otherwise>
+						</c:choose> 
+
+					</form>--%>
 
 				</c:forEach>
 			</c:when>

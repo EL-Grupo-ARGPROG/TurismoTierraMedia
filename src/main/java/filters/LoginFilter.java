@@ -13,14 +13,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
 
-@WebFilter("*.do")
+@WebFilter(urlPatterns ="*.do")
 public class LoginFilter implements Filter {
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		String username = (String) ((HttpServletRequest) request).getSession().getAttribute("username");
-		if (username != null) {
+		
+		Usuario user = (Usuario) ((HttpServletRequest) request).getSession().getAttribute("user");
+		
+		if (user != null) {
 			chain.doFilter(request, response);
 		} else {
 			request.setAttribute("flash", "Por favor, ingresa al sistema con tu usuario y contraseña.");
@@ -28,7 +29,5 @@ public class LoginFilter implements Filter {
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		}
-
 	}
-
 }

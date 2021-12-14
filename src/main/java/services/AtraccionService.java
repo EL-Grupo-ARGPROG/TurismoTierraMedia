@@ -3,6 +3,7 @@ import java.util.List;
 
 import model.Atracciones;
 import model.TiposAtracciones;
+import model.Vendible;
 import persistence.impl.AtraccionesDAOImpl;
 
 public class AtraccionService {
@@ -22,6 +23,10 @@ public class AtraccionService {
 			atraccionDao.update(atraccion);
 		}
 		return atraccion;
+	}
+	
+	public void update(Vendible v) {
+		atraccionDao.update(v);
 	}
 	
 	public Atracciones find(String name) {

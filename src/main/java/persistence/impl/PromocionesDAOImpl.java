@@ -187,6 +187,16 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	public List<Promociones> findAll() {
 		return promocionesList;
 	}
+	
+	public Promociones finder(String name) {
+			for(Promociones promocion : promocionesList) {
+				if (promocion.getNombre().equals(name)) {
+					return promocion;
+				}
+			}
+			
+			return null;
+	}
 
 	@Override
 	public int update(Vendible atraccion) {

@@ -67,7 +67,7 @@
 							</button>
 						</div>
 
-						<form id="createForm" action="create" method="post">
+						<form id="createForm" action="create.adm" method="post">
 							<div class="modal-body">
 								<div class="form g-4 mb-2">
 									<label for="nombre" class=col-form-label>Nombre:</label> <br>

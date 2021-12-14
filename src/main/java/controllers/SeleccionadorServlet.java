@@ -26,7 +26,6 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 		super.init();
 		Sistema.instanciaDeObjetos();
 		vendiblesFiltrados.clear();
-		
 	}
 
 	@Override
@@ -36,6 +35,7 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 
 
 			req.setAttribute("vendiblesFiltrados", Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA")));
+
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
 			dispatcher.forward(req, resp);
 
