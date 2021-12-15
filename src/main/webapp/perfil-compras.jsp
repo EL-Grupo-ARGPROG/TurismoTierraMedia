@@ -82,10 +82,9 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${user.getItinerario}" var="itinerario">
+							<c:forEach items="${user.getItinerario()}" var="itinerario">
 								<tr>
-									<td><strong><c:out
-												value="${itinerario.getNombre()}"></c:out></strong></td>
+									<td><c:out value="${itinerario.getNombre()}"></c:out></td>
 									<td><c:out value="${itinerario.getCosto()}"></c:out></td>
 									<td><c:out value="${itinerario.getTiempoNecesario()}"></c:out></td>
 									<td><c:out value="${itinerario.getTipo()}"></c:out></td>
