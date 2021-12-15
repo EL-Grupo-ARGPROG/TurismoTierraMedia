@@ -7,12 +7,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<<<<<<< HEAD
 <meta name="viewport"
 	content="width=device-width, height=device-height initial-scale=1.0" />
-=======
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
->>>>>>> 95e2a8b1f6125ec296a45f135134f52e648b4093
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link

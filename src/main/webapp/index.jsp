@@ -52,11 +52,11 @@
                 carousel-caption
                 d-none d-sm-block
               ">
-						<h5 class="titulo-atraccion-index">La Comarca</h5>
-						<p class="text-color-light">Propuesta gastronomica ofrecida
-							por los mejores host hobbits.</p>
+						<h5 class="titulo-atraccion-index">¡Encuentra las mejores ofertas de la tierra media!</h5>
+						<h4 class="text-color-light">Diferentes puntos turisticos que se acomodan a TÚ preferencia.</h4>
 					</div>
 				</div>
+				<c:forEach items="${lista }" var="vendible">
 				<div class="carousel-item">
 					<img src="img/Mordor.jpg" class="d-block h-100 w-100" alt="..." />
 					<div
@@ -66,25 +66,13 @@
                 carousel-caption
                 d-none d-sm-block
               ">
-						<h5 class="titulo-atraccion-index">Mordor</h5>
-						<p class="text-color-light">Propuesta de Aventuras
-							inimaginables por todo los terrenos de Mordor.</p>
+						<h5 class="titulo-atraccion-index"><c:out value="${vendible.getNombre() }"></c:out></h5>
+						<!-- <p class="text-color-light">Propuesta de Aventuras
+							inimaginables por todo los terrenos de Mordor.</p> -->
 					</div>
 				</div>
-				<div class="carousel-item">
-					<img src="img/Moria.jpg" class="d-block h-100 w-100" alt="..." />
-					<div
-						class="
-                d-flex
-                bg-gris-translucid
-                carousel-caption
-                d-none d-sm-block
-              ">
-						<h5 class="titulo-atraccion-index">Moria</h5>
-						<p class="text-color-light">Paisajes maravillosos para
-							deleirar la mirada y purificar el alma.</p>
-					</div>
-				</div>
+				</c:forEach>
+				
 			</div>
 			<button class="carousel-control-prev" type="button"
 				data-bs-target="#CarouselIndex" data-bs-slide="prev">

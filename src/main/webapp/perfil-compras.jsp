@@ -58,7 +58,7 @@
 
 				<div class="nav navbuttons flex-column py-2 justify-content-top">
 					<a class="btn bg-verde-dark active btn-success" aria-current="page"
-						href="/perfil-datos.jsp">Datos</a> <a
+						href="/TierraMedia/perfil-datos.jsp">Datos</a> <a
 						class="btn mt-1 mb-5 bg-verde-light btn-success"
 						href="/TierraMedia/perfil-compras.jsp">Compras</a> <a
 						class="btn mt-5 border-0 bg-verde-light btn-danger"

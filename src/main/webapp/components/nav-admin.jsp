@@ -10,7 +10,7 @@
 		</a>
 		<button class="btn shadow" type="button" data-bs-toggle="offcanvas"
 			data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-			<i class="bi bi-list" style="font-size: 2rem; color: white"></i>
+			<i class="bi bi-tools" style="font-size: 2rem; color: white"></i>
 		</button>
 		<div class="offcanvas offcanvas-end bg-verde-dark" tabindex="-1"
 			id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -59,11 +59,17 @@
 						aria-current="page" href="index.jsp">
 							<h5>Inicio</h5>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">
-							<h5>Contacto</h5>
+					<li class="nav-item"><a class="nav-link" href="/TierraMedia/atraccion-admin.jsp">
+							<h5>Atracciones</h5>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="/TierraMedia/seleccionar.do?tipo=Tipo+de+Paquete&precio=Rango+de+Precio&duracion=Duracion+Hs&todos=TODOS">
-							<h5>Paquetes turisticos</h5>
+					<li class="nav-item"><a class="nav-link" href="/TierraMedia/promociones-admin.jsp">
+							<h5>Promociones</h5>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="/TierraMedia/tipodeatracciones-admin.jsp">
+							<h5>Tipo de Atracciones</h5>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="/TierraMedia/usuarios-admin.jsp">
+							<h5>Usuarios</h5>
 					</a></li>
 				</ul>
 				<img id="logo-offcanvas" class="float-end"

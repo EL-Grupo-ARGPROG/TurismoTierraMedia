@@ -31,7 +31,7 @@
 
 <body class="flex-column h-100 w-100 bg-verde-light">
 
-	<jsp:include page="components/nav.jsp"></jsp:include>
+	<jsp:include page="components/nav-admin.jsp"></jsp:include>
 
 	<div class="container-fluid">
 

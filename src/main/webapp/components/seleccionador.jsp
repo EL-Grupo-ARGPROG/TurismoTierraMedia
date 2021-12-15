@@ -14,7 +14,7 @@
 	</c:if>
 
 
-	<form action="seleccionar" method="get"
+	<form action="seleccionar.do" method="get"
 		class="container row justify-content-center">
 
 		<select name="tipo" class="form-select shadow center-element "

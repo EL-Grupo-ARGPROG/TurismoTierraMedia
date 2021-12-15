@@ -12,7 +12,6 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-
 @WebFilter(urlPatterns ="*.do")
 public class LoginFilter implements Filter {
 

@@ -12,22 +12,20 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-//en el login filter lo hicieron al user como string en vez
-//de pasar el objeto completo, aca necesitamos el objeto
-//para poder preguntar si es admin (tambien hay que crear el metodo)
-@WebFilter("*.adm")
+@WebFilter(urlPatterns ="*.adm")
 public class AdminFilter implements Filter {
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
 		Usuario user = (Usuario) ((HttpServletRequest) request).getSession().getAttribute("user");
-		if (user != null && user.esAdmin()) {
+		
+		if (user != null && user.isAdmin()) {
 			chain.doFilter(request, response);
 		} else {
-			request.setAttribute("flash", "Por favor, ingresa al sistema con tu usuario y contraseña.");
+			request.setAttribute("flash", "No posees permisos de administracion.");
 
-			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
 		}
 

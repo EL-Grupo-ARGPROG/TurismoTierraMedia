@@ -18,12 +18,15 @@ public class Sistema {
 	static ItinerarioDAOImpl itinerarioDAO = new ItinerarioDAOImpl();
 
 	public static void instanciaDeObjetos() {
-		PromocionesDAOImpl.vendiblesList.clear();
-		PromocionesDAOImpl.promocionesList.clear();
+		
 		AtraccionesDAOImpl.atraccionesList.clear();
+		PromocionesDAOImpl.promocionesList.clear();
+		PromocionesDAOImpl.vendiblesList.clear();
 		UsuarioDAOImpl.usuariosList.clear();
-
-
+		
+		atraccionDAO.instanciadorDeAtracciones();
+		usuarioDAO.instanciadorDeUsuarios();
+		promocionDAO.instanciadorDePromociones();
 	}
 
 	public static List<Vendible> ordenadorDeVendibles(TiposAtracciones tipo) {

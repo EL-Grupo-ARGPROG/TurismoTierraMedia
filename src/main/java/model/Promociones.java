@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public abstract class Promociones implements Vendible {
 	protected String nombre;
-	protected double costoPromocion;
+	protected double costoPromocion = 0.0;
 	protected double tiempoNecesario = 0;
 	protected TiposAtracciones tipo;
 	protected Atracciones[] pack;

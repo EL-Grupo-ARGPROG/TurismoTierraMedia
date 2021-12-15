@@ -53,7 +53,7 @@ public class Usuario {
 	}
 	
 	public boolean isAdmin() {
-		return admin;
+		return this.admin;
 	}
 
 	public double getTiempoDisponible() {
@@ -172,12 +172,6 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = Crypt.hash(password);
 	}
-
-	public boolean esAdmin() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 
 
 }

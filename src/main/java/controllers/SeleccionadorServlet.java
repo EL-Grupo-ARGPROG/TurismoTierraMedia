@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.*;
 import persistence.impl.PromocionesDAOImpl;
 
-@WebServlet("/seleccionar")
+@WebServlet("/seleccionar.do")
 public class SeleccionadorServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 6386557501870415113L;
 	List<Vendible> vendiblesFiltrados = new LinkedList<Vendible>();
@@ -31,15 +31,15 @@ public class SeleccionadorServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//		  if (req.getParameter("todos") != null) {
-//
-//
-//			req.setAttribute("vendiblesFiltrados", Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA")));
-//
-//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
-//			dispatcher.forward(req, resp);
-//
-//		} else 
+		  if (req.getParameter("todos") != null) {
+
+
+			req.setAttribute("vendiblesFiltrados", Sistema.ordenadorDeVendibles(TiposAtracciones.valueOf("AVENTURA")));
+
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+			dispatcher.forward(req, resp);
+
+		} else 
 			if (req.getParameter("precio").equals("Rango de Precio") || req.getParameter("tipo").equals("Tipo de Paquete")
 				|| req.getParameter("duracion").equals("Duracion Hs")) {
 			req.setAttribute("flash", "Seleccionar un opcion de cada casilla");

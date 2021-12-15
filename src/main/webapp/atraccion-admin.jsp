@@ -31,7 +31,7 @@
 
 <body class="flex-column h-100 w-100 bg-verde-light">
 
-	<jsp:include page="components/nav.jsp"></jsp:include>
+	<jsp:include page="components/nav-admin.jsp"></jsp:include>
 
 	<div class="container-fluid">
 
@@ -39,7 +39,7 @@
 			class="container navbar mt-5 shadow bg-verde justify-content-center">
 			<h2 class="text-center mt-4 text-color-light col-sm-12">Panel de
 				control: Atracciones</h2>
-				<form action="tablaAdmin.adm" method="get"
+				<form action="atraccion-admin.adm" method="get"
 					class="shadow center-element">
 					<select name="tipo" class="form-select shadow center-element "
 						aria-label="Default select example">
