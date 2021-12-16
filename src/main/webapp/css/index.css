@@ -1,0 +1,184 @@
+:root {
+  --verde-dark: rgb(21, 104, 53);
+  --verde: rgb(68, 133, 88);
+  --mint: rgba(161, 227, 195, 0.877);
+  --verde-light: rgb(96, 187, 131);
+  --text-light: rgb(237, 252, 243);
+  --verde-obscure: rgb(36, 71, 49);
+}
+
+.bg-obscure {
+  background: var(--verde-obscure);
+}
+
+.bg-verde {
+  background: var(--verde);
+  color: rgba(255, 255, 255, 0.966);
+}
+
+.bg-verde-dark {
+  background: var(--verde-dark);
+  color: white;
+}
+
+.bg-verde-light {
+  background: var(--verde-light);
+  color: white;
+}
+
+.bg-mint {
+  background: var(--mint);
+  color: white;
+}
+.bg-gris-translucid {
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.527) 0%,
+    rgba(98, 98, 98, 0) 100%
+  );
+}
+.bg-gris {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  border: 1px solid #f1f1f1af;
+  height: 85%;
+  padding-left: 15px;
+  }
+
+body {
+  margin: 0px !important;
+  margin-bottom: 0 px;
+  height: 100vh;
+  width: 100vh;
+}
+
+.form-select {
+  width: 200px;
+  height: 35px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 20px;
+  background: whitesmoke;
+  margin-bottom: 20px;
+  padding: 3px;
+}
+
+.center-element {
+  display: flex;
+  justify-content: center;
+}
+
+.boton-filtro {
+  width: 80px;
+  height: 35px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  padding: 0.2px;
+}
+
+.text-color-light {
+  color: var(--text-light);
+}
+
+.text-center {
+  padding: px;
+  text-shadow: 3px 10px 2px rgba(0, 0, 0, 0.082);
+}
+
+.card-title {
+  font-family: Estonia;
+  font-size: 10vh;
+  text-shadow: 6px 6px 5px #000000;
+}
+
+.navbar-brand {
+  font-family: Estonia;
+  font-size: 25px;
+}
+
+.navbar {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.carousel {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  min-width: 100%;
+}
+.shadow {
+  box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.466);
+}
+
+.titulo-atraccion-index {
+  font-family: Estonia;
+  font-size: 38px;
+}
+
+
+
+.border-round {
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+#container-body {
+  padding: 0;
+}
+
+.carta {
+  transform: scale(0.95);
+  filter: grayscale(0.1) blur(0.3px) brightness(0.9);
+  transition: border-radius 0.4s, transform 0.4s, filter 0.4s;
+}
+
+.carta:hover {
+  border-radius: 15px;
+  transform: scale(1);
+  filter: grayscale(0) blur(0px) brightness(1.3);
+}
+
+#listado-cartas {
+  margin: 1px 7px 15px 4px;
+}
+
+#logo-offcanvas {
+  max-width: 100px;
+  max-height: 100px;
+  margin-top: 80%;
+}
+
+.offcanvas {
+  max-width: 50vh;
+  background-color: var(--verde-dark);
+}
+
+.text-derecha {
+  text-align: right;
+}
+
+.atraccion{
+  height: auto ;
+  width: auto;
+  overflow:hidden;
+  filter: blur(2px);
+  transform: scale(1,0.98);
+}
+
+#banner {
+  height: 250px;
+}
+
+.foto-perfil {
+  margin: 15%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border-radius: 10%;
+  border-style: double;
+  max-width: 70%;
+  max-height: 70%;
+}
+
