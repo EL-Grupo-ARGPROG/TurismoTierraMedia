@@ -13,7 +13,6 @@ import persistence.AtraccionesDAO;
 import persistence.commons.MissingDataException;
 import persistence.commons.TierraMediaConnectionProvider;
 
-
 public class AtraccionesDAOImpl implements AtraccionesDAO {
 	public static List<Atracciones> atraccionesList = new LinkedList<Atracciones>();
 
@@ -27,9 +26,9 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	public void instanciadorDeAtracciones() {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query = "SELECT * FROM ATRACCIONES";
@@ -43,31 +42,23 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			}
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
 	public List<Atracciones> findAll() {
-			return atraccionesList;
+		return atraccionesList;
 	}
-	
+
 	public Atracciones findByName(String name) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
 			conn = TierraMediaConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, name);
-			
+
 			ResultSet resultados = statement.executeQuery();
 
 			Atracciones atraccion = null;
@@ -78,20 +69,12 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return atraccion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
 	public int insert(Atracciones t) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query = "INSERT INTO ATRACCIONES(NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_TEMATICA)"
@@ -108,19 +91,11 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	public int updateValid(String name, int valid) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query = "UPDATE ATRACCIONES SET VALIDO = ? WHERE NOMBRE = ?";
@@ -133,23 +108,16 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
 	public int delete(Atracciones t) {
-		Connection conn = null;
+		Connection conn;
 		try {
 			String query = "DELETE FROM ATRACCIONES WHERE NOMBRE = ?";
 			conn = TierraMediaConnectionProvider.getConnection();
+
 
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, t.getNombre());
@@ -157,43 +125,31 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
-	public int update(Vendible t) {
-		Connection conn = null;
-
+	public int update(Vendible t){
+		Connection conn;
 		try {
-			String query = "UPDATE ATRACCIONES SET CUPO = ?, COSTO = ? WHERE NOMBRE = ?";
+			String query = "UPDATE ATRACCIONES SET CUPO = ?, COSTO = ?, TIPO_TEMATICA = ?, TIEMPO_NECESARIO = ? WHERE NOMBRE = ?";
 			conn = TierraMediaConnectionProvider.getConnection();
+			
+		    conn.setAutoCommit(false);
 
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setDouble(1, t.getCupo());
 			statement.setDouble(2, t.getCosto());
-			statement.setString(3, t.getNombre());
-
+			statement.setString(3, t.getTipo().name());
+			statement.setDouble(4, t.getTiempoNecesario());
+			statement.setString(5, t.getNombre());
+			
+			
+			
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
-		}
+		} 
 	}
-
 
 }

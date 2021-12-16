@@ -1,5 +1,7 @@
 package persistence;
 
+import java.sql.SQLException;
+
 import model.productos.Atracciones;
 import model.productos.Vendible;
 import persistence.commons.GenericDAO;

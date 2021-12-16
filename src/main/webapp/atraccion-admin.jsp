@@ -128,8 +128,7 @@
 										<td>
 											<form action="edit.adm" method="get">
 												<button class="btn btn-sm me-2 btn-success bg-verde-light"
-													type="submit" data-bs-toggle="modal"
-													data-bs-target="#modal2">
+													type="submit" name="name" value="${vendible.getNombre()}" >
 													<i style="font-size: 1.3rem" class="bi bi-pencil-square"></i>
 												</button>
 											</form>

@@ -28,15 +28,16 @@ public class EditarAtraccionServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = req.getParameter("name");
+		Atracciones atraccion = atraccionService.find(name);
 
-		req.setAttribute("atraccion", atraccionService.find(name));
+		req.setAttribute("atraccion", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/atraccion-admin.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLexception {
 		String nombre = req.getParameter("nombre");
 		Double costo = Double.parseDouble(req.getParameter("costo"));
 		Double tiempoNecesario = Double.parseDouble(req.getParameter("tiempoNecesario"));
@@ -46,11 +47,11 @@ public class EditarAtraccionServlet extends HttpServlet implements Servlet {
 		Atracciones atraccion = atraccionService.update(nombre, costo, tiempoNecesario, cupo,
 				TiposAtracciones.valueOf(tipo), 1);
 		if (atraccion.isValid()) {
-			resp.sendRedirect("admin.jsp");
+			resp.sendRedirect("/TierraMedia/atraccion-admin.jsp");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/atraccion-admin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/TierraMEdia/atraccion-admin.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}

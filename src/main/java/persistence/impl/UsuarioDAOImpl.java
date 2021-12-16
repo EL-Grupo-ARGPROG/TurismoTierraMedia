@@ -48,7 +48,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	public void instanciadorDeUsuarios() {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query1 = "SELECT * FROM USUARIOS";
@@ -72,14 +72,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
@@ -90,7 +82,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public int insert(Usuario t) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query = "INSERT INTO USUARIO(ID, NOMBRE, PRESUPUESTO, TIEMPO_DISPONIBLE, TIPO_PREFERENCIA)"
@@ -107,20 +99,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
 	public int update(Usuario t) {
-		Connection conn = null;
+		Connection conn;
 		try {
 			String query = "UPDATE USUARIOS SET PRESUPUESTO = ?, TIEMPO_DISPONIBLE = ? WHERE ID = ?";
 			conn = TierraMediaConnectionProvider.getConnection();
@@ -136,20 +120,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
 	@Override
 	public int delete(Usuario t) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String query = "DELETE FROM USUARIO WHERE ID = ?";
@@ -161,19 +137,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 	
 	public Usuario findByUsername(String username) {
-		Connection conn = null;
+		Connection conn;
 
 		try {
 			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
@@ -191,14 +159,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			return user;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		}finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e2) {
-					throw new MissingDataException(e2);
-				}
-			}
 		}
 	}
 
