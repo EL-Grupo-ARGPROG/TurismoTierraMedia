@@ -1,6 +1,11 @@
 package controllers.atracciones;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.util.LinkedList;
+import java.util.List;
+>>>>>>> 81a37d8fa3b08139e4e7d96ff6e43972de75f134
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
@@ -35,7 +40,7 @@ public class EditarAtraccionServlet extends HttpServlet implements Servlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLexception {
 		String nombre = req.getParameter("nombre");
 		Double costo = Double.parseDouble(req.getParameter("costo"));
 		Double tiempoNecesario = Double.parseDouble(req.getParameter("tiempoNecesario"));
